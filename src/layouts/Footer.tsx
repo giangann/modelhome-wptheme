@@ -11,13 +11,14 @@ import {
 
 export const Footer = () => {
   return (
-    <Container>
-      <Grid container spacing={12}>
+    <Container sx={{ marginTop: 12 }}>
+      <OswaldTypo sx={{ fontSize: 14, mb: 2 }}>LIÊN HỆ VỚI CHÚNG TÔI</OswaldTypo>
+
+      <Grid container columnSpacing={12}>
         <Grid item xs={12} sm={4}>
           <Stack justifyContent="space-between" sx={{ height: '100%' }}>
             {/* Title */}
             <Stack spacing={3}>
-              <OswaldTypo sx={{ fontSize: 16 }}>Liên hệ với chúng tôi</OswaldTypo>
               <OswaldTypoHeaddingFooter variant="h4">
                 THÔNG TIN CHI TIẾT
               </OswaldTypoHeaddingFooter>
