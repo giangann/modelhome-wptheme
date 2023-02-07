@@ -1,4 +1,5 @@
-import { styled, TextField, Typography } from '@mui/material';
+import { Button, styled, TextField, Typography } from '@mui/material';
+import { orange } from '../libs';
 
 // Poppins, Montserrat, Oswald
 export const PoppinsTypo = styled(Typography)({
@@ -26,20 +27,65 @@ export const OswaldTypoHeaddingContent = styled(Typography)({
   letterSpacing: 2.4,
 });
 
-export const OswaldTypoHeaddingBanner = styled(Typography)({
+export const OswaldTypoHeaddingBanner = styled(Typography)(({ theme }) => ({
   fontFamily: 'Oswald',
-  fontSize: 36,
+  fontSize: 80,
   fontWeight: 700,
   letterSpacing: 4,
-});
 
-export const OswaldSubtitle = styled(Typography)({});
+  [theme.breakpoints.down('sm')]: {
+    fontSize: 40,
+    letterSpacing: 3.2,
+  },
+}));
+
+export const OswaldSubtitle = styled(Typography)(({ theme }) => ({
+  fontFamily: 'Oswald',
+  fontSize: 38,
+  fontWeight: 300,
+  letterSpacing: 1.4,
+
+  [theme.breakpoints.down('sm')]: {
+    fontSize: 24,
+  },
+}));
 
 export const PoppinsOrangeSpan = styled('span')({
   color: 'orange',
   fontFamily: 'Poppins',
 });
 
+export const OrangeContainedBtn = styled(Button)({
+  borderRadius: 0,
+  color: 'white',
+  backgroundColor: orange['400'],
+  border: `1px solid ${orange['400']}`,
+
+  '&:hover': {
+    color: orange['400'],
+    backgroundColor: 'transparent',
+    transition: '1s',
+  },
+});
+
+export const OrangeOutlinedBtn = styled(Button)({
+  borderRadius: 0,
+  border: `1px solid ${orange['400']}`,
+  color: orange['400'],
+  backgroundColor: 'transparent',
+  '&:hover': {
+    color: 'white',
+    backgroundColor: orange['400'],
+    transition: '1s',
+  },
+});
+
 export const poppinsFontStyle = {
   fontFamily: 'Poppins',
+};
+
+export const btnTextStyle = {
+  fontSize: 14,
+  letterSpacing: 8.4,
+  fontWeight: 700,
 };

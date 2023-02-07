@@ -17,9 +17,9 @@ export const Footer = () => {
           <Stack justifyContent="space-between" sx={{ height: '100%' }}>
             {/* Title */}
             <Stack spacing={3}>
-              <OswaldTypo sx={{ fontSize: 12 }}>LET’S GET IN TOUCH</OswaldTypo>
+              <OswaldTypo sx={{ fontSize: 16 }}>Liên hệ với chúng tôi</OswaldTypo>
               <OswaldTypoHeaddingFooter variant="h4">
-                CONTACT DETAILS
+                THÔNG TIN CHI TIẾT
               </OswaldTypoHeaddingFooter>
               <Line width="15%" />
             </Stack>
