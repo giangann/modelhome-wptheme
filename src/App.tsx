@@ -1,20 +1,18 @@
 import './App.css';
 
 import {
-  Box,
-  createTheme,
-  responsiveFontSizes,
-  ThemeProvider,
-  Typography,
+  ThemeProvider
 } from '@mui/material';
-import { useState } from 'react';
 
 import { Router } from './routers';
+import { theme } from './theme';
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <Router />;
+  return (
+    <ThemeProvider theme={theme}>
+      <Router />;
+    </ThemeProvider>
+  );
 }
 
 export default App;

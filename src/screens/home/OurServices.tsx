@@ -3,16 +3,14 @@ import { BoxWithBackgroundAndLayer } from '../../components';
 import { orange } from '../../libs';
 import {
   btnTextStyle,
-  MontserratTypo,
-  OrangeContainedBtn,
-  OrangeOutlinedBtn,
+  MontserratTypo, OrangeOutlinedBtn,
   OswaldTypo,
-  OswaldTypoHeaddingContent,
+  OswaldTypoHeaddingContent
 } from '../../styled';
 
 export const OurServices = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('m'));
 
   const serviceThumbs = [
     {
@@ -42,7 +40,7 @@ export const OurServices = () => {
             columnSpacing={4}
           >
             {serviceThumbs.map((thumb, index) => (
-              <Grid item xs={12} sm={4} sx={{ zIndex: 5 }}>
+              <Grid key={index} item xs={12} sm={4} sx={{ zIndex: 5 }}>
                 <BoxWithBackgroundAndLayer image={thumb.image} width="100%" height={500}>
                   <Box
                     sx={{
@@ -77,103 +75,115 @@ export const OurServices = () => {
           </Grid>
         </Container>
 
-        {/* orange card */}
-        <Grid container sx={{ position: 'relative', top: '-240px' }}>
-          <Grid item xs={6} sx={{ zIndex: 0 }} />
-          <Grid item xs={6} sx={{ zIndex: 4 }}>
-            <BoxWithBackgroundAndLayer
-              backgroundPosition={'left' as React.CSSProperties}
-              width="100%"
-              height="1000px"
-              sx={{ backgroundColor: orange['400'], opacity: 0.9 }}
-              image="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/home-testimonials-bg.jpg"
-            >
-              <Stack sx={{ mt: 52, ml: 16 }} spacing={6}>
-                <OswaldTypo
-                  variant="h5"
-                  color="white"
-                  fontWeight={300}
-                  letterSpacing={1.4}
-                  fontSize={14}
-                >
-                  TESTIMONIALS
-                </OswaldTypo>
-                <OswaldTypoHeaddingContent
-                  color="white"
-                  letterSpacing={1.8}
-                  lineHeight="1.333em"
-                >
-                  WHAT OUR <br /> CLIENTS SAY
-                </OswaldTypoHeaddingContent>
+        {isMobile ? undefined : (
+          <>
+            {/* orange card */}
 
-                <MontserratTypo
-                  color="white"
-                  lineHeight={2.25}
-                  width="70%"
-                  fontStyle="italic"
-                  fontWeight={300}
+            <Grid container sx={{ position: 'relative', top: '-240px' }}>
+              <Grid item xs={6} sx={{ zIndex: 0 }} />
+              <Grid item xs={6} sx={{ zIndex: 4 }}>
+                <BoxWithBackgroundAndLayer
+                  backgroundPosition={'left' as React.CSSProperties}
+                  width="100%"
+                  height="1000px"
+                  sx={{ backgroundColor: orange['400'], opacity: 0.9 }}
+                  image="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/home-testimonials-bg.jpg"
                 >
-                  It is not every construction company that can build a building from
-                  ground up and complete 80,000 sq. ft. of first class office improvement
-                  space in 13 months.
-                </MontserratTypo>
-              </Stack>
-            </BoxWithBackgroundAndLayer>
-          </Grid>
-        </Grid>
+                  <Stack sx={{ mt: 52, ml: 16 }} spacing={6}>
+                    <OswaldTypo
+                      variant="h5"
+                      color="white"
+                      fontWeight={300}
+                      letterSpacing={1.4}
+                      fontSize={14}
+                    >
+                      TESTIMONIALS
+                    </OswaldTypo>
+                    <OswaldTypoHeaddingContent
+                      color="white"
+                      letterSpacing={1.8}
+                      lineHeight="1.333em"
+                    >
+                      WHAT OUR <br /> CLIENTS SAY
+                    </OswaldTypoHeaddingContent>
 
-        {/* black card*/}
-        <Grid container sx={{ position: 'relative', top: '-760px', zIndex: 3 }}>
-          <Grid item xs={8.5}>
-            <BoxWithBackgroundAndLayer
-              width="100%"
-              height="700px"
-              sx={{ backgroundColor: 'black' }}
-            >
-              <Box sx={{ ml: 36, mt: 12, width: '50%' }}>
-                <OswaldTypo
-                  variant="h5"
-                  color="white"
-                  fontWeight={300}
-                  letterSpacing={1.4}
-                  fontSize={14}
-                  mb={2}
-                >
-                  ADVANTAGES
-                </OswaldTypo>
-                <OswaldTypoHeaddingContent
-                  color="white"
-                  letterSpacing={1.8}
-                  lineHeight="1.333em"
-                  mb={4}
-                >
-                  WORKING ON
-                  <br /> EXCLUSIVE PROJECTS
-                </OswaldTypoHeaddingContent>
+                    <MontserratTypo
+                      color="white"
+                      lineHeight={2.25}
+                      width="70%"
+                      fontStyle="italic"
+                      fontWeight={300}
+                    >
+                      It is not every construction company that can build a building from
+                      ground up and complete 80,000 sq. ft. of first class office
+                      improvement space in 13 months.
+                    </MontserratTypo>
+                  </Stack>
+                </BoxWithBackgroundAndLayer>
+              </Grid>
+            </Grid>
 
-                <MontserratTypo
-                  color="white"
-                  lineHeight={2.25}
-                  width="70%"
-                  fontStyle="italic"
-                  fontWeight={300}
-                  mb={8}
+            {/* black card*/}
+            <Grid container sx={{ position: 'relative', top: '-760px', zIndex: 3 }}>
+              <Grid item xs={8.5}>
+                <BoxWithBackgroundAndLayer
+                  width="100%"
+                  height="700px"
+                  sx={{ backgroundColor: 'black' }}
                 >
-                  {' '}
-                  Designing sustainable, high-performance buildings requires an
-                  integration of architectural and engineered systems into a balanced
-                  design of sustainability and cost-effectiveness. Archus merges these
-                  practices with the unique requirements and guidelines necessary for
-                  advanced technology facilities.
-                </MontserratTypo>
+                  <Box
+                    sx={{
+                      ml: { xs: '10%', md: '12%', lg: '20%' },
+                      mt: 12,
+                      width: { xs: '80%', md: '70%', lg: '50%' },
+                    }}
+                  >
+                    <OswaldTypo
+                      variant="h5"
+                      color="white"
+                      fontWeight={300}
+                      letterSpacing={1.4}
+                      fontSize={14}
+                      mb={2}
+                    >
+                      ADVANTAGES
+                    </OswaldTypo>
+                    <OswaldTypoHeaddingContent
+                      color="white"
+                      letterSpacing={1.8}
+                      lineHeight="1.333em"
+                      mb={4}
+                    >
+                      WORKING ON
+                      <br /> EXCLUSIVE PROJECTS
+                    </OswaldTypoHeaddingContent>
 
-                <OrangeOutlinedBtn sx={{ padding: '16px 48px', margin: 'auto' }}>
-                  <OswaldTypo sx={{ ...btnTextStyle }}>Xem thêm</OswaldTypo>
-                </OrangeOutlinedBtn>
-              </Box>
-            </BoxWithBackgroundAndLayer>
-          </Grid>
-        </Grid>
+                    <MontserratTypo
+                      color="white"
+                      lineHeight={2.25}
+                      width="70%"
+                      fontStyle="italic"
+                      fontWeight={300}
+                      fontSize={14}
+                      mb={8}
+                    >
+                      {' '}
+                      Designing sustainable, high-performance buildings requires an
+                      integration of architectural and engineered systems into a balanced
+                      design of sustainability and cost-effectiveness. Archus merges these
+                      practices with the unique requirements and guidelines necessary for
+                      advanced technology facilities.
+                    </MontserratTypo>
+
+                    <OrangeOutlinedBtn sx={{ padding: '16px 48px', margin: 'auto' }}>
+                      <OswaldTypo sx={{ ...btnTextStyle }}>Xem thêm</OswaldTypo>
+                    </OrangeOutlinedBtn>
+                  </Box>
+                </BoxWithBackgroundAndLayer>
+              </Grid>
+            </Grid>
+          </>
+        )}
       </Box>
     </Box>
   );

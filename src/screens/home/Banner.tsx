@@ -24,7 +24,7 @@ export const Banner = () => {
       <LayerBox
         sx={{
           backgroundColor: 'black',
-          opacity: 0.4,
+          opacity: 0.5,
         }}
       />
 
@@ -37,19 +37,19 @@ export const Banner = () => {
           transform: 'translate(-50%,-50%)',
         }}
       >
-        <Stack spacing={4}>
+        <Box>
           <OswaldTypoHeaddingBanner sx={{ color: 'white', whiteSpace: 'nowrap' }}>
             MODEL HOME
           </OswaldTypoHeaddingBanner>
           <OswaldSubtitle sx={{ color: 'white', textAlign: 'center' }}>
             Đẹp - Hiện Đại - Sang Trọng
           </OswaldSubtitle>
-          <Box sx={{ display: 'flex', jusitfyContent: 'center', width: '100%' }}>
+          <Box sx={{ display: 'flex', jusitfyContent: 'center', width: '100%', mt:6 }}>
             <OrangeContainedBtn sx={{ padding: '16px 48px', margin: 'auto' }}>
               <OswaldTypo sx={{ ...btnTextStyle }}>Xem thêm</OswaldTypo>
             </OrangeContainedBtn>
           </Box>
-        </Stack>
+        </Box>
       </Box>
     </Box>
   );
