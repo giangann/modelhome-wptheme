@@ -1,4 +1,4 @@
-import { Button, styled, TextField, Typography } from '@mui/material';
+import { Box, Button, styled, TextField, Typography } from '@mui/material';
 import { orange } from '../libs';
 
 // Poppins, Montserrat, Oswald
@@ -13,7 +13,7 @@ export const OswaldTypo = styled(Typography)({
   fontFamily: 'Oswald',
 });
 
-export const OswaldTypoHeaddingFooter = styled(Typography)({
+export const OswaldTypoHeaddingFooter = styled(Typography,{ shouldForwardProp: (prop) => prop !== 'color' })<{color: string}>({
   fontFamily: 'Oswald',
   fontSize: 36,
   fontWeight: 700,
@@ -79,6 +79,15 @@ export const OrangeOutlinedBtn = styled(Button)({
     transition: '1s',
   },
 });
+
+export const LayerBox = styled(Box)({
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  width: '100%',
+  height: '100%',
+});
+
 
 export const poppinsFontStyle = {
   fontFamily: 'Poppins',

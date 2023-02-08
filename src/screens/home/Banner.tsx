@@ -1,10 +1,8 @@
-import { Box, Button, Stack } from '@mui/material';
-import { orange } from '../../libs';
+import { Box, Stack } from '@mui/material';
 import {
   btnTextStyle,
-  OrangeBtn,
+  LayerBox,
   OrangeContainedBtn,
-  OrangeOutlinedBtn,
   OswaldSubtitle,
   OswaldTypo,
   OswaldTypoHeaddingBanner,
@@ -23,15 +21,10 @@ export const Banner = () => {
         }}
       />
       {/* black layer */}
-      <Box
+      <LayerBox
         sx={{
           backgroundColor: 'black',
           opacity: 0.4,
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
         }}
       />
 

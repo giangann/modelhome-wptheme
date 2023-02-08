@@ -1,12 +1,10 @@
-import { Box, Container, Grid, Stack, TextField, Typography } from '@mui/material';
+import { Box, Container, Grid, Stack } from '@mui/material';
 
 import { Line, TextFieldWithCustomFont } from '../components';
 import {
-  OswaldTypo,
-  OswaldTypoHeadding,
-  OswaldTypoHeaddingFooter,
-  PoppinsOrangeSpan,
-  PoppinsTypo,
+    OswaldTypo, OswaldTypoHeaddingFooter,
+    PoppinsOrangeSpan,
+    PoppinsTypo
 } from '../styled';
 
 export const Footer = () => {
