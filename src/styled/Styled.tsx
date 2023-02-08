@@ -13,7 +13,7 @@ export const OswaldTypo = styled(Typography)({
   fontFamily: 'Oswald',
 });
 
-export const OswaldTypoHeaddingFooter = styled(Typography,{ shouldForwardProp: (prop) => prop !== 'color' })<{color: string}>({
+export const OswaldTypoHeaddingFooter = styled(Typography)({
   fontFamily: 'Oswald',
   fontSize: 36,
   fontWeight: 700,
@@ -87,7 +87,6 @@ export const LayerBox = styled(Box)({
   width: '100%',
   height: '100%',
 });
-
 
 export const poppinsFontStyle = {
   fontFamily: 'Poppins',
