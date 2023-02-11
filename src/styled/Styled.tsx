@@ -92,6 +92,18 @@ export const LayerBox = styled(Box)({
   height: '100%',
 });
 
+export const TriangleByBorder = styled(Box, {
+  shouldForwardProp: (prop) => prop !== 'defectivePosition',
+})<{ defectivePosition: 'top' | 'left' | 'right' | 'bottom' }>({
+  position: 'absolute',
+  top: '50%',
+  right: '0px',
+  transform: 'translate(0, -50%)',
+  borderTop: '1.46rem solid transparent',
+  borderRight: '1.46rem solid white',
+  borderBottom: '1.46rem solid transparent',
+});
+
 export const poppinsFontStyle = {
   fontFamily: 'Poppins',
 };
