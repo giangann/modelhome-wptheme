@@ -40,7 +40,7 @@ export const OurProjects = () => {
     },
   ];
   return (
-    <Box>
+    <Box sx={{zIndex:6, position:'relative'}}>
       <Container sx={{ marginTop: 12 }}>
         <OswaldTypo sx={{ fontSize: 14, mb: 2 }}>HỒ SƠ</OswaldTypo>
         <Grid container columnSpacing={12}>

@@ -12,7 +12,11 @@ export const MontserratTypo = styled(Typography)({
 export const OswaldTypo = styled(Typography)({
   fontFamily: 'Oswald',
 });
-
+export const HeaderItemTypo = styled(Typography)({
+  fontSize: 17,
+  letterSpacing: 1.2,
+  // color: 'white',
+});
 export const OswaldTypoHeaddingFooter = styled(Typography)({
   fontFamily: 'Oswald',
   fontSize: 36,
