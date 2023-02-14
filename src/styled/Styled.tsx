@@ -1,5 +1,9 @@
 import { Box, Button, styled, TextField, Typography } from '@mui/material';
-import { orange } from '../libs';
+import {
+  capatializeTransform,
+  generateDefectiveTriangleByPosition,
+} from '../constant/constants';
+import { DefectivePositionType, orange } from '../libs';
 
 // Poppins, Montserrat, Oswald
 export const PoppinsTypo = styled(Typography)({
@@ -94,15 +98,14 @@ export const LayerBox = styled(Box)({
 
 export const TriangleByBorder = styled(Box, {
   shouldForwardProp: (prop) => prop !== 'defectivePosition',
-})<{ defectivePosition: 'top' | 'left' | 'right' | 'bottom' }>({
+})<{ defectivePosition: DefectivePositionType }>(({ defectivePosition }) => ({
   position: 'absolute',
-  top: '50%',
-  right: '0px',
-  transform: 'translate(0, -50%)',
   borderTop: '1.46rem solid transparent',
-  borderRight: '1.46rem solid white',
+  borderRight: '1.46rem solid transparent',
   borderBottom: '1.46rem solid transparent',
-});
+  borderLeft: '1.46rem solid transparent',
+  ...generateDefectiveTriangleByPosition(defectivePosition),
+}));
 
 export const poppinsFontStyle = {
   fontFamily: 'Poppins',
