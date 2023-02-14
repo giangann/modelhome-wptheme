@@ -7,5 +7,6 @@ export type ProjectType = {
   tag: string;
   thumb: string;
   description: string;
+  slug:string
   project_images?: string[];
 };

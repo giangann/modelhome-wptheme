@@ -12,14 +12,14 @@ export type BoxWithTitleAndDescriptionProps = {
   tag: string;
   description?: string;
   showAllInfo?: boolean;
+  onNavigate?: () => void;
 };
 export const BoxWithTitleAndDescription = (props: BoxWithTitleAndDescriptionProps) => {
-  const { title, tag, description, showAllInfo = false } = props;
+  const { title, tag, description, showAllInfo = false, onNavigate } = props;
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   return (
-    // <Box>
     <Stack
       justifyContent={showAllInfo || isMobile ? 'center' : 'space-between'}
       height="100%"
@@ -31,22 +31,30 @@ export const BoxWithTitleAndDescription = (props: BoxWithTitleAndDescriptionProp
           Dự án mới nhất
         </OswaldTypo>
       ) : undefined}
-      <OswaldTypoHeaddingContent
-        sx={
-          !showAllInfo
-            ? {
-                mb: { xs: 2, sm: 5 },
-                color: orange['400'],
-                fontSize: { xs: 22, sm: 36 },
-                textAlign: { xs: 'center', sm: 'unset' },
-              }
-            : {
-                mb: { xs: 2, sm: 8 },
-              }
-        }
+      <Box
+        component="div"
+        onClick={onNavigate}
+        sx={{
+          cursor: 'pointer',
+        }}
       >
-        {title}
-      </OswaldTypoHeaddingContent>
+        <OswaldTypoHeaddingContent
+          sx={
+            !showAllInfo
+              ? {
+                  mb: { xs: 2, sm: 5 },
+                  color: orange['400'],
+                  fontSize: { xs: 22, sm: 36 },
+                  textAlign: { xs: 'center', sm: 'unset' },
+                }
+              : {
+                  mb: { xs: 2, sm: 8 },
+                }
+          }
+        >
+          {title}
+        </OswaldTypoHeaddingContent>
+      </Box>
       {showAllInfo && !isMobile ? (
         <MontserratTypo color={black['800']} fontStyle="italic" mb={{ xs: 3, sm: 6 }}>
           {description}
@@ -58,6 +66,5 @@ export const BoxWithTitleAndDescription = (props: BoxWithTitleAndDescriptionProp
         </OswaldTypo>
       ) : undefined}
     </Stack>
-    // </Box>
   );
 };
