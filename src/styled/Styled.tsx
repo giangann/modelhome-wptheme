@@ -1,4 +1,4 @@
-import { Box, Button, styled, TextField, Typography } from '@mui/material';
+import { Box, Button, Grid, styled, TextField, Typography } from '@mui/material';
 import {
   capatializeTransform,
   generateDefectiveTriangleByPosition,
@@ -26,13 +26,15 @@ export const OswaldTypoHeaddingFooter = styled(Typography)({
   fontSize: 36,
   fontWeight: 700,
   letterSpacing: 1.8,
+  lineHeight: '1.33em',
 });
 
 export const OswaldTypoHeaddingContent = styled(Typography)({
   fontFamily: 'Oswald',
-  fontSize: 36,
+  fontSize: 48,
   fontWeight: 700,
   letterSpacing: 2.4,
+  lineHeight: '1.125em',
 });
 
 export const OswaldTypoHeaddingBanner = styled(Typography)(({ theme }) => ({
@@ -94,6 +96,22 @@ export const LayerBox = styled(Box)({
   left: 0,
   width: '100%',
   height: '100%',
+});
+
+export const GridCenterVertical = styled(Grid)({
+  display: 'flex',
+  alignItems: 'center',
+});
+
+export const GridCenterHorizontal = styled(Grid)({
+  display: 'flex',
+  justifyContent: 'center',
+});
+
+export const GridCenter = styled(Grid)({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 });
 
 export const TriangleByBorder = styled(Box, {

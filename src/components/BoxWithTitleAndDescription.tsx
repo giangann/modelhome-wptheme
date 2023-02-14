@@ -1,6 +1,11 @@
-import { Box, Stack } from '@mui/material';
-import { orange } from '../libs';
-import { OswaldSubtitle, OswaldTypo, OswaldTypoHeaddingContent } from '../styled';
+import { Box, Stack, useTheme, useMediaQuery } from '@mui/material';
+import { black, grey, orange } from '../libs';
+import {
+  MontserratTypo,
+  OswaldSubtitle,
+  OswaldTypo,
+  OswaldTypoHeaddingContent,
+} from '../styled';
 
 export type BoxWithTitleAndDescriptionProps = {
   title: string;
@@ -10,27 +15,48 @@ export type BoxWithTitleAndDescriptionProps = {
 };
 export const BoxWithTitleAndDescription = (props: BoxWithTitleAndDescriptionProps) => {
   const { title, tag, description, showAllInfo = false } = props;
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   return (
     // <Box>
     <Stack
-      justifyContent="space-between"
+      justifyContent={showAllInfo || isMobile ? 'center' : 'space-between'}
       height="100%"
-      py={4}
-      px={5}
+      p={showAllInfo ? { xs: 2, sm: 14 } : { xs: 2, sm: 7 }}
       boxSizing="border-box"
     >
-      <OswaldTypoHeaddingContent sx={{ mb: 5, color: orange['400'] }}>
+      {showAllInfo ? (
+        <OswaldTypo mb={1} fontSize={14} color={orange['400']} letterSpacing={1.4}>
+          Dự án mới nhất
+        </OswaldTypo>
+      ) : undefined}
+      <OswaldTypoHeaddingContent
+        sx={
+          !showAllInfo
+            ? {
+                mb: { xs: 2, sm: 5 },
+                color: orange['400'],
+                fontSize: { xs: 22, sm: 36 },
+                textAlign: { xs: 'center', sm: 'unset' },
+              }
+            : {
+                mb: { xs: 2, sm: 8 },
+              }
+        }
+      >
         {title}
       </OswaldTypoHeaddingContent>
-      <OswaldTypo
-        variant="h5"
-        // color="white"
-        fontWeight={300}
-        letterSpacing={1.4}
-        fontSize={14}
-      >
-        {tag}
-      </OswaldTypo>{' '}
+      {showAllInfo && !isMobile ? (
+        <MontserratTypo color={black['800']} fontStyle="italic" mb={{ xs: 3, sm: 6 }}>
+          {description}
+        </MontserratTypo>
+      ) : undefined}
+      {!isMobile ? (
+        <OswaldTypo variant="h5" fontWeight={300} letterSpacing={1.4} fontSize={14}>
+          {tag}
+        </OswaldTypo>
+      ) : undefined}
     </Stack>
     // </Box>
   );

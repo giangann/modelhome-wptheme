@@ -3,9 +3,11 @@ import { BoxWithBackgroundAndLayer } from '../../components';
 import { orange } from '../../libs';
 import {
   btnTextStyle,
-  MontserratTypo, OrangeOutlinedBtn,
+  MontserratTypo,
+  OrangeOutlinedBtn,
   OswaldTypo,
-  OswaldTypoHeaddingContent
+  OswaldTypoHeaddingContent,
+  OswaldTypoHeaddingFooter,
 } from '../../styled';
 
 export const OurServices = () => {
@@ -99,13 +101,9 @@ export const OurServices = () => {
                     >
                       TESTIMONIALS
                     </OswaldTypo>
-                    <OswaldTypoHeaddingContent
-                      color="white"
-                      letterSpacing={1.8}
-                      lineHeight="1.333em"
-                    >
+                    <OswaldTypoHeaddingFooter color="white">
                       WHAT OUR <br /> CLIENTS SAY
-                    </OswaldTypoHeaddingContent>
+                    </OswaldTypoHeaddingFooter>
 
                     <MontserratTypo
                       color="white"
@@ -148,15 +146,10 @@ export const OurServices = () => {
                     >
                       ADVANTAGES
                     </OswaldTypo>
-                    <OswaldTypoHeaddingContent
-                      color="white"
-                      letterSpacing={1.8}
-                      lineHeight="1.333em"
-                      mb={4}
-                    >
+                    <OswaldTypoHeaddingFooter color="white" mb={4}>
                       WORKING ON
                       <br /> EXCLUSIVE PROJECTS
-                    </OswaldTypoHeaddingContent>
+                    </OswaldTypoHeaddingFooter>
 
                     <MontserratTypo
                       color="white"

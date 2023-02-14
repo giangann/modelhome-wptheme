@@ -37,7 +37,7 @@ export const ProjectItem = (props: ProjectItemProps) => {
     <Grid container flexDirection={defectivePosition === 'left' ? 'row-reverse' : 'row'}>
       <Grid item xs={isLastest ? 12 : 6} sm={6}>
         <ImageWithDefectiveTrianglePart
-          height={isLastest ? 920 : 460}
+          height={isMobile ? (isLastest ? 460 : 230) : isLastest ? 920 : 460}
           image={thumb}
           defectivePosition={isMobile && isLastest ? 'bottom' : defectivePosition}
         />

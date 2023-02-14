@@ -40,22 +40,20 @@ export const OurProjects = () => {
     },
   ];
   return (
-    <Box sx={{zIndex:6, position:'relative'}}>
+    <Box sx={{ zIndex: 6, position: 'relative' }}>
       <Container sx={{ marginTop: 12 }}>
         <OswaldTypo sx={{ fontSize: 14, mb: 2 }}>HỒ SƠ</OswaldTypo>
         <Grid container columnSpacing={12}>
-          <Grid item xs={12} sm={4}>
-            <Stack>
-              <OswaldTypoHeaddingContent>
-                CÁC DỰ ÁN <br />
-                CỦA MODEL HOME
-              </OswaldTypoHeaddingContent>
-            </Stack>
+          <Grid item xs={12} sm={5}>
+            <OswaldTypoHeaddingContent>
+              CÁC DỰ ÁN <br />
+              CỦA MODEL HOME
+            </OswaldTypoHeaddingContent>
           </Grid>
 
-          <Grid item xs={12} sm={8}>
+          <Grid item xs={12} sm={7}>
             <Stack spacing={2}>
-              <MontserratTypo sx={{ fontSize: 14, fontWeight: 300 }}>
+              <MontserratTypo sx={{ fontSize: 14, fontWeight: 300, lineHeight: '30px' }}>
                 All our team collaborates with our clients, across all of our 3 offices,
                 which are located throughout the US. Our mission is to implement the
                 outstanding design ideas and solutions for any project we’re working on…

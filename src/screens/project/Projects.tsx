@@ -1,8 +1,16 @@
 import { Box, Container, Grid, useMediaQuery, useTheme } from '@mui/material';
-import { ImageWithDefectiveTrianglePart } from '../../components';
+import { ImageWithDefectiveTrianglePart, Line } from '../../components';
 import { projects } from '../../constant';
-import { ProjectType } from '../../libs';
-import { OswaldTypo } from '../../styled';
+import { grey, orange, ProjectType } from '../../libs';
+import {
+  GridCenter,
+  GridCenterVertical,
+  OswaldTypo,
+  OswaldTypoHeaddingBanner,
+  OswaldTypoHeaddingContent,
+  OswaldTypoHeaddingFooter,
+} from '../../styled';
+import { FilterBar } from './FilterBar';
 import { ProjectItem } from './ProjectItem';
 
 export const Projects = () => {
@@ -30,7 +38,21 @@ export const Projects = () => {
 
   return (
     <Box>
-      <OswaldTypo>PROJECTS</OswaldTypo>
+      <Grid container sx={{ marginY: { xs: 2, sm: 10 } }} justifyContent="center">
+        <GridCenter item xs={6}>
+          <Box>
+            <OswaldTypo sx={{ fontSize: 14, mb: 2 }}>HỒ SƠ</OswaldTypo>
+            <OswaldTypoHeaddingContent mb={3}>
+              CÁC DỰ ÁN <br />
+              CỦA MODEL HOME
+            </OswaldTypoHeaddingContent>
+            <Line width="20%" color={orange['400']}/>
+          </Box>
+        </GridCenter>
+        <GridCenterVertical item xs={6} sx={{ p: 14 }}>
+          <FilterBar />
+        </GridCenterVertical>
+      </Grid>
       <Grid container sx={{ mt: 4 }}>
         {projects.map((project: ProjectType, index) =>
           index === 0 ? (
