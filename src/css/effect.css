@@ -5,6 +5,19 @@
   transition: opacity 3s, height 1s, transform 1s;
 }
 
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(20vw);
+  height: 100vh;
+  transition: opacity 3s, height 1s, transform 1s;
+}
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-20vw);
+  height: 100vh;
+  transition: opacity 3s, height 1s, transform 1s;
+}
+
 .visible {
   opacity: 1;
   height: fit-content;

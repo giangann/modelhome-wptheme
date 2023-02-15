@@ -21,6 +21,14 @@ export const HeaderItemTypo = styled(Typography)({
   letterSpacing: 1.2,
   // color: 'white',
 });
+
+export const MontserratTypoContent = styled(Typography)({
+  fontFamily: 'Montserrat',
+  lineHeight: '2.143em',
+  fontSize: 14,
+  fontWeight: 300,
+  letterSpacing: 0,
+});
 export const OswaldTypoHeaddingFooter = styled(Typography)({
   fontFamily: 'Oswald',
   fontSize: 36,

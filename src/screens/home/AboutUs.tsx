@@ -1,28 +1,32 @@
-import { Container, Grid, Stack } from '@mui/material';
-import { MontserratTypo, OswaldTypo, OswaldTypoHeaddingContent } from '../../styled';
+import { Box, Container, Grid, Stack } from '@mui/material';
+import { FadeInSection, HeadingBlock, Line } from '../../components';
+import { orange } from '../../libs';
+import {
+  MontserratTypo,
+  MontserratTypoContent,
+  OswaldTypo,
+  OswaldTypoHeaddingContent,
+} from '../../styled';
 
 export const AboutUs = () => {
   return (
-    <Container sx={{ marginTop: 12 }}>
-      <OswaldTypo sx={{ fontSize: 14, mb: 2 }}>VỀ CÔNG TY</OswaldTypo>
-      <Grid container columnSpacing={12}>
-        <Grid item xs={12} sm={4}>
-          <Stack>
-            <OswaldTypoHeaddingContent>CHÚNG TÔI TẠO RA</OswaldTypoHeaddingContent>
-            <OswaldTypoHeaddingContent>
-              VÀ HIỆN THỰC HÓA Ý TƯỞNG
-            </OswaldTypoHeaddingContent>
-          </Stack>
+    <Container sx={{ marginTop: { xs: 8, sm: 12 }, maxWidth: '1000px !important' }}>
+      <Grid container columnSpacing={4}>
+        <Grid item xs={12} sm={5} mb={{ xs: 2.5, sm: 'none' }}>
+          <HeadingBlock
+            subTitle="Về công ty"
+            title="Chúng tôi tạo ra và hiện thực hóa ý tưởng"
+          />
         </Grid>
 
-        <Grid item xs={12} sm={8}>
-          <Stack spacing={2}>
-            <MontserratTypo sx={{ fontSize: 14, fontWeight: 600 }}>
+        <Grid item xs={12} sm={7}>
+          <Stack spacing={4}>
+            <MontserratTypoContent sx={{ fontWeight: 500 }}>
               We apply innovative design solutions to enhance people’s residential
               wellbeing and to help workplaces succeed! All our team collaborates with our
               clients!
-            </MontserratTypo>
-            <MontserratTypo sx={{ fontSize: 14, fontWeight: 300 }}>
+            </MontserratTypoContent>
+            <MontserratTypoContent>
               All our team collaborates with our clients, across all of our 3 offices,
               which are located throughout the US. Our mission is to implement the
               outstanding design ideas and solutions for any project we’re working on…
@@ -30,7 +34,7 @@ export const AboutUs = () => {
               possibilities, as well as the environmental issues. Engineering and interior
               design solutions that we deliver are usually born after a collaborative
               process.
-            </MontserratTypo>
+            </MontserratTypoContent>
           </Stack>
         </Grid>
       </Grid>

@@ -1,4 +1,5 @@
 import { Box, Container, Grid, Stack } from '@mui/material';
+import { HeadingBlock } from '../../components';
 import {
   btnTextStyle,
   MontserratTypo,
@@ -42,15 +43,10 @@ export const OurProjects = () => {
   return (
     <Box sx={{ zIndex: 6, position: 'relative' }}>
       <Container sx={{ marginTop: 12 }}>
-        <OswaldTypo sx={{ fontSize: 14, mb: 2 }}>HỒ SƠ</OswaldTypo>
         <Grid container columnSpacing={12}>
-          <Grid item xs={12} sm={5}>
-            <OswaldTypoHeaddingContent>
-              CÁC DỰ ÁN <br />
-              CỦA MODEL HOME
-            </OswaldTypoHeaddingContent>
+          <Grid item xs={12} sm={5} mb={{ xs: 2.5, sm: 'none' }}>
+            <HeadingBlock subTitle="Hồ sơ" title="Các dự án của Model Home" />
           </Grid>
-
           <Grid item xs={12} sm={7}>
             <Stack spacing={2}>
               <MontserratTypo sx={{ fontSize: 14, fontWeight: 300, lineHeight: '30px' }}>

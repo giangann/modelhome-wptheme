@@ -1,28 +1,31 @@
 import { Box, Container, Grid, Stack } from '@mui/material';
 
-import { Line, TextFieldWithCustomFont } from '../components';
+import { HeadingBlock, Line, TextFieldWithCustomFont } from '../components';
 import {
-    OswaldTypo, OswaldTypoHeaddingFooter,
-    PoppinsOrangeSpan,
-    PoppinsTypo
+  OswaldTypo,
+  OswaldTypoHeaddingFooter,
+  PoppinsOrangeSpan,
+  PoppinsTypo,
 } from '../styled';
 
 export const Footer = () => {
   return (
     <Container sx={{ marginTop: 12 }}>
-      <OswaldTypo sx={{ fontSize: 14, mb: 2 }}>LIÊN HỆ VỚI CHÚNG TÔI</OswaldTypo>
-
       <Grid container columnSpacing={12}>
         <Grid item xs={12} sm={4}>
-          <Stack justifyContent="space-between" sx={{ height: '100%' }}>
             {/* Title */}
-            <Stack spacing={3}>
-              <OswaldTypoHeaddingFooter variant="h4">
-                THÔNG TIN CHI TIẾT
-              </OswaldTypoHeaddingFooter>
-              <Line width="15%" />
-            </Stack>
+          <Box mb={2}>
+            <HeadingBlock
+              title={
+                <OswaldTypoHeaddingFooter variant="h4" mb={{ xs: 4, sm: 4 }}>
+                  THÔNG TIN CHI TIẾT
+                </OswaldTypoHeaddingFooter>
+              }
+              subTitle="Liên hệ với chúng tôi"
+            />
+          </Box>
 
+          <Stack justifyContent="space-between" sx={{ height: '100%' }}>
             {/* Contact */}
             <Stack spacing={2}>
               <PoppinsTypo>

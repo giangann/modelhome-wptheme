@@ -21,10 +21,10 @@ export const ProjectDetail = () => {
     'https://measured.ca/wp-content/uploads/1709-RiftHouse-Web-RearSquareDay-PhotographerEmaPeter.jpg';
 
   const projectSummary = {
-    location: 'Viet Nam',
-    customer: 'Mrs Thuy',
-    size: '100 sq.m',
-    year: '2021',
+    'Địa điểm': 'Viet Nam',
+    'Khách hàng': 'Mrs Thuy',
+    'diện tích': '100 sq.m',
+    'Hoàn thành năm': '2021',
   };
 
   const img1 = 'https://zikzakarchitects.com/hwp/wp-content/uploads/2022/12/33-2.jpg';
@@ -62,7 +62,9 @@ export const ProjectDetail = () => {
               {Object.entries(projectSummary).map(([key, value], index) => (
                 <Grid item xs={6} key={index}>
                   <Box>
-                    <OswaldTypo>{capatializeTransform(key)}</OswaldTypo>
+                    <OswaldTypo letterSpacing={1.5}>
+                      {capatializeTransform(key)}
+                    </OswaldTypo>
                   </Box>
                   <Box>
                     <MontserratTypo>{value}</MontserratTypo>
@@ -83,7 +85,7 @@ export const ProjectDetail = () => {
         />
       </FadeInSection>
 
-      <FadeInSection>
+      <FadeInSection fade="fade-in-left">
         <Container sx={{ mb: 4 }} maxWidth="sm">
           <MontserratTypo sx={{ color: grey['600'], fontWeight: 500 }}>
             An office – creative workshop with large shelves with samples of design
@@ -102,7 +104,7 @@ export const ProjectDetail = () => {
         </Container>
       </FadeInSection>
 
-      <FadeInSection>
+      <FadeInSection fade="fade-in-right">
         <Container>
           <Grid container spacing={2}>
             <Grid item xs={6}>
@@ -136,12 +138,9 @@ export const ProjectDetail = () => {
       <FadeInSection>
         <Container sx={{ mb: 4 }} maxWidth="sm">
           <MontserratTypo sx={{ color: grey['600'], fontWeight: 500 }}>
-            An office – creative workshop with large shelves with samples of design
-            materials and professional books – this is how the client saw the concept of
-            the project. Designers created an environment that reflects the character of
-            the architectural bureau. The corrugation, a tube that interprets the
-            ideological thread, the search for meaning, and the path to the goal, became a
-            cross-cutting symbolic idea.
+            100% sản phẩm thực tế giống thiết kế 3D. Chúng tôi có đội ngũ giám sát sản
+            xuất tại nhà máy và giám sát lắp đặt tại công trình sẽ mang đến sự “ Hài lòng
+            tuyệt đối” cho quý khách.
           </MontserratTypo>
         </Container>
       </FadeInSection>

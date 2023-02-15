@@ -3,10 +3,9 @@ import { BoxWithBackgroundAndLayer } from '../../components';
 import { orange } from '../../libs';
 import {
   btnTextStyle,
-  MontserratTypo,
+  MontserratTypoContent,
   OrangeOutlinedBtn,
   OswaldTypo,
-  OswaldTypoHeaddingContent,
   OswaldTypoHeaddingFooter,
 } from '../../styled';
 
@@ -35,7 +34,7 @@ export const OurServices = () => {
     <Box position="relative" height={1600}>
       <Box position="absolute" top="0" left="0" width="100%">
         {/* 3 thumbs */}
-        <Container sx={{ marginTop: 12 }}>
+        <Container sx={{ marginTop: { xs: 8, sm: 12 } }}>
           <Grid
             sx={{ backgroundColor: 'transparent', zIndex: 5 }}
             container
@@ -105,17 +104,17 @@ export const OurServices = () => {
                       WHAT OUR <br /> CLIENTS SAY
                     </OswaldTypoHeaddingFooter>
 
-                    <MontserratTypo
+                    <MontserratTypoContent
                       color="white"
-                      lineHeight={2.25}
                       width="70%"
                       fontStyle="italic"
-                      fontWeight={300}
+                      fontSize="18px!important"
+                      lineHeight={2.25}
                     >
                       It is not every construction company that can build a building from
                       ground up and complete 80,000 sq. ft. of first class office
                       improvement space in 13 months.
-                    </MontserratTypo>
+                    </MontserratTypoContent>
                   </Stack>
                 </BoxWithBackgroundAndLayer>
               </Grid>
@@ -151,13 +150,10 @@ export const OurServices = () => {
                       <br /> EXCLUSIVE PROJECTS
                     </OswaldTypoHeaddingFooter>
 
-                    <MontserratTypo
+                    <MontserratTypoContent
                       color="white"
-                      lineHeight={2.25}
                       width="70%"
                       fontStyle="italic"
-                      fontWeight={300}
-                      fontSize={14}
                       mb={8}
                     >
                       {' '}
@@ -166,7 +162,7 @@ export const OurServices = () => {
                       design of sustainability and cost-effectiveness. Archus merges these
                       practices with the unique requirements and guidelines necessary for
                       advanced technology facilities.
-                    </MontserratTypo>
+                    </MontserratTypoContent>
 
                     <OrangeOutlinedBtn sx={{ padding: '16px 48px', margin: 'auto' }}>
                       <OswaldTypo sx={{ ...btnTextStyle }}>Xem thêm</OswaldTypo>

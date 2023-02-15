@@ -16,7 +16,10 @@ export const FadeInSection = (props: any) => {
     return () => observer.unobserve(domRef.current as unknown as Element);
   }, []);
   return (
-    <div className={`fade-in ${isVisible ? 'visible' : ''}`} ref={domRef}>
+    <div
+      className={`${props.fade ?? 'fade-in'} ${isVisible ? 'visible' : ''}`}
+      ref={domRef}
+    >
       {props.children}
     </div>
   );
