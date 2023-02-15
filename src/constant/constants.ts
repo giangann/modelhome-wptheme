@@ -46,7 +46,12 @@ export const generateDefectiveTriangleByPosition = (
 };
 
 export const capatializeTransform = (str: string) => {
-  const newStr = str[0].toUpperCase + str.trimStart();
-  //   str[0] = str[0].toUpperCase();
+  const newStr = str.replace(str[0], str[0].toUpperCase());
   return newStr;
+};
+
+export const convertSlugToName = (slug: string | undefined) => {
+  if (!slug) return 'PROJECT';
+  const name = slug.replace('-', ' ').toUpperCase();
+  return name;
 };

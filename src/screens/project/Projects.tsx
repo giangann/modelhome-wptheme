@@ -1,11 +1,13 @@
 import { Box, Grid, useMediaQuery, useTheme } from '@mui/material';
+import { useEffect } from 'react';
 import { Line } from '../../components';
 import { projects } from '../../constant';
 import { orange, ProjectType } from '../../libs';
 import {
   GridCenter,
   GridCenterVertical,
-  OswaldTypo, OswaldTypoHeaddingContent
+  OswaldTypo,
+  OswaldTypoHeaddingContent,
 } from '../../styled';
 import { FilterBar } from './FilterBar';
 import { ProjectItem } from './ProjectItem';
@@ -32,6 +34,11 @@ export const Projects = () => {
       return true;
     }
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    // window.location.reload();
+  }, []);
 
   return (
     <Box>

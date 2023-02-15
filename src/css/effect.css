@@ -1,0 +1,12 @@
+.fade-in {
+  opacity: 0;
+  transform: translateY(10vh);
+  height: 100vh;
+  transition: opacity 3s, height 1s, transform 1s;
+}
+
+.visible {
+  opacity: 1;
+  height: fit-content;
+  transform: translateY(0);
+}
