@@ -1,5 +1,6 @@
 import { Box, Container, Grid, Stack, useMediaQuery, useTheme } from '@mui/material';
-import { BoxWithBackgroundAndLayer } from '../../components';
+import { BoxWithBackgroundAndLayer, FadeInSection } from '../../components';
+import { IcBaselineFormatQuote } from '../../components/icon';
 import { orange } from '../../libs';
 import {
   btnTextStyle,
@@ -18,20 +19,23 @@ export const OurServices = () => {
       name: 'THIẾT KẾ NỘI THẤT',
       image:
         'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/Engineering.jpg',
+      fade: 'fade-in-down',
     },
     {
       name: 'THI CÔNG CÔNG TRÌNH',
       image:
         'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/Architecture.jpg',
+      fade: 'fade-in-up',
     },
     {
       name: 'THIẾT KẾ KIẾN TRÚC',
       image:
         'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/Interior-Design.jpg',
+      fade: 'fade-in-down',
     },
   ];
   return (
-    <Box position="relative" height={1600}>
+    <Box position="relative" height={{ xs: 1200, sm: 1600 }}>
       <Box position="absolute" top="0" left="0" width="100%">
         {/* 3 thumbs */}
         <Container sx={{ marginTop: { xs: 8, sm: 12 } }}>
@@ -39,38 +43,45 @@ export const OurServices = () => {
             sx={{ backgroundColor: 'transparent', zIndex: 5 }}
             container
             columnSpacing={4}
+            rowSpacing={4}
           >
             {serviceThumbs.map((thumb, index) => (
               <Grid key={index} item xs={12} sm={4} sx={{ zIndex: 5 }}>
-                <BoxWithBackgroundAndLayer image={thumb.image} width="100%" height={500}>
-                  <Box
-                    sx={{
-                      position: 'absolute',
-                      bottom: 0,
-                      left: 0,
-                      width: '100%',
-                      paddingY: 9,
-                    }}
+                <FadeInSection fade={thumb.fade}>
+                  <BoxWithBackgroundAndLayer
+                    image={thumb.image}
+                    width="100%"
+                    height={{ xs: 330, sm: 500 }}
                   >
-                    <OswaldTypo
-                      variant="h5"
+                    <Box
                       sx={{
-                        color: 'white',
-                        fontSize: 24,
-                        textAlign: 'center',
-                        fontWeight: 600,
-                        cursor: 'pointer',
-
-                        '&:hover': {
-                          color: orange['400'],
-                          transition: '0.7s',
-                        },
+                        position: 'absolute',
+                        bottom: 0,
+                        left: 0,
+                        width: '100%',
+                        paddingY: 9,
                       }}
                     >
-                      {thumb.name}
-                    </OswaldTypo>
-                  </Box>
-                </BoxWithBackgroundAndLayer>
+                      <OswaldTypo
+                        variant="h5"
+                        sx={{
+                          color: 'white',
+                          fontSize: 24,
+                          textAlign: 'center',
+                          fontWeight: 600,
+                          cursor: 'pointer',
+
+                          '&:hover': {
+                            color: orange['400'],
+                            transition: '0.7s',
+                          },
+                        }}
+                      >
+                        {thumb.name}
+                      </OswaldTypo>
+                    </Box>
+                  </BoxWithBackgroundAndLayer>
+                </FadeInSection>
               </Grid>
             ))}
           </Grid>
@@ -90,7 +101,14 @@ export const OurServices = () => {
                   sx={{ backgroundColor: orange['400'], opacity: 0.9 }}
                   image="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/home-testimonials-bg.jpg"
                 >
-                  <Stack sx={{ mt: 52, ml: 16 }} spacing={6}>
+                  <Stack sx={{ mt: 52, ml: 16, position: 'relative' }} spacing={6}>
+                    <Box sx={{ position: 'absolute', top: -70, left: -90 }}>
+                      <IcBaselineFormatQuote
+                        fontSize={200}
+                        color="white"
+                        opacity={0.35}
+                      />
+                    </Box>
                     <OswaldTypo
                       variant="h5"
                       color="white"
@@ -98,10 +116,10 @@ export const OurServices = () => {
                       letterSpacing={1.4}
                       fontSize={14}
                     >
-                      TESTIMONIALS
+                      PHẢN HỒI
                     </OswaldTypo>
                     <OswaldTypoHeaddingFooter color="white">
-                      WHAT OUR <br /> CLIENTS SAY
+                      KHÁCH HÀNG <br /> ĐÁNH GIÁ
                     </OswaldTypoHeaddingFooter>
 
                     <MontserratTypoContent
@@ -111,9 +129,9 @@ export const OurServices = () => {
                       fontSize="18px!important"
                       lineHeight={2.25}
                     >
-                      It is not every construction company that can build a building from
-                      ground up and complete 80,000 sq. ft. of first class office
-                      improvement space in 13 months.
+                      Không phải mọi công ty xây dựng đều có thể xây dựng một tòa nhà từ
+                      đầu và hoàn thành 80.000 ft vuông không gian cải tiến văn phòng hạng
+                      nhất trong 13 tháng.
                     </MontserratTypoContent>
                   </Stack>
                 </BoxWithBackgroundAndLayer>
@@ -143,25 +161,24 @@ export const OurServices = () => {
                       fontSize={14}
                       mb={2}
                     >
-                      ADVANTAGES
+                      LỢI THẾ
                     </OswaldTypo>
                     <OswaldTypoHeaddingFooter color="white" mb={4}>
-                      WORKING ON
-                      <br /> EXCLUSIVE PROJECTS
+                      LÀM VIỆC VỚI
+                      <br /> DỰ ÁN PHỨC TẠP
                     </OswaldTypoHeaddingFooter>
 
                     <MontserratTypoContent
                       color="white"
                       width="70%"
-                      fontStyle="italic"
+                      // fontStyle="italic"
                       mb={8}
                     >
-                      {' '}
-                      Designing sustainable, high-performance buildings requires an
-                      integration of architectural and engineered systems into a balanced
-                      design of sustainability and cost-effectiveness. Archus merges these
-                      practices with the unique requirements and guidelines necessary for
-                      advanced technology facilities.
+                      Thiết kế các tòa nhà bền vững, hiệu suất cao đòi hỏi phải tích hợp
+                      các hệ thống kiến trúc và kỹ thuật vào một thiết kế cân bằng giữa
+                      tính bền vững và hiệu quả chi phí. Archus hợp nhất những thực hành
+                      này với các yêu cầu và nguyên tắc riêng cần thiết cho các cơ sở công
+                      nghệ tiên tiến.
                     </MontserratTypoContent>
 
                     <OrangeOutlinedBtn sx={{ padding: '16px 48px', margin: 'auto' }}>

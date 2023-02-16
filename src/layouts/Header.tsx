@@ -38,44 +38,6 @@ export const Header = () => {
 
   useEffect(() => {}, []);
   return (
-    // <AppBar sx={{ backgroundColor: grey['800'] }} elevation={0}>
-    //   {/* Desktop */}
-    //   <Container maxWidth={'xl'}>
-    //     <Toolbar disableGutters>
-    //       {/* logo */}
-    //       <Typography
-    //         variant="h6"
-    //         noWrap
-    //         component="a"
-    //         href="/"
-    //         sx={{
-    //           mr: 2,
-    //           display: { xs: 'none', md: 'flex' },
-    //           fontSize: 32,
-    //           fontFamily: 'monospace',
-    //           fontWeight: 600,
-    //           letterSpacing: '.3rem',
-    //           color: orange['400'],
-    //           textDecoration: 'none',
-    //         }}
-    //       >
-    //         LOGO
-    //       </Typography>
-    //       {/* tabs */}
-    //       <Box sx={{ flexGrow: 0, display:'flex' }}>
-    //         {pages.map((page, index) => (
-    //           <Button
-    //             key={index}
-    //             // onClick={handleCloseNavMenu}
-    //             sx={{ my: 2, color: 'white', display: 'block' }}
-    //           >
-    //             {page.name}
-    //           </Button>
-    //         ))}
-    //       </Box>
-    //     </Toolbar>
-    //   </Container>
-    // </AppBar>
     <AppBar position="static" sx={{ backgroundColor: grey['800'] }} elevation={0}>
       <Container maxWidth="lg">
         <Toolbar sx={{ height: 90 }}>
@@ -107,12 +69,12 @@ export const Header = () => {
               fontSize: 32,
               fontFamily: 'monospace',
               fontWeight: 600,
-              letterSpacing: '.3rem',
+              letterSpacing: '.2rem',
               color: orange['400'],
               textDecoration: 'none',
             }}
           >
-            LOGO
+            ModelHome
           </Typography>
           <Stack
             direction="row"

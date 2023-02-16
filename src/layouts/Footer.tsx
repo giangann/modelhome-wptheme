@@ -11,9 +11,9 @@ import {
 export const Footer = () => {
   return (
     <Container sx={{ marginTop: 12 }}>
-      <Grid container columnSpacing={12}>
+      <Grid container columnSpacing={12} rowSpacing={6}>
         <Grid item xs={12} sm={4}>
-            {/* Title */}
+          {/* Title */}
           <Box mb={2}>
             <HeadingBlock
               title={
@@ -50,10 +50,10 @@ export const Footer = () => {
         {/* Form */}
         <Grid item xs={12} sm={8}>
           <Stack spacing={2} justifyContent="space-between" sx={{ height: '100%' }}>
-            <TextFieldWithCustomFont placeholder="Your Name" fontName="Montserrat" />
-            <TextFieldWithCustomFont placeholder="Your E-mail" fontName="Montserrat" />
+            <TextFieldWithCustomFont placeholder="Tên của bạn" fontName="Montserrat" />
+            <TextFieldWithCustomFont placeholder="Địa chỉ Email" fontName="Montserrat" />
             <TextFieldWithCustomFont
-              placeholder="Your Message"
+              placeholder="Nội dung"
               fontName="Montserrat"
               multiline
               minRows={8}

@@ -17,7 +17,7 @@ export const FadeInSection = (props: any) => {
   }, []);
   return (
     <div
-      className={`${props.fade ?? 'fade-in'} ${isVisible ? 'visible' : ''}`}
+      className={`${props.fade ?? 'fade-in-up'} ${isVisible ? 'visible' : ''}`}
       ref={domRef}
     >
       {props.children}

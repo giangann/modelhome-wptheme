@@ -1,4 +1,5 @@
 import { Box, Container, Grid, Stack } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import { HeadingBlock } from '../../components';
 import {
   btnTextStyle,
@@ -40,6 +41,8 @@ export const OurProjects = () => {
       link: '#',
     },
   ];
+
+  const navigate = useNavigate();
   return (
     <Box sx={{ zIndex: 6, position: 'relative' }}>
       <Container sx={{ marginTop: 12 }}>
@@ -50,13 +53,15 @@ export const OurProjects = () => {
           <Grid item xs={12} sm={7}>
             <Stack spacing={2}>
               <MontserratTypo sx={{ fontSize: 14, fontWeight: 300, lineHeight: '30px' }}>
-                All our team collaborates with our clients, across all of our 3 offices,
-                which are located throughout the US. Our mission is to implement the
-                outstanding design ideas and solutions for any project we’re working on…
-                During that process we carefully combine client’s guidelines, technical
-                possibilities, as well as the environmental issues. Engineering and
-                interior design solutions that we deliver are usually born after a
-                collaborative process.
+                Nhà đẹp cần có thiết kế đẹp” Bạn đang quan tâm đến thiết kế nội thất là
+                bạn đang tiết kiệm chi phí đầu tư vào thi công và đảm bảo có một căn nhà
+                đẹp trong thời gian dài. Giá thiết kế nếu so với chi phí thi công thì
+                không nhiều, bạn chọn đơn vị thiết kế giá rẻ thì tương đương chất lượng
+                cũng rẻ. Với MoreHome chúng tôi không làm chạy theo số lượng mà đặt vấn đề
+                chất lượng lên hàng đầu. Vì vậy bạn hãy lựa chọn phù hợp với mong chờ của
+                bạn. Chương trình khuyến mãi đặc biệt giảm 50% phí thiết kế nội thất cho
+                những khách sử dụng dịch vụ thi công nội thất tổng thể khi thiết kế nội
+                thất.
               </MontserratTypo>
             </Stack>
           </Grid>
@@ -83,7 +88,10 @@ export const OurProjects = () => {
         ))}
       </Grid>
       <Box sx={{ width: '100%', justifyContent: 'center', display: 'flex' }}>
-        <OrangeOutlinedBtn sx={{ padding: '16px 48px', margin: 'auto' }}>
+        <OrangeOutlinedBtn
+          onClick={() => navigate('/project')}
+          sx={{ padding: '16px 48px', margin: 'auto' }}
+        >
           <OswaldTypo sx={{ ...btnTextStyle }}>Xem thêm</OswaldTypo>
         </OrangeOutlinedBtn>
       </Box>

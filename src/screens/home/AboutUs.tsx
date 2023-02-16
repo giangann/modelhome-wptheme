@@ -22,18 +22,18 @@ export const AboutUs = () => {
         <Grid item xs={12} sm={7}>
           <Stack spacing={4}>
             <MontserratTypoContent sx={{ fontWeight: 500 }}>
-              We apply innovative design solutions to enhance people’s residential
-              wellbeing and to help workplaces succeed! All our team collaborates with our
-              clients!
+              Có rất nhiều phong cách nội thất chung cư cho bạn lựa chọn: Phong cách nội
+              thất hiện đại, phong cách nội thất tân cổ điển, phong cách nội thất
+              Indochine, Wabi sabi, Minimalism, Bắc Âu...Bạn vui lòng tham khảo các mẫu
+              thiết kế nội thất chung cư tại đây
             </MontserratTypoContent>
             <MontserratTypoContent>
-              All our team collaborates with our clients, across all of our 3 offices,
-              which are located throughout the US. Our mission is to implement the
-              outstanding design ideas and solutions for any project we’re working on…
-              During that process we carefully combine client’s guidelines, technical
-              possibilities, as well as the environmental issues. Engineering and interior
-              design solutions that we deliver are usually born after a collaborative
-              process.
+              Bạn đang muốn tìm ý tưởng thiết kế nội thất cho chung cư, biệt thự, nhà phố,
+              nhà liền kề, khách sạn, nhà hàng, showroom? MoreHome mong muốn được hỗ trợ
+              và đồng hành cùng bạn từ khâu thiết kế nội thất đến thi công nội thất.
+              MoreHome với nhiều năm kinh nghiệm trong nghề luôn luôn cải tiến, và tìm tòi
+              những giải pháp và công nghệ để công việc ngày một hiệu quả mang lại nhiều
+              giá trị cho khách hàng.
             </MontserratTypoContent>
           </Stack>
         </Grid>
