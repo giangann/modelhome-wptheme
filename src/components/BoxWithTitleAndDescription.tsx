@@ -62,6 +62,17 @@ export const BoxWithTitleAndDescription = (props: BoxWithTitleAndDescriptionProp
       ) : undefined}
       {!isMobile ? (
         <OswaldTypo variant="h5" fontWeight={300} letterSpacing={1.4} fontSize={14}>
+          <span
+            style={{
+              fontFamily: 'Oswald',
+              fontWeight: 500,
+              letterSpacing: 1.4,
+              fontSize: 15,
+              marginRight: 8,
+            }}
+          >
+            Tag
+          </span>
           {tag}
         </OswaldTypo>
       ) : undefined}

@@ -4,11 +4,11 @@ import { orange } from '../../libs';
 import { MontserratTypo, OswaldTypo } from '../../styled';
 
 export const FilterBar = () => {
-  const filterBy = ['All', 'Architecture', 'Design', 'Interior', 'Landscape'];
+  const filterBy = ['Tất cả', 'Thiết kế', 'Thi công', 'Kiến trúc', 'Nâng cấp'];
   return (
     <Box>
       <MontserratTypo mb={2} fontWeight={700}>
-        Filter by scope
+        Lọc theo loại dự án
       </MontserratTypo>
       <Stack direction="row" spacing={1}>
         {filterBy.map((item, index) => (

@@ -42,7 +42,7 @@ export const Banner = () => {
             MODEL HOME
           </OswaldTypoHeaddingBanner>
           <OswaldSubtitle sx={{ color: 'white', textAlign: 'center' }}>
-            Đẹp - Hiện Đại - Sang Trọng
+            Độc đáo - Hiện Đại - Sang Trọng
           </OswaldSubtitle>
           <Box sx={{ display: 'flex', jusitfyContent: 'center', width: '100%', mt:6 }}>
             <OrangeContainedBtn sx={{ padding: '16px 48px', margin: 'auto' }}>
