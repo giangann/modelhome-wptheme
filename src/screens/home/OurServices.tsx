@@ -1,9 +1,11 @@
 import { Box, Container, Grid, Stack, useMediaQuery, useTheme } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import { BoxWithBackgroundAndLayer, FadeInSection } from '../../components';
 import { IcBaselineFormatQuote } from '../../components/icon';
 import { orange } from '../../libs';
 import {
   btnTextStyle,
+  LinkCustom,
   MontserratTypoContent,
   OrangeOutlinedBtn,
   OswaldTypo,
@@ -13,6 +15,7 @@ import {
 export const OurServices = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('m'));
+  const navigate = useNavigate();
 
   const serviceThumbs = [
     {
@@ -20,22 +23,25 @@ export const OurServices = () => {
       image:
         'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/Engineering.jpg',
       fade: 'fade-in-down',
+      link: '/project',
     },
     {
       name: 'THI CÔNG CÔNG TRÌNH',
       image:
         'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/Architecture.jpg',
       fade: 'fade-in-up',
+      link: '/project',
     },
     {
       name: 'THIẾT KẾ KIẾN TRÚC',
       image:
         'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/Interior-Design.jpg',
       fade: 'fade-in-down',
+      link: '/project',
     },
   ];
   return (
-    <Box position="relative" height={{ xs: 1200, sm: 1600 }}>
+    <Box position="relative" height={{ xs: 1150, sm: 1600 }}>
       <Box position="absolute" top="0" left="0" width="100%">
         {/* 3 thumbs */}
         <Container sx={{ marginTop: { xs: 8, sm: 12 } }}>
@@ -62,23 +68,25 @@ export const OurServices = () => {
                         paddingY: 9,
                       }}
                     >
-                      <OswaldTypo
-                        variant="h5"
-                        sx={{
-                          color: 'white',
-                          fontSize: 24,
-                          textAlign: 'center',
-                          fontWeight: 600,
-                          cursor: 'pointer',
+                      <LinkCustom href={thumb.link}>
+                        <OswaldTypo
+                          variant="h5"
+                          sx={{
+                            color: 'white',
+                            fontSize: 24,
+                            textAlign: 'center',
+                            fontWeight: 600,
+                            cursor: 'pointer',
 
-                          '&:hover': {
-                            color: orange['400'],
-                            transition: '0.7s',
-                          },
-                        }}
-                      >
-                        {thumb.name}
-                      </OswaldTypo>
+                            '&:hover': {
+                              color: orange['400'],
+                              transition: '0.7s',
+                            },
+                          }}
+                        >
+                          {thumb.name}
+                        </OswaldTypo>
+                      </LinkCustom>
                     </Box>
                   </BoxWithBackgroundAndLayer>
                 </FadeInSection>

@@ -1,8 +1,6 @@
 import './App.css';
 
-import {
-  ThemeProvider
-} from '@mui/material';
+import { ThemeProvider } from '@mui/material';
 
 import { Router } from './routers';
 import { theme } from './theme';
@@ -10,7 +8,7 @@ import { theme } from './theme';
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <Router />;
+      <Router />
     </ThemeProvider>
   );
 }

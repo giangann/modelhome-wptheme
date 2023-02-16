@@ -43,8 +43,13 @@ export const Projects = () => {
 
   return (
     <Box>
-      <Grid container sx={{ marginY: { xs: 2, sm: 10 } }} justifyContent="center">
-        <GridCenterHorizontal item xs={12} sm={6}>
+      <Grid
+        container
+        sx={{ marginY: { xs: 2, sm: 10 } }}
+        rowSpacing={4}
+        justifyContent="center"
+      >
+        <GridCenterHorizontal item xs={12} sm={6} sx={{ p: { xs: 2, sm: 0 } }}>
           <HeadingBlock
             subTitle="Hồ sơ"
             title={
@@ -55,7 +60,7 @@ export const Projects = () => {
             }
           />
         </GridCenterHorizontal>
-        <Grid item xs={12} sm={6} sx={{ px: { xs: 1, sm: 14 } }}>
+        <Grid item xs={12} sm={6} sx={{ px: { xs: 2, sm: 14 } }}>
           <FilterBar />
         </Grid>
       </Grid>

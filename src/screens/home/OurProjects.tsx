@@ -69,7 +69,7 @@ export const OurProjects = () => {
       </Container>
       <Grid container sx={{ marginY: 4 }} spacing={2} p={2}>
         {thumbnailsOfProjects.map((thumb, index) => (
-          <Grid key={index} item xs={4}>
+          <Grid key={index} item xs={12} sm={4}>
             <Box
               component="img"
               src={thumb.image}

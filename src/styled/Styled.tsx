@@ -133,6 +133,10 @@ export const TriangleByBorder = styled(Box, {
   ...generateDefectiveTriangleByPosition(defectivePosition),
 }));
 
+export const LinkCustom = styled('a')({
+  textDecoration:'none'
+})
+
 export const poppinsFontStyle = {
   fontFamily: 'Poppins',
 };

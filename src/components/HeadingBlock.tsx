@@ -13,7 +13,7 @@ type HeadingBlockProps = {
 export const HeadingBlock = (props: HeadingBlockProps) => {
   const { title, subTitle } = props;
   return (
-    <Box sx={{ position: 'relative', top: -32 }}>
+    <Box sx={{ position: { xs: 'static', sm: 'relative' }, top: -32 }}>
       <FadeInSection fade="fade-in-right">
         <OswaldTypo sx={{ fontSize: 14, mb: 2 }}>{subTitle.toUpperCase()}</OswaldTypo>
       </FadeInSection>
