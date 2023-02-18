@@ -1,6 +1,9 @@
-import { Box, Drawer, DrawerProps, MenuItem, Stack } from '@mui/material';
+import { Box, Drawer, DrawerProps, IconButton, MenuItem, Stack } from '@mui/material';
+import { useState } from 'react';
 import { grey } from '../libs';
 import { LinkCustom, MontserratTypo, OswaldTypo } from '../styled';
+import { CustomMenu } from './CustomMenu';
+import { CodiconTriangleDown } from './icon';
 
 type BaseItemType = {
   name: string;
@@ -8,7 +11,7 @@ type BaseItemType = {
 };
 
 export type ItemType = {
-  children?: BaseItemType;
+  children?: ItemType[];
 } & BaseItemType[];
 
 type CustomDrawerProps = DrawerProps & {
@@ -18,6 +21,15 @@ type CustomDrawerProps = DrawerProps & {
 // Highlight when an item choossed
 export const CustomDrawer = (props: CustomDrawerProps) => {
   const { item, open, onClose } = props;
+  const [openMenu, setOpenMenu] = useState(false);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+    setOpenMenu(true)
+  };
+  const handleCloseMenu = () => {
+    setOpenMenu(false);
+  };
   return (
     <Drawer
       PaperProps={{ sx: { backgroundColor: grey['800'], width: '50vw' } }}
@@ -28,11 +40,26 @@ export const CustomDrawer = (props: CustomDrawerProps) => {
     >
       <Stack sx={{ px: 2, py: 4 }} spacing={2}>
         {item.map((item, index) => (
-          <LinkCustom href={item.link}>
-            <MontserratTypo color="white" fontSize={16} fontWeight={500}>
-              {item.name}
-            </MontserratTypo>
-          </LinkCustom>
+          <Stack key={index} direction="row" spacing={1.5} alignItems="center">
+            <LinkCustom href={item.link}>
+              <MontserratTypo color="white" fontSize={16} fontWeight={500}>
+                {item.name}
+              </MontserratTypo>
+            </LinkCustom>
+            {item.children && (
+              <>
+                <IconButton sx={{ p: 1 }} onClick={handleClick}>
+                  <CodiconTriangleDown color="white" fontSize={14} />
+                </IconButton>
+                <CustomMenu
+                  open={openMenu}
+                  onClose={handleCloseMenu}
+                  item={item?.children}
+                  anchorEl={anchorEl}
+                />
+              </>
+            )}
+          </Stack>
         ))}
       </Stack>
     </Drawer>

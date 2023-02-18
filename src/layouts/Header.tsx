@@ -22,7 +22,7 @@ export const Header = () => {
   const location = useLocation();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const pages = [
+  const pages: ItemType = [
     {
       name: 'TRANG CHỦ',
       link: '/home',
@@ -34,6 +34,16 @@ export const Header = () => {
     {
       name: 'DỰ ÁN',
       link: '/project',
+      children: [
+        {
+          name: 'THIẾT KẾ',
+          link: '/project/design',
+        },
+        {
+          name: 'THI CÔNG',
+          link: '/project/implement',
+        },
+      ],
     },
     {
       name: 'BLOG',
@@ -103,7 +113,7 @@ export const Header = () => {
                   zIndex: 8,
                   backgroundColor: orange['400'],
                   display: 'block',
-                  width:'fit-content'
+                  width: 'fit-content',
                 }}
               >
                 <IconButton

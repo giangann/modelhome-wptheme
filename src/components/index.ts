@@ -5,3 +5,4 @@ export * from './ImageWithDefectiveTrianglePart';
 export * from './FadeInSection';
 export * from './HeadingBlock';
 export * from './CustomDrawer';
+export * from './CustomMenu';
