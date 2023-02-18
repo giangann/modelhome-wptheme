@@ -4,6 +4,12 @@ import {
   generateDefectiveTriangleByPosition,
 } from '../constant/constants';
 import { DefectivePositionType, orange } from '../libs';
+import MuiAccordionSummary, {
+  AccordionSummaryProps,
+} from '@mui/material/AccordionSummary';
+import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
+import MuiAccordionDetails from '@mui/material/AccordionDetails';
+import MuiAccordion, { AccordionProps } from '@mui/material/Accordion';
 
 // Poppins, Montserrat, Oswald
 export const PoppinsTypo = styled(Typography)({
@@ -133,9 +139,54 @@ export const TriangleByBorder = styled(Box, {
   ...generateDefectiveTriangleByPosition(defectivePosition),
 }));
 
+export const Accordion = styled((props: AccordionProps) => (
+  <MuiAccordion disableGutters elevation={0} square {...props} />
+))(({ theme }) => ({
+  border: `1px solid ${theme.palette.divider}`,
+  '&:not(:last-child)': {
+    borderBottom: 0,
+  },
+  '&:before': {
+    display: 'none',
+  },
+
+  backgroundColor: 'transparent',
+  color: 'white',
+}));
+
+export const AccordionSummary = styled((props: AccordionSummaryProps) => (
+  <MuiAccordionSummary
+    expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}
+    {...props}
+  />
+))(({ theme }) => ({
+  padding:0,
+  backgroundColor: 'transparent',
+  // theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, .05)' : 'rgba(0, 0, 0, .03)',
+  flexDirection: 'row-reverse',
+  '& .MuiAccordionSummary-expandIconWrapper': {
+    color: 'white',
+  },
+  '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
+    transform: 'rotate(90deg)',
+    color: orange['400'],
+  },
+  '& .MuiAccordionSummary-content': {
+    marginLeft: theme.spacing(1),
+  },
+  '& .Mui-expanded': {
+    color: orange['400'],
+  },
+}));
+
+export const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
+  padding: 0,
+  borderTop: '1px solid rgba(0, 0, 0, .125)',
+}));
+
 export const LinkCustom = styled('a')({
-  textDecoration:'none'
-})
+  textDecoration: 'none',
+});
 
 export const poppinsFontStyle = {
   fontFamily: 'Poppins',
