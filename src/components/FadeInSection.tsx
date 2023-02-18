@@ -1,6 +1,10 @@
 import React, { LegacyRef } from 'react';
 import '../css/effect.css';
+import { FadeInType } from '../libs';
 
+type FadeInSectionProps = {
+  fade: FadeInType;
+};
 export const FadeInSection = (props: any) => {
   const [isVisible, setVisible] = React.useState(false);
   const domRef = React.useRef<HTMLDivElement>(null);

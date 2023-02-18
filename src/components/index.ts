@@ -4,3 +4,4 @@ export * from './BoxWithBackgroundAndLayer';
 export * from './ImageWithDefectiveTrianglePart';
 export * from './FadeInSection';
 export * from './HeadingBlock';
+export * from './CustomDrawer';

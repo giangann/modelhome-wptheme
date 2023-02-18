@@ -49,13 +49,19 @@ export const ProjectDetail = () => {
       {/* Part 1 */}
       <Grid container mb={6}>
         <GridCenter container item xs={12} sm={6}>
-          <Box mb={5}>
+          <Box mb={5} px={{ xs: 2, sm: 0 }}>
             <Box mb={3}>
-              <OswaldTypo sx={{ fontSize: 14, mb: 1 }}>CHI TIẾT DỰ ÁN</OswaldTypo>
-              <OswaldTypoHeaddingContent mb={2} letterSpacing={`${0.5}px !important`}>
-                {projectName}
-              </OswaldTypoHeaddingContent>
-              <Line width="10%" color={orange['400']} />
+              <FadeInSection fade="fade-in-right">
+                <OswaldTypo sx={{ fontSize: 14, mb: 1 }}>CHI TIẾT DỰ ÁN</OswaldTypo>
+              </FadeInSection>
+              <FadeInSection fade="fade-in-left">
+                <OswaldTypoHeaddingContent mb={2} letterSpacing={`${0.5}px !important`}>
+                  {projectName}
+                </OswaldTypoHeaddingContent>
+              </FadeInSection>
+              <FadeInSection fade="fade-in-right">
+                <Line width="10%" color={orange['400']} />
+              </FadeInSection>
             </Box>
 
             <Grid container spacing={1}>
