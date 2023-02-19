@@ -6,7 +6,7 @@ type TextFieldWithCustomFontProps = {
 export const TextFieldWithCustomFont = (
   props: TextFieldWithCustomFontProps & TextFieldProps,
 ) => {
-  const { fontName } = props;
+  const { fontName, ...textFiledProps } = props;
   return (
     <TextField
       inputProps={{ style: { fontFamily: fontName } }}
@@ -20,7 +20,7 @@ export const TextFieldWithCustomFont = (
           fontSize: 14,
         },
       }}
-      {...props}
+      {...textFiledProps}
     />
   );
 };

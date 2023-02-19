@@ -9,7 +9,7 @@ export const About = () => {
     <Box>
       <Introduce />
 
-      <Box position="relative" height={{ xs: 800, sm: 1200 }} mt={8}>
+      <Box position="relative" height={{ xs: 800, sm: 1000 }} mt={8}>
         <Box position="absolute" top="0" left="0" width="100%">
           {isMobile ? undefined : (
             <>

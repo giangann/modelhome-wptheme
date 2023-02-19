@@ -22,6 +22,9 @@ export const MontserratTypo = styled(Typography)({
 export const OswaldTypo = styled(Typography)({
   fontFamily: 'Oswald',
 });
+export const RobotoTypo = styled(Typography)({
+  fontFamily: 'Roboto',
+});
 export const HeaderItemTypo = styled(Typography)({
   fontSize: 17,
   letterSpacing: 1.2,
@@ -68,6 +71,7 @@ export const OswaldSubtitle = styled(Typography)(({ theme }) => ({
   fontSize: 38,
   fontWeight: 300,
   letterSpacing: 1.4,
+  color: 'white',
 
   [theme.breakpoints.down('sm')]: {
     fontSize: 24,
@@ -160,7 +164,7 @@ export const AccordionSummary = styled((props: AccordionSummaryProps) => (
     {...props}
   />
 ))(({ theme }) => ({
-  padding:0,
+  padding: 0,
   backgroundColor: 'transparent',
   // theme.palette.mode === 'dark' ? 'rgba(255, 255, 255, .05)' : 'rgba(0, 0, 0, .03)',
   flexDirection: 'row-reverse',
@@ -196,4 +200,19 @@ export const btnTextStyle = {
   fontSize: 14,
   letterSpacing: 8.4,
   fontWeight: 700,
+};
+
+export const textHoverStyle = {
+  cursor: 'pointer',
+
+  '&:hover': {
+    color: orange['400'],
+    transition: '0.7s',
+  },
+};
+
+export const centerDiv = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
 };

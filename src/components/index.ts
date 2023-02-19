@@ -6,3 +6,4 @@ export * from './FadeInSection';
 export * from './HeadingBlock';
 export * from './CustomDrawer';
 export * from './CustomMenu';
+export * from './CounterIncreaseValue';
