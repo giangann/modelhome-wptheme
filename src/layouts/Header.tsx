@@ -25,7 +25,7 @@ export const Header = () => {
   const pages: ItemType = [
     {
       name: 'TRANG CHỦ',
-      link: '/home',
+      link: '/',
     },
     {
       name: 'VỀ CHÚNG TÔI',
@@ -66,7 +66,7 @@ export const Header = () => {
                 variant="h6"
                 noWrap
                 component="a"
-                href="/home"
+                href="/"
                 sx={{
                   flexGrow: 1,
                   mr: 2,
@@ -128,7 +128,7 @@ export const Header = () => {
                 variant="h6"
                 noWrap
                 component="a"
-                href="/home"
+                href="/"
                 sx={{
                   flexGrow: 1,
                   mr: 2,

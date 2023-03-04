@@ -1,6 +1,5 @@
 
-import { Typography } from '@mui/material';
-import React, { useCallback, useState } from 'react';
+import React, { useState } from 'react';
 import { OswaldTypo } from '../styled';
 
 export const CounterIncreaseValue = (props: { num: number } & React.CSSProperties) => {
