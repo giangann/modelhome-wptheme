@@ -10,7 +10,7 @@ export const About = () => {
       <Introduce />
 
       <Box position="relative" height={{ xs: 800, sm: 1000 }} mt={8}>
-        <Box position="absolute" top="0" left="0" width="100%">
+        <Box position="absolute" top="0" left="0" width="100%" height={{xs:500,sm:1000}}>
           {isMobile ? undefined : (
             <>
               <Grid container sx={{ position: 'relative', top: '0', zIndex: 3 }}>

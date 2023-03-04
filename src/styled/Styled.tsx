@@ -31,6 +31,18 @@ export const HeaderItemTypo = styled(Typography)({
   // color: 'white',
 });
 
+export const MontserratDashboardTitle = styled(Typography)(({ theme }) => ({
+  fontFamily: 'Montserrat',
+  fontSize: 36,
+  fontWeight: 900,
+  color: 'black',
+  textAlign: 'center',
+  textTransform:'uppercase',
+  [theme.breakpoints.down('sm')]: {
+    fontSize: 30,
+  },
+}));
+
 export const MontserratTypoContent = styled(Typography)({
   fontFamily: 'Montserrat',
   lineHeight: '2.143em',

@@ -20,12 +20,12 @@ type CustomDrawerProps = DrawerProps & {
 
 // Highlight when an item choossed
 export const CustomDrawer = (props: CustomDrawerProps) => {
-  const { item, open, onClose } = props;
+  const { item, open, onClose, ...drawerProps } = props;
   const [openMenu, setOpenMenu] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
-    setOpenMenu(true)
+    setOpenMenu(true);
   };
   const handleCloseMenu = () => {
     setOpenMenu(false);
@@ -37,6 +37,7 @@ export const CustomDrawer = (props: CustomDrawerProps) => {
       open={open}
       transitionDuration={800}
       onClose={onClose}
+      {...drawerProps}
     >
       <Stack sx={{ px: 2, py: 4 }} spacing={2}>
         {item.map((item, index) => (

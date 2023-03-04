@@ -83,3 +83,108 @@ export const projects: ProjectType[] = [
     slug: 'equinox-showroom',
   },
 ];
+
+export const homePage = {
+  bannerPart: {
+    backgroundImg:
+      'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/about.jpg',
+    slogan: 'Độc đáo - Hiện Đại - Sang Trọng',
+  },
+  aboutPart: {
+    title: 'CHÚNG TÔI TẠO RA VÀ HIỆN THỰC HÓA Ý TƯỞNG',
+    subTitle: 'VỀ CÔNG TY',
+    description: {
+      highlight:
+        'Có rất nhiều phong cách nội thất chung cư cho bạn lựa chọn: Phong cách nội thất hiện đại, phong cách nội thất tân cổ điển, phong cách nội thất Indochine, Wabi sabi, Minimalism, Bắc Âu...Bạn vui lòng tham khảo các mẫu thiết kế nội thất chung cư tại đây',
+      normal:
+        'Bạn đang muốn tìm ý tưởng thiết kế nội thất cho chung cư, biệt thự, nhà phố, nhà liền kề, khách sạn, nhà hàng, showroom? MoreHome mong muốn được hỗ trợ và đồng hành cùng bạn từ khâu thiết kế nội thất đến thi công nội thất. MoreHome với nhiều năm kinh nghiệm trong nghề luôn luôn cải tiến, và tìm tòi những giải pháp và công nghệ để công việc ngày một hiệu quả mang lại nhiều giá trị cho khách hàng.',
+    },
+  },
+  servicePart: {
+    // 3 services provide
+    serviceProvide: [
+      {
+        image: '',
+        link: '',
+      },
+      {
+        image: '',
+        link: '',
+      },
+      {
+        image: '',
+        link: '',
+      },
+    ],
+    leftCard: {
+      title: '',
+      subTite: '',
+      description: '',
+    },
+    rightCard: {
+      title: '',
+      subTite: '',
+      description: '',
+    },
+  },
+  projectPart: {
+    title: '',
+    subTitle: '',
+    description: '',
+    // 6 main project
+    mainProject: [
+      {
+        image: '',
+        link: '',
+      },
+      {
+        image: '',
+        link: '',
+      },
+      {
+        image: '',
+        link: '',
+      },
+      {
+        image: '',
+        link: '',
+      },
+      {
+        image: '',
+        link: '',
+      },
+      {
+        image: '',
+        link: '',
+      },
+    ],
+  },
+};
+
+export const aboutPage = {
+  generalPart: {
+    title: '',
+    subTitle: '',
+    description: '',
+    image: '',
+  },
+  philosophyPart: {
+    title: '',
+    subTitle: '',
+    description: {
+      key1: 'value1',
+      key2: 'value2',
+      key3: 'value3',
+    },
+  },
+  milestonePart: {
+    title: '',
+    subTitle: '',
+    description: {
+      key1: 'value1',
+      key2: 'value2',
+      key3: 'value3',
+      key4: 'value4',
+    },
+  },
+};
