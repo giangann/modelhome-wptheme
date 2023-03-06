@@ -12,3 +12,83 @@ export type ProjectType = {
   slug: string;
   project_images?: string[];
 };
+
+export type HomePageApiType = {
+  banner: string;
+  about_us: string;
+  services: string;
+  projects: string;
+};
+
+export type HomePageType = {
+  bannerPart: {
+    backgroundImg: string;
+    slogan: string;
+  };
+  aboutPart: {
+    title: string;
+    subTitle: string;
+    description: {
+      highlight: string;
+      normal: string;
+    };
+  };
+  servicePart: {
+    serviceProvide: [
+      {
+        image: string;
+        link: string;
+      },
+      {
+        image: string;
+        link: string;
+      },
+      {
+        image: string;
+        link: string;
+      },
+    ];
+    leftCard: {
+      title: string;
+      subTite: string;
+      description: string;
+    };
+    rightCard: {
+      title: string;
+      subTite: string;
+      description: string;
+    };
+  };
+  projectPart: {
+    title: string;
+    subTitle: string;
+    description: string;
+    // 6 main project
+    mainProject: [
+      {
+        image: string;
+        link: string;
+      },
+      {
+        image: string;
+        link: string;
+      },
+      {
+        image: string;
+        link: string;
+      },
+      {
+        image: string;
+        link: string;
+      },
+      {
+        image: string;
+        link: string;
+      },
+      {
+        image: string;
+        link: string;
+      },
+    ];
+  };
+};

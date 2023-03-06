@@ -2,7 +2,7 @@ import { Menu, MenuItem, MenuProps } from '@mui/material';
 import { LinkCustom, MontserratTypo } from '../styled';
 import { ItemType } from './CustomDrawer';
 
-export const CustomMenu = (props: MenuProps & { item: ItemType }) => {
+export const CustomMenu = (props: MenuProps & { item: ItemType[] }) => {
   const { item, ...menuProps } = props;
   return (
     <Menu {...menuProps}>

@@ -2,14 +2,21 @@ import { Box, BoxProps, SxProps } from '@mui/material';
 import { LayerBox } from '../styled';
 type BoxWithBackgroundAndLayerProps = {
   image?: string;
-  width?: BoxProps;
-  height?: BoxProps;
+  width?: BoxProps | string | number;
+  height?: BoxProps | string | number;
   backgroundPosition?: React.CSSProperties;
 };
 export const BoxWithBackgroundAndLayer = (
   props: BoxWithBackgroundAndLayerProps & { children: React.ReactElement } & BoxProps,
 ) => {
-  const { image, width, height, children, backgroundPosition="center", ...layerProps } = props;
+  const {
+    image,
+    width,
+    height,
+    children,
+    backgroundPosition = 'center',
+    ...layerProps
+  } = props;
   return (
     <Box
       position="relative"
@@ -19,7 +26,7 @@ export const BoxWithBackgroundAndLayer = (
         backgroundImage: `url(${image})`,
         backgroundRepeat: 'no-repeat',
         backgroundPosition: backgroundPosition,
-        backgroundSize:'cover'
+        backgroundSize: 'cover',
       }}
     >
       <LayerBox {...layerProps} />

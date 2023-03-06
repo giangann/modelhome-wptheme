@@ -46,8 +46,7 @@ export const Dashboard = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const { data: homePageData } = useQuery('home-page');
-  console.log('data', homePageData);
+
   const drawerItems = [
     {
       name: 'Quản lý Home Page',

@@ -5,17 +5,14 @@ import { LinkCustom, MontserratTypo, OswaldTypo } from '../styled';
 import { CustomMenu } from './CustomMenu';
 import { CodiconTriangleDown } from './icon';
 
-type BaseItemType = {
+export type ItemType = {
+  children?: ItemType[];
   name: string;
   link: string;
 };
 
-export type ItemType = {
-  children?: ItemType[];
-} & BaseItemType[];
-
 type CustomDrawerProps = DrawerProps & {
-  item: ItemType;
+  item: ItemType[];
 };
 
 // Highlight when an item choossed
@@ -47,7 +44,7 @@ export const CustomDrawer = (props: CustomDrawerProps) => {
                 {item.name}
               </MontserratTypo>
             </LinkCustom>
-            {item.children && (
+            {(item.children as any) && (
               <>
                 <IconButton sx={{ p: 1 }} onClick={handleClick}>
                   <CodiconTriangleDown color="white" fontSize={14} />
@@ -55,7 +52,7 @@ export const CustomDrawer = (props: CustomDrawerProps) => {
                 <CustomMenu
                   open={openMenu}
                   onClose={handleCloseMenu}
-                  item={item?.children}
+                  item={item?.children as any}
                   anchorEl={anchorEl}
                 />
               </>

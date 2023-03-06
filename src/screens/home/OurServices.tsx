@@ -57,7 +57,7 @@ export const OurServices = () => {
                   <BoxWithBackgroundAndLayer
                     image={thumb.image}
                     width="100%"
-                    height={{ xs: 330, sm: 500 }}
+                    height={isMobile ? 330 : 550}
                   >
                     <Box
                       sx={{

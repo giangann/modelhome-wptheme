@@ -22,7 +22,7 @@ export const Header = () => {
   const location = useLocation();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const pages: ItemType = [
+  const pages: ItemType[] = [
     {
       name: 'TRANG CHỦ',
       link: '/',
