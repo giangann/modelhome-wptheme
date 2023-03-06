@@ -1,7 +1,10 @@
 import { Box, Button, useMediaQuery, useTheme } from '@mui/material';
-import { useState } from 'react';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 import { Outlet } from 'react-router-dom';
 import { CustomDrawer } from '../../components';
+import { API_PREFIX, homePage } from '../../constant';
 
 const drawerWidth = 240;
 export const Dashboard = () => {
@@ -42,6 +45,9 @@ export const Dashboard = () => {
   };
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+  const { data: homePageData } = useQuery('home-page');
+  console.log('data', homePageData);
   const drawerItems = [
     {
       name: 'Quản lý Home Page',
@@ -60,6 +66,15 @@ export const Dashboard = () => {
       link: '/dashboard/manage-blog',
     },
   ];
+
+  const handleUpdate = async () => {
+    const res = await axios.post(`${API_PREFIX}/home-page/update`, {
+      banner: JSON.stringify(homePage.bannerPart),
+      about_us: JSON.stringify(homePage.aboutPart),
+      services: JSON.stringify(homePage.servicePart),
+      projects: JSON.stringify(homePage.projectPart),
+    });
+  };
   return (
     <Box sx={{ display: 'flex' }}>
       {/* Toogle drawer in mobile */}
@@ -82,6 +97,9 @@ export const Dashboard = () => {
               }
         }
       />
+      <Box sx={{ width: 300, height: 800 }}>
+        <Button onClick={handleUpdate}>Test post</Button>
+      </Box>
       <Outlet />
     </Box>
   );
