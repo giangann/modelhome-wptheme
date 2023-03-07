@@ -9,6 +9,8 @@ import {
   OswaldTypoHeaddingContent,
 } from '../../styled';
 export const OurProjects = () => {
+
+  // replace this data by projects in projects table with is_main=true
   const thumbnailsOfProjects = [
     {
       image:

@@ -50,12 +50,12 @@ export type HomePageType = {
     ];
     leftCard: {
       title: string;
-      subTite: string;
+      subTitle: string;
       description: string;
     };
     rightCard: {
       title: string;
-      subTite: string;
+      subTitle: string;
       description: string;
     };
   };

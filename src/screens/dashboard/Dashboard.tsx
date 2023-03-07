@@ -46,7 +46,6 @@ export const Dashboard = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-
   const drawerItems = [
     {
       name: 'Quản lý Home Page',
@@ -66,14 +65,6 @@ export const Dashboard = () => {
     },
   ];
 
-  const handleUpdate = async () => {
-    const res = await axios.post(`${API_PREFIX}/home-page/update`, {
-      banner: JSON.stringify(homePage.bannerPart),
-      about_us: JSON.stringify(homePage.aboutPart),
-      services: JSON.stringify(homePage.servicePart),
-      projects: JSON.stringify(homePage.projectPart),
-    });
-  };
   return (
     <Box sx={{ display: 'flex' }}>
       {/* Toogle drawer in mobile */}
@@ -96,9 +87,7 @@ export const Dashboard = () => {
               }
         }
       />
-      <Box sx={{ width: 300, height: 800 }}>
-        <Button onClick={handleUpdate}>Test post</Button>
-      </Box>
+
       <Outlet />
     </Box>
   );

@@ -104,60 +104,63 @@ export const homePage = {
     // 3 services provide
     serviceProvide: [
       {
-        image: '',
-        link: '',
+        image:
+          'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/Engineering.jpg',
+        link: '/project1',
       },
       {
-        image: '',
-        link: '',
+        image:
+          'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/Architecture.jpg',
+        link: '/project2',
       },
       {
-        image: '',
-        link: '',
+        image:
+          'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/Interior-Design.jpg',
+        link: '/project3',
       },
     ],
     leftCard: {
-      title: '',
-      subTite: '',
-      description: '',
+      title: 'LÀM VIỆC VỚI <br/> DỰ ÁN PHỨC TẠP',
+      subTitle: 'LỢI THẾ',
+      description: 'Thiết kế các tòa nhà bền vững, hiệu suất cao đòi hỏi phải tích hợp các hệ thống kiến trúc và kỹ thuật vào một thiết kế cân bằng giữa tính bền vững và hiệu quả chi phí. Archus hợp nhất những thực hành này với các yêu cầu và nguyên tắc riêng cần thiết cho các cơ sở công nghệ tiên tiến.',
     },
     rightCard: {
-      title: '',
-      subTite: '',
-      description: '',
+      title: 'KHÁCH HÀNG <br/> ĐÁNH GIÁ',
+      subTitle: 'PHẢN HỒI',
+      description: 'Không phải mọi công ty xây dựng đều có thể xây dựng một tòa nhà từ đầu và hoàn thành 80.000 ft vuông không gian cải tiến văn phòng hạng nhất trong 13 tháng.',
     },
   },
   projectPart: {
-    title: '',
-    subTitle: '',
-    description: '',
+    title: 'CÁC DỰ ÁN <br/> CỦA MODEL HOME',
+    subTitle: 'HỒ SƠ',
+    description: 'Nhà đẹp cần có thiết kế đẹp” Bạn đang quan tâm đến thiết kế nội thất là bạn đang tiết kiệm chi phí đầu tư vào thi công và đảm bảo có một căn nhà đẹp trong thời gian dài. Giá thiết kế nếu so với chi phí thi công thì không nhiều, bạn chọn đơn vị thiết kế giá rẻ thì tương đương chất lượng cũng rẻ. Với MoreHome chúng tôi không làm chạy theo số lượng mà đặt vấn đề chất lượng lên hàng đầu. Vì vậy bạn hãy lựa chọn phù hợp với mong chờ của bạn. Chương trình khuyến mãi đặc biệt giảm 50% phí thiết kế nội thất cho những khách sử dụng dịch vụ thi công nội thất tổng thể khi thiết kế nội thất.',
     // 6 main project
-    mainProject: [
-      {
-        image: '',
-        link: '',
-      },
-      {
-        image: '',
-        link: '',
-      },
-      {
-        image: '',
-        link: '',
-      },
-      {
-        image: '',
-        link: '',
-      },
-      {
-        image: '',
-        link: '',
-      },
-      {
-        image: '',
-        link: '',
-      },
-    ],
+    // mainProject: [
+    //   {
+    //     image: '',
+    //     link: '',
+    //   },
+    //   {
+    //     image: '',
+    //     link: '',
+    //   },
+    //   {
+    //     image: '',
+    //     link: '',
+    //   },
+    //   {
+    //     image: '',
+    //     link: '',
+    //   },
+    //   {
+    //     image: '',
+    //     link: '',
+    //   },
+    //   {
+    //     image: '',
+    //     link: '',
+    //   },
+    // ],
   },
 };
 
