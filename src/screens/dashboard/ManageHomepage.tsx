@@ -85,7 +85,6 @@ export const ManageHomepage = () => {
       const serviceData = JSON.parse(value.services);
       const projectData = JSON.parse(value.projects);
 
-      console.log('value', value);
       setValue('bannerPart.backgroundImg', bannerData.backgroundImg);
       setValue('bannerPart.slogan', bannerData.slogan);
 
@@ -103,8 +102,6 @@ export const ManageHomepage = () => {
   const onSubmit = async (value: any) => {
     console.log('value submit: ', value);
   };
-
-  console.log('getVAlues', getValues('servicePart.leftCard'));
 
   const handleUpdate = async () => {
     const res = await axios.post(`${API_PREFIX}/home-page/update`, {
@@ -131,7 +128,7 @@ export const ManageHomepage = () => {
           <Grid item xs={6}>
             <MontserratTypoContent sx={{ color: 'black' }}>Ảnh nền</MontserratTypoContent>
             <img
-              src={introduceImage}
+              src={getValues('bannerPart.backgroundImg')}
               alt="introduce"
               style={{ marginBottom: 40, maxWidth: '100%' }}
             />
@@ -303,7 +300,9 @@ export const ManageHomepage = () => {
 
       <Box>
         <Stack direction="row" justifyContent="flex-start">
-          <Button variant="contained" onClick={handleSubmit(onSubmit)}>Save</Button>
+          <Button variant="contained" onClick={handleSubmit(onSubmit)}>
+            Save
+          </Button>
         </Stack>
       </Box>
     </Container>
