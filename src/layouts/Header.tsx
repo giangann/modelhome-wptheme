@@ -1,3 +1,4 @@
+import { PagesRounded } from '@mui/icons-material';
 import MenuIcon from '@mui/icons-material/Menu';
 import {
   AppBar,
@@ -13,7 +14,8 @@ import {
 } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { CustomDrawer, ItemType } from '../components';
+import { CustomDrawer, CustomMenu, ItemType } from '../components';
+import { CodiconTriangleDown } from '../components/icon';
 import { grey, orange } from '../libs';
 import { HeaderItemTypo } from '../styled';
 
@@ -44,7 +46,7 @@ export const Header = () => {
     },
     {
       name: 'DỊCH VỤ',
-      link: '#',
+      link: '/service',
       children: [
         {
           name: 'Thiết kế kiến trúc',
@@ -63,16 +65,16 @@ export const Header = () => {
     {
       name: 'DỰ ÁN',
       link: '/project',
-      children: [
-        {
-          name: 'THIẾT KẾ',
-          link: '/project/design',
-        },
-        {
-          name: 'THI CÔNG',
-          link: '/project/implement',
-        },
-      ],
+      // children: [
+      //   {
+      //     name: 'THIẾT KẾ',
+      //     link: '/project/design',
+      //   },
+      //   {
+      //     name: 'THI CÔNG',
+      //     link: '/project/implement',
+      //   },
+      // ],
     },
     {
       name: 'BLOG',
@@ -90,16 +92,19 @@ export const Header = () => {
         <Container maxWidth="lg">
           {/* For Desktop */}
           {!isMobile ? (
-            <Toolbar sx={{ height: 90 }}>
+            <Stack
+              direction="row"
+              justifyContent="space-between"
+              height={90}
+              alignItems="center"
+            >
               <Typography
                 variant="h6"
                 noWrap
                 component="a"
                 href="/"
                 sx={{
-                  flexGrow: 1,
                   mr: 2,
-                  display: { xs: 'none', md: 'block' },
                   fontSize: 32,
                   fontFamily: 'monospace',
                   fontWeight: 600,
@@ -110,27 +115,41 @@ export const Header = () => {
               >
                 ModelHome
               </Typography>
-              <Stack
-                direction="row"
-                spacing={2}
-                sx={{ display: { xs: 'none', sm: 'block' } }}
-              >
+              <Stack direction="row" spacing={2}>
                 {pages.map((page: any) => (
-                  <Button
-                    key={page.name}
-                    sx={{
-                      color: location.pathname.includes(page.link)
-                        ? orange['400']
-                        : '#fff',
-                    }}
-                    component="a"
-                    href={page.link}
-                  >
-                    <HeaderItemTypo>{page.name}</HeaderItemTypo>
-                  </Button>
+                  <Stack direction="row">
+                    <Button
+                      key={page.name}
+                      sx={{
+                        color: location.pathname.includes(page.link)
+                          ? orange['400']
+                          : '#fff',
+                      }}
+                      component="a"
+                      href={page.children ? '#' : page.link}
+                      onClick={
+                        page.children ? (event: any) => handleClick(event) : () => {}
+                      }
+                    >
+                      <HeaderItemTypo>{page.name}</HeaderItemTypo>
+                    </Button>
+                    {(page.children as any) && (
+                      <>
+                        <IconButton sx={{ p: 1 }} onClick={handleClick}>
+                          <CodiconTriangleDown color="white" fontSize={14} />
+                        </IconButton>
+                        <CustomMenu
+                          open={openMenu}
+                          onClose={handleCloseMenu}
+                          item={page?.children as any}
+                          anchorEl={anchorEl}
+                        />
+                      </>
+                    )}
+                  </Stack>
                 ))}
               </Stack>
-            </Toolbar>
+            </Stack>
           ) : (
             // For Mobile
             <Toolbar sx={{ height: 90 }}>
@@ -145,11 +164,7 @@ export const Header = () => {
                   width: 'fit-content',
                 }}
               >
-                <IconButton
-                  color="inherit"
-                  aria-label="open drawer"
-                  // edge="start"
-                >
+                <IconButton color="inherit" aria-label="open drawer">
                   <MenuIcon onClick={() => setOpenDrawer(true)} />
                 </IconButton>
               </Box>
@@ -173,7 +188,7 @@ export const Header = () => {
                   justifyContent: 'center',
                 }}
               >
-                MoHo
+                ModelHome
               </Typography>
               <CustomDrawer open={openDrawer} onClose={handleCloseDrawer} item={pages} />
             </Toolbar>

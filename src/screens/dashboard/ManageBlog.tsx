@@ -7,7 +7,7 @@ export const ManageBlog = () => {
   console.log('test Sun Data', testSunData);
 
   function createMarkup() {
-    return { __html: testSunData ? testSunData[3].content : '' };
+    return { __html: testSunData ? 'testSunData[3].content' : '' };
   }
   return (
     <Box sx={{ paddingY: 4 }}>

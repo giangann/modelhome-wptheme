@@ -1,9 +1,9 @@
 import { Box, Container, Grid, Stack } from '@mui/material';
 import { HeadingBlock } from '../../components';
+import { IMAGE_FOLDER_PATH } from '../../constant';
 import { MontserratTypoContent } from '../../styled';
 export const Introduce = () => {
-  const introduceImage =
-    'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/about.jpg';
+  const introduceImage = `${IMAGE_FOLDER_PATH}/about.jpg`;
   return (
     <Container sx={{ marginTop: { xs: 8, sm: 12 }, maxWidth: '1000px !important' }}>
       <Grid container columnSpacing={4}>
@@ -15,7 +15,11 @@ export const Introduce = () => {
         </Grid>
 
         <Grid item xs={12} sm={7}>
-          <img src={introduceImage} alt="introduce" style={{ marginBottom: 40 }} />
+          <img
+            src={introduceImage}
+            alt="introduce"
+            style={{ marginBottom: 40, maxWidth: '100%' }}
+          />
           <Stack spacing={4}>
             <MontserratTypoContent sx={{ fontWeight: 500 }}>
               Có rất nhiều phong cách nội thất chung cư cho bạn lựa chọn: Phong cách nội

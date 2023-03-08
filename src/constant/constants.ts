@@ -58,3 +58,5 @@ export const convertSlugToName = (slug: string | undefined) => {
 
 export const API_PREFIX = 'http://127.0.0.1:8000/api';
 export const IMAGE_FOLDER_PATH = '/images';
+export const ZALO_LINK = 'https://zalo.me/0979828688';
+// export const PHONE_NUMBER = 0979828688;

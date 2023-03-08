@@ -7,6 +7,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import { Footer } from './Footer';
 import { Header } from './Header';
 import { orange } from '../libs';
+import { PhoneFloatIcon, ZaloFloatIcon } from '../components/icon';
 
 export const Layout = () => {
   return (
@@ -14,6 +15,8 @@ export const Layout = () => {
       <Header />
       <Outlet />
       <Footer />
+      <ZaloFloatIcon />
+      <PhoneFloatIcon />
     </Box>
   );
 };

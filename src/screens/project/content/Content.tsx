@@ -7,10 +7,10 @@ export const Content = () => {
   console.log('test Sun Data', testSunData);
 
   function createMarkup() {
-    return { __html: testSunData ? testSunData[3].content : '' };
+    return { __html: testSunData ? 'testSunData[3].content' : '' };
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     const script = document.createElement('script');
 
     script.src = '/js/suneditCustom.js';
@@ -21,6 +21,6 @@ export const Content = () => {
     return () => {
       document.body.removeChild(script);
     };
-  },[])
+  }, []);
   return <div id="sunedit-area" dangerouslySetInnerHTML={createMarkup()} />;
 };

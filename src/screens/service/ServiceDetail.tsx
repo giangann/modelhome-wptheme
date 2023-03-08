@@ -1,7 +1,7 @@
 import { Box, Container, Grid, Stack, styled, Typography } from '@mui/material';
 import React from 'react';
 import { HeadingBlock } from '../../components';
-import { serviceDetail } from '../../constant';
+import { IMAGE_FOLDER_PATH, serviceDetail } from '../../constant';
 import {
   Accordion,
   AccordionDetails,
@@ -10,8 +10,7 @@ import {
   OswaldTypoHeaddingFooter,
 } from '../../styled';
 export const ServiceDetail = () => {
-  const introduceImage =
-    'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/about.jpg';
+  const introduceImage = `${IMAGE_FOLDER_PATH}/service_thumb/${2}.jpg`;
 
   const [expanded, setExpanded] = React.useState<string | false>('panel1');
   const handleChange =
