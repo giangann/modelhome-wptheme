@@ -67,9 +67,9 @@ export const ServiceDetail = () => {
                     {key.toUpperCase()}. {value.title}
                   </AccordionSummaryTypo>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails sx={{ my: 1 }}>
                   {value.content.map((item, index) => (
-                    <AccordionDetailTypo>{item}</AccordionDetailTypo>
+                    <AccordionDetailTypo sx={{ mt: 1 }}>+ {item}</AccordionDetailTypo>
                   ))}
                 </AccordionDetails>
               </Accordion>
@@ -93,11 +93,15 @@ const AccordionSummaryTypo = styled(Typography)(({ theme }) => ({
   },
 }));
 
-const AccordionDetailTypo = styled(Typography)({
+const AccordionDetailTypo = styled(Typography)(({ theme }) => ({
   fontFamily: 'Montserrat',
-  fontSize: 14,
+  fontSize: 15,
   fontWeight: 300,
   letterSpacing: 0,
   lineHeight: '30px',
   color: 'black',
-});
+
+  [theme.breakpoints.down('sm')]: {
+    fontSize: 14,
+  },
+}));

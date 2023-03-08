@@ -248,7 +248,7 @@ export const serviceDetail = {
       g: {
         title: 'Nguyên tắc an toàn lao động, vệ sinh môi trường, bao che công trình',
         content: [
-          'quy trình Thi Công An Toàn Lao Động theo tiêu chuẩn thi công nhà cao tầng. Công nhân được đào tạo về ATLĐ và sử dụng bảo vệ thiết bị khi thi công, ATLĐ đảm bảo.',
+          'Quy trình Thi Công An Toàn Lao Động theo tiêu chuẩn thi công nhà cao tầng. Công nhân được đào tạo về ATLĐ và sử dụng bảo vệ thiết bị khi thi công, ATLĐ đảm bảo.',
           'Xây dựng hệ thống Bao Che Chắn gọn gàng cho công việc, thực hiện đấu nối đặc biệt theo nước ngoài quy định, không làm ảnh hưởng đến các công ty.',
           'Mua Bảo hiểm cho Công Nhân, Công Trình và cho bên Thứ Ba.',
         ],
