@@ -20,21 +20,21 @@ export const Philosophy = () => {
   const accordion = [
     {
       id: 'panel1d-header',
-      summary: 'Sứ mệnh',
+      summary: 'Thật - Luôn Tận Tâm',
       detail:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendissemalesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor            sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sitamet blandit leo lobortis eget.',
+        'Nói THẬT, thi công THẬT là kim chỉ nam của Model Home. Niềm tin luôn bắt đầu từ sự mình bạch thông tin. Tập thể đội ngũ Model Home luôn tự hòa và hân hoan được đồng hành với quý khách hàng trong việc đưa ngôi nhà trong mơ ra khỏi bản vẽ.',
     },
     {
       id: 'panel2d-header',
-      summary: 'Tầm nhìn',
+      summary: 'Khách hàng là trọng tâm',
       detail:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendissemalesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor            sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sitamet blandit leo lobortis eget.',
+        'Đối với Model Home, ngoài mục tiêu tạo nên những công trình chắc chắn với xu hướng vượt thời đại. Chúng tôi cũng tâm niệm rằng, trải nghiệm của khách hàng xuyên xuốt quá trình này là cực kỳ quan trọng. Vì vậy, chúng tôi luôn mong muốn đồng hành với khách hàng qua từng giai đoạn tạo ra ngôi nhà với sự minh bạch, tôn trọng, và tin tưởng.',
     },
     {
       id: 'panel3d-header',
-      summary: 'Giá trị',
+      summary: 'Hướng vào kết quả',
       detail:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendissemalesuada lacus ex, sit amet blandit leo lobortis eget. Lorem ipsum dolor            sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sitamet blandit leo lobortis eget.',
+        'Không ngừng học hỏi kiến thức, kỹ năng, xây dựng ý thức tiết kiệm cùng tinh thần kiên định, tập trung vào mục tiêu nhằm nâng cao hiệu quả công việc để gia tăng lợi ích cho khách hàng và cho Model Home.',
     },
   ];
 
