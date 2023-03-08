@@ -2,7 +2,8 @@ import { Box, Container, Grid, Stack, useMediaQuery, useTheme } from '@mui/mater
 import { useNavigate } from 'react-router-dom';
 import { BoxWithBackgroundAndLayer, FadeInSection } from '../../components';
 import { IcBaselineFormatQuote } from '../../components/icon';
-import { orange } from '../../libs';
+import { IMAGE_FOLDER_PATH } from '../../constant';
+import { black, orange } from '../../libs';
 import {
   btnTextStyle,
   LinkCustom,
@@ -19,25 +20,22 @@ export const OurServices = () => {
 
   const serviceThumbs = [
     {
-      name: 'THIẾT KẾ NỘI THẤT',
-      image:
-        'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/Engineering.jpg',
+      name: ' Thiết kế Kiến trúc Nội thất - Thiết kế trọn gói',
+      image: `${IMAGE_FOLDER_PATH}/service_thumb/1.jpg`,
       fade: 'fade-in-down',
-      link: '/project',
+      link: '/service/1',
     },
     {
-      name: 'THI CÔNG CÔNG TRÌNH',
-      image:
-        'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/Architecture.jpg',
+      name: 'Thi công xây dựng phần thô',
+      image: `${IMAGE_FOLDER_PATH}/service_thumb/2.jpg`,
       fade: 'fade-in-up',
-      link: '/project',
+      link: '/service/2',
     },
     {
-      name: 'THIẾT KẾ KIẾN TRÚC',
-      image:
-        'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/Interior-Design.jpg',
+      name: 'Cải tạo - nâng cấp',
+      image: `${IMAGE_FOLDER_PATH}/service_thumb/3.jpg`,
       fade: 'fade-in-down',
-      link: '/project',
+      link: '/service/3',
     },
   ];
   return (
@@ -58,6 +56,7 @@ export const OurServices = () => {
                     image={thumb.image}
                     width="100%"
                     height={isMobile ? 330 : 550}
+                    sx={{ backgroundColor: 'black', opacity: 0.25 }}
                   >
                     <Box
                       sx={{
@@ -77,7 +76,7 @@ export const OurServices = () => {
                             textAlign: 'center',
                             fontWeight: 600,
                             cursor: 'pointer',
-
+                            textTransform: 'uppercase',
                             '&:hover': {
                               color: orange['400'],
                               transition: '0.7s',

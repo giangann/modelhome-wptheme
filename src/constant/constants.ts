@@ -57,3 +57,4 @@ export const convertSlugToName = (slug: string | undefined) => {
 };
 
 export const API_PREFIX = 'http://127.0.0.1:8000/api';
+export const IMAGE_FOLDER_PATH = '/images';

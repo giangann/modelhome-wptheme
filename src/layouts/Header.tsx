@@ -22,6 +22,17 @@ export const Header = () => {
   const location = useLocation();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+  const [openMenu, setOpenMenu] = useState(false);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+    setOpenMenu(true);
+  };
+  const handleCloseMenu = () => {
+    setOpenMenu(false);
+  };
+
   const pages: ItemType[] = [
     {
       name: 'TRANG CHỦ',
@@ -30,6 +41,24 @@ export const Header = () => {
     {
       name: 'VỀ CHÚNG TÔI',
       link: '/about',
+    },
+    {
+      name: 'DỊCH VỤ',
+      link: '#',
+      children: [
+        {
+          name: 'Thiết kế kiến trúc',
+          link: '/service/1',
+        },
+        {
+          name: 'Xây dựng phần thô',
+          link: '/service/1',
+        },
+        {
+          name: 'Cải tạo, nâng cấp',
+          link: '/service/1',
+        },
+      ],
     },
     {
       name: 'DỰ ÁN',

@@ -9,10 +9,12 @@ import {
   ManageBlog,
   ManageHomepage,
   ManageProject,
+  ProjectForm,
 } from '../screens/dashboard';
 import { Forbidden } from '../screens/forbidden';
 import { Home } from '../screens/home';
 import { ProjectDetail, Projects } from '../screens/project';
+import { ServiceDetail } from '../screens/service';
 
 export const Router = () => {
   const isAdmin = true;
@@ -25,6 +27,7 @@ export const Router = () => {
         <Route path="/project" element={<Projects />} />
         <Route path="/project/:slug" element={<ProjectDetail />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/service/:slug" element={<ServiceDetail/>}/>
       </Route>
 
       {/* Admin route */}
@@ -33,6 +36,8 @@ export const Router = () => {
         <Route path="/dashboard/manage-about-page" element={<ManageAboutPage />} />
         <Route path="/dashboard/manage-project" element={<ManageProject />} />
         <Route path="/dashboard/manage-blog" element={<ManageBlog />} />
+        <Route path="/dashboard/new-project" element={<ProjectForm />} />
+        <Route path="/dashboard/project/:id" element={<ProjectForm />} />
       </Route>
     </Routes>
   );

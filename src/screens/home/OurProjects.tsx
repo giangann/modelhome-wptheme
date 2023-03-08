@@ -1,6 +1,7 @@
 import { Box, Container, Grid, Stack } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { HeadingBlock } from '../../components';
+import { IMAGE_FOLDER_PATH } from '../../constant';
 import {
   btnTextStyle,
   MontserratTypo,
@@ -11,38 +12,38 @@ import {
 export const OurProjects = () => {
 
   // replace this data by projects in projects table with is_main=true
-  const thumbnailsOfProjects = [
-    {
-      image:
-        'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-1-600x616.jpg',
-      link: '#',
-    },
-    {
-      image:
-        'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-2-600x616.jpg',
-      link: '#',
-    },
-    {
-      image:
-        'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-3-600x616.jpg',
-      link: '#',
-    },
-    {
-      image:
-        'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-4-600x616.jpg',
-      link: '#',
-    },
-    {
-      image:
-        'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-5-600x616.jpg',
-      link: '#',
-    },
-    {
-      image:
-        'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-6-600x616.jpg',
-      link: '#',
-    },
-  ];
+  // const thumbnailsOfProjects = [
+  //   {
+  //     image:
+  //       'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-1-600x616.jpg',
+  //     link: '#',
+  //   },
+  //   {
+  //     image:
+  //       'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-2-600x616.jpg',
+  //     link: '#',
+  //   },
+  //   {
+  //     image:
+  //       'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-3-600x616.jpg',
+  //     link: '#',
+  //   },
+  //   {
+  //     image:
+  //       'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-4-600x616.jpg',
+  //     link: '#',
+  //   },
+  //   {
+  //     image:
+  //       'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-5-600x616.jpg',
+  //     link: '#',
+  //   },
+  //   {
+  //     image:
+  //       'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-6-600x616.jpg',
+  //     link: '#',
+  //   },
+  // ];
 
   const navigate = useNavigate();
   return (
@@ -70,14 +71,14 @@ export const OurProjects = () => {
         </Grid>
       </Container>
       <Grid container sx={{ marginY: 4 }} spacing={2} p={2}>
-        {thumbnailsOfProjects.map((thumb, index) => (
+        {[1,2,3,4,5,6].map((thumb, index) => (
           <Grid key={index} item xs={12} sm={4}>
             <Box
               component="img"
-              src={thumb.image}
+              src={`${IMAGE_FOLDER_PATH}/main-projects/${index+1}.jpg`}
               style={{
                 width: '100%',
-                height: 'auto',
+                height: '100%',
                 objectFit: 'cover',
               }}
               sx={{

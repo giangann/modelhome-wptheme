@@ -1,4 +1,5 @@
 import { Box, Stack } from '@mui/material';
+import { IMAGE_FOLDER_PATH } from '../../constant';
 import {
   btnTextStyle,
   LayerBox,
@@ -13,7 +14,7 @@ export const Banner = () => {
     <Box sx={{ position: 'relative' }}>
       <Box
         component="img"
-        src="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/slide-1.jpg"
+        src={`${IMAGE_FOLDER_PATH}/home_banner.jpg`}
         style={{
           width: '100%',
           height: '100vh',

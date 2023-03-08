@@ -1,0 +1,43 @@
+#sunedit-area table {
+  width: 100%;
+}
+
+#sunedit-area p {
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+  font-family: Montserrat;
+  color: rgba(28, 28, 28, 0.6);
+  font-weight: 500;
+  width: 50%;
+  margin: 20px auto;
+  align-self: center;
+  box-sizing: border-box;
+}
+
+#sunedit-area img {
+  width: 100%;
+}
+
+#sunedit-area img:first-child{
+  height: 70vh;
+  object-fit: cover;
+}
+
+@media only screen and (max-width: 1200px) {
+  /*Tablets [601px -> 1200px]*/
+}
+
+@media only screen and (max-width: 600px) {
+  /*Big smartphones [426px -> 600px]*/
+  #sunedit-area p {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+@media only screen and (max-width: 425px) {
+  /*Small smartphones [325px -> 425px]*/
+}

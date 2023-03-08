@@ -1,10 +1,59 @@
-import { Box } from '@mui/material';
-import { OswaldTypo } from '../../styled';
+import { Box, Button, Container } from '@mui/material';
+import { MontserratDashboardTitle, OswaldTypo } from '../../styled';
+import SunEditor from 'suneditor-react';
+import 'suneditor/dist/css/suneditor.min.css';
+import axios from 'axios';
+import { API_PREFIX } from '../../constant';
+import { useNavigate } from 'react-router-dom';
 
 export const ManageProject = () => {
+  const navigate = useNavigate();
+
+  const handleCreate = () => {
+    navigate('/dashboard/new-project');
+  };
+  const handleChange = (content: any) => {
+    console.log('content', content);
+  };
+  const handleSave = async (content: any) => {
+    console.log('save content', content);
+    const res = await axios.post(`${API_PREFIX}/posts/create`, {
+      postable_type: 'Project',
+      postable_id: 1,
+      content: content,
+    });
+
+    console.log('res of save', res);
+    // if (res.s)
+  };
   return (
-    <Box>
-      <OswaldTypo>Manage Project</OswaldTypo>
-    </Box>
+    <Container sx={{ paddingY: 4 }}>
+      <MontserratDashboardTitle>Quản lý Dự án</MontserratDashboardTitle>
+      <Button variant="outlined" onClick={handleCreate} >+ Tạo mới</Button>
+      <SunEditor
+        // lang="en"
+        width="100%"
+        height="100%"
+        autoFocus={true}
+        placeholder="Please type here..."
+        onChange={handleChange}
+        setOptions={{
+          buttonList: [
+            [
+              'bold',
+              'underline',
+              'table',
+              'image',
+              'video',
+              'audio',
+              'codeView',
+              'preview',
+              'save',
+            ],
+          ],
+        }}
+        onSave={handleSave}
+      />{' '}
+    </Container>
   );
 };

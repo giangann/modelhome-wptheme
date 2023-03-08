@@ -1,5 +1,6 @@
 import { Box, Container, Grid } from '@mui/material';
 import { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import { Line } from '../../components';
 import { FadeInSection } from '../../components/FadeInSection';
@@ -11,6 +12,7 @@ import {
   OswaldTypo,
   OswaldTypoHeaddingContent,
 } from '../../styled';
+import { Content } from './content';
 
 export const ProjectDetail = () => {
   const params = useParams();
@@ -41,6 +43,7 @@ export const ProjectDetail = () => {
     window.scrollTo(0, 0);
     // window.location.reload();
   }, []);
+
   return (
     // Part 1: Project summary <Name of project, Size, Customer, Location, Year >
     // Part 2: Blocks of content, each block contain Images (admin choose how many image) and Text
@@ -81,9 +84,9 @@ export const ProjectDetail = () => {
           </Box>
         </GridCenter>
       </Grid>
-
       {/* Part 2 */}
-      <FadeInSection>
+      <Box>
+        {/* <FadeInSection>
         <img
           src={img1}
           alt="Main"
@@ -175,7 +178,9 @@ export const ProjectDetail = () => {
             their field.
           </MontserratTypo>
         </Container>
-      </FadeInSection>
+      </FadeInSection> */}
+      </Box>
+      <Content />
     </Box>
   );
 };

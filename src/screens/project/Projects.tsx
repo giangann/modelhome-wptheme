@@ -1,7 +1,7 @@
 import { Box, Grid, useMediaQuery, useTheme } from '@mui/material';
 import { useEffect } from 'react';
 import { HeadingBlock, Line } from '../../components';
-import { projects } from '../../constant';
+import { IMAGE_FOLDER_PATH, projects } from '../../constant';
 import { orange, ProjectType } from '../../libs';
 import {
   GridCenter,
@@ -65,10 +65,13 @@ export const Projects = () => {
         </Grid>
       </Grid>
       <Grid container sx={{ mt: 4 }}>
-        {projects.map((project: ProjectType, index) => (
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => (
           <Grid key={index} item xs={12} sm={index === 0 ? 12 : 6}>
             <ProjectItem
-              project={project}
+              project={{
+                ...projects[index],
+                thumb: `${IMAGE_FOLDER_PATH}/project_thumb/${index + 1}.jpg`,
+              }}
               isLastest={!index ?? true}
               defectivePosition={
                 index !== 0 ? (isLeftDefective(index) ? 'left' : 'right') : 'right'

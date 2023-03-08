@@ -92,3 +92,17 @@ export type HomePageType = {
     ];
   };
 };
+
+export type ProjectApiType = {
+  thumb: string;
+  name: string;
+  summary: string;
+  slug: string;
+
+  location: string;
+  finish_in: string;
+  customer: string;
+  square: string;
+
+  is_main?: boolean;
+};

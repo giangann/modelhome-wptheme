@@ -27,7 +27,9 @@ export const RobotoTypo = styled(Typography)({
 });
 export const HeaderItemTypo = styled(Typography)({
   fontSize: 17,
-  letterSpacing: 1.2,
+  letterSpacing: '1.2px',
+  fontFamily:'Oswald',
+  fontWeight:500,
   // color: 'white',
 });
 
