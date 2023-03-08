@@ -1,6 +1,6 @@
 import { Box, Container, Grid, Stack, useMediaQuery, useTheme } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { BoxWithBackgroundAndLayer, FadeInSection } from '../../components';
+import { BoxWithBackgroundAndLayer, FadeInSection, Line } from '../../components';
 import { IcBaselineFormatQuote } from '../../components/icon';
 import { IMAGE_FOLDER_PATH } from '../../constant';
 import { black, orange } from '../../libs';
@@ -108,7 +108,14 @@ export const OurServices = () => {
                   sx={{ backgroundColor: orange['400'], opacity: 0.9 }}
                   image="https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/home-testimonials-bg.jpg"
                 >
-                  <Stack sx={{ mt: 52, ml: 16, position: 'relative' }} spacing={6}>
+                  <Stack
+                    sx={{
+                      mt: 36,
+                      ml: { sm: 4, md: 2, lg: 10, xl: 14 },
+                      position: 'relative',
+                    }}
+                    spacing={6}
+                  >
                     <Box sx={{ position: 'absolute', top: -70, left: -90 }}>
                       <IcBaselineFormatQuote
                         fontSize={200}
@@ -131,15 +138,34 @@ export const OurServices = () => {
 
                     <MontserratTypoContent
                       color="white"
-                      width="70%"
+                      width={{ sm: '90%', xl: '70%' }}
                       fontStyle="italic"
                       fontSize="18px!important"
-                      lineHeight={2.25}
+                      lineHeight={'1.8em !important'}
                     >
-                      Không phải mọi công ty xây dựng đều có thể xây dựng một tòa nhà từ
-                      đầu và hoàn thành 80.000 ft vuông không gian cải tiến văn phòng hạng
-                      nhất trong 13 tháng.
+                      ModelHome đã triển khai Cải tạo công trình và làm Nội thất cho gia
+                      đình tôi tại Long Biên. Trong thời gian hơn 4 tháng hợp tác, tôi
+                      thấy các thành viên của công ty tuy tuổi đời còn rất trẻ, nhưng
+                      phong cách làm việc rất chuyên nghiệp. Các em luôn nhiệt tình, cầu
+                      thị và biết lắng nghe. Căn nhà của gia đình tôi trước kia là một
+                      công trình xây sẵn thiết kế mô tuýp điển hình lỗi thời, giờ đây đã
+                      trở thành một ngôi nhà sang trọng không gian phòng khách đa chức
+                      năng. Xin cảm ơn và chúc ModelHome ngày càng phát triển, luôn nhận
+                      được sự tin yêu của khách hàng.
                     </MontserratTypoContent>
+
+                    <Stack
+                      direction="row"
+                      justifyContent="flex-start"
+                      alignItems="center"
+                      spacing={1}
+                    >
+                      <Line backgroundColor="white" width="10px" height="1px" />
+                      <MontserratTypoContent color="white" fontWeight={900}>
+                        Anh Chính - Long Biên
+                      </MontserratTypoContent>
+                      <Line backgroundColor="white" width="10px" height="1px" />
+                    </Stack>
                   </Stack>
                 </BoxWithBackgroundAndLayer>
               </Grid>
@@ -170,9 +196,12 @@ export const OurServices = () => {
                     >
                       LỢI THẾ
                     </OswaldTypo>
-                    <OswaldTypoHeaddingFooter color="white" mb={4}>
-                      LÀM VIỆC VỚI
-                      <br /> DỰ ÁN PHỨC TẠP
+                    <OswaldTypoHeaddingFooter
+                      color="white"
+                      mb={4}
+                      sx={{ textTransform: 'uppercase' }}
+                    >
+                      Đội ngũ <br /> tay nghề cao
                     </OswaldTypoHeaddingFooter>
 
                     <MontserratTypoContent
@@ -181,11 +210,10 @@ export const OurServices = () => {
                       // fontStyle="italic"
                       mb={8}
                     >
-                      Thiết kế các tòa nhà bền vững, hiệu suất cao đòi hỏi phải tích hợp
-                      các hệ thống kiến trúc và kỹ thuật vào một thiết kế cân bằng giữa
-                      tính bền vững và hiệu quả chi phí. Archus hợp nhất những thực hành
-                      này với các yêu cầu và nguyên tắc riêng cần thiết cho các cơ sở công
-                      nghệ tiên tiến.
+                      Với đội ngũ kiến ​​trúc sư giàu kinh nghiệm, sáng tạo và chuyên môn
+                      cao kết hợp đội ngũ kỹ sư, nhân công tay nghề cao cùng cùng thiết bị
+                      công nghệ hiện đại, MODEL HOME đã, đang và sẽ mang lại sự hài lòng
+                      cho khách hàng từ chất lượng sản phẩm đến độ thẩm mỹ cao.
                     </MontserratTypoContent>
 
                     <OrangeOutlinedBtn sx={{ padding: '16px 48px', margin: 'auto' }}>
