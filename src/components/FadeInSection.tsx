@@ -1,5 +1,7 @@
-import React, { LegacyRef } from 'react';
 import '../css/effect.css';
+
+import React, { LegacyRef } from 'react';
+
 import { FadeInType } from '../libs';
 
 type FadeInSectionProps = {

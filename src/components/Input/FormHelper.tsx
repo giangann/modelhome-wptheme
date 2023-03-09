@@ -1,7 +1,7 @@
-import { FormHelperText, styled } from '@mui/material'
+import { FormHelperText, styled } from '@mui/material';
 
 const FormHelper = styled(FormHelperText)({
   marginLeft: 1,
-})
+});
 
-export { FormHelper }
+export { FormHelper };

@@ -1,4 +1,5 @@
 import { Box, Stack } from '@mui/material';
+
 import { IMAGE_FOLDER_PATH } from '../../constant';
 import {
   btnTextStyle,
@@ -45,8 +46,11 @@ export const Banner = () => {
           <OswaldSubtitle sx={{ color: 'white', textAlign: 'center' }}>
             Độc đáo - Hiện Đại - Sang Trọng
           </OswaldSubtitle>
-          <Box sx={{ display: 'flex', jusitfyContent: 'center', width: '100%', mt:6 }}>
-            <OrangeContainedBtn href='/about' sx={{ padding: '16px 48px', margin: 'auto' }}>
+          <Box sx={{ display: 'flex', jusitfyContent: 'center', width: '100%', mt: 6 }}>
+            <OrangeContainedBtn
+              href="/about"
+              sx={{ padding: '16px 48px', margin: 'auto' }}
+            >
               <OswaldTypo sx={{ ...btnTextStyle }}>Xem thêm</OswaldTypo>
             </OrangeContainedBtn>
           </Box>

@@ -1,9 +1,10 @@
 import { AxiosRequestConfig } from 'axios';
 import { DefaultOptions, QueryClient, QueryKey } from 'react-query';
+
 import { request } from './request';
 
 const defaultFn = async ({ queryKey }: { queryKey: QueryKey }) => {
-const [endpoint, params, options] = queryKey as Array<string | Record<string, unknown>>;
+  const [endpoint, params, options] = queryKey as Array<string | Record<string, unknown>>;
 
   const res = await request.get(endpoint as string, {
     params,

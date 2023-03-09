@@ -1,4 +1,5 @@
 import { Box, Divider, Grid, IconButton, Stack, styled, Typography } from '@mui/material';
+
 import { TextFieldWithCustomFont } from '../../components';
 import { IcBaselineSearch } from '../../components/icon';
 import { grey, orange } from '../../libs';
@@ -68,7 +69,7 @@ export const BlogSidebar = () => {
           </TitleSidebarBlock>
           <Stack spacing={3}>
             {recentPost.map((post, index) => (
-              <LinkCustom href={`blog/${post.slug}`}>
+              <LinkCustom href={`blog/${post.slug}`} key={index}>
                 <PostTittleSidebarRecentPost sx={{ ...textHoverStyle }}>
                   {post.title}
                 </PostTittleSidebarRecentPost>
@@ -90,7 +91,7 @@ export const BlogSidebar = () => {
           </TitleSidebarBlock>
           <Stack spacing={2}>
             {categoryList.map((category, index) => (
-              <TagTypo>{category.name}</TagTypo>
+              <TagTypo key={index}>{category.name}</TagTypo>
             ))}
           </Stack>
         </Box>

@@ -1,4 +1,5 @@
 import { Box } from '@mui/material';
+
 import { centerDiv, OswaldTypo } from '../../styled';
 
 export const Forbidden = () => {

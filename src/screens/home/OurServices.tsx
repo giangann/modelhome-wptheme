@@ -1,5 +1,6 @@
 import { Box, Container, Grid, Stack, useMediaQuery, useTheme } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+
 import { BoxWithBackgroundAndLayer, FadeInSection, Line } from '../../components';
 import { IcBaselineFormatQuote } from '../../components/icon';
 import { IMAGE_FOLDER_PATH } from '../../constant';
@@ -210,7 +211,7 @@ export const OurServices = () => {
                       // fontStyle="italic"
                       mb={8}
                     >
-                      Với đội ngũ kiến ​​trúc sư giàu kinh nghiệm, sáng tạo và chuyên môn
+                      Với đội ngũ kiến trúc sư giàu kinh nghiệm, sáng tạo và chuyên môn
                       cao kết hợp đội ngũ kỹ sư, nhân công tay nghề cao cùng cùng thiết bị
                       công nghệ hiện đại, MODEL HOME đã, đang và sẽ mang lại sự hài lòng
                       cho khách hàng từ chất lượng sản phẩm đến độ thẩm mỹ cao.

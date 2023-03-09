@@ -1,5 +1,6 @@
 import { Box, Container, Grid, Stack, styled, Typography } from '@mui/material';
 import React from 'react';
+
 import { HeadingBlock } from '../../components';
 import { IMAGE_FOLDER_PATH, serviceDetail } from '../../constant';
 import {
@@ -47,7 +48,7 @@ export const ServiceDetail = () => {
           </OswaldTypoHeaddingFooter>
 
           {Object.entries(serviceDetail.workFlow.step).map(([key, value], index) => (
-            <Box mb={4}>
+            <Box mb={4} key={index}>
               <Accordion
                 TransitionProps={{ timeout: 700 }}
                 expanded={expanded === `panel${index + 1}`}
@@ -69,7 +70,7 @@ export const ServiceDetail = () => {
                 </AccordionSummary>
                 <AccordionDetails sx={{ my: 1 }}>
                   {value.content.map((item, index) => (
-                    <AccordionDetailTypo sx={{ mt: 1 }}>+ {item}</AccordionDetailTypo>
+                    <AccordionDetailTypo key={index} sx={{ mt: 1 }}>+ {item}</AccordionDetailTypo>
                   ))}
                 </AccordionDetails>
               </Accordion>

@@ -1,21 +1,24 @@
+import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
 import { Box, Button, Grid, styled, TextField, Typography } from '@mui/material';
+import MuiAccordion, { AccordionProps } from '@mui/material/Accordion';
+import MuiAccordionDetails from '@mui/material/AccordionDetails';
+import MuiAccordionSummary, {
+  AccordionSummaryProps,
+} from '@mui/material/AccordionSummary';
+
 import {
   capatializeTransform,
   generateDefectiveTriangleByPosition,
 } from '../constant/constants';
 import { DefectivePositionType, orange } from '../libs';
-import MuiAccordionSummary, {
-  AccordionSummaryProps,
-} from '@mui/material/AccordionSummary';
-import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
-import MuiAccordionDetails from '@mui/material/AccordionDetails';
-import MuiAccordion, { AccordionProps } from '@mui/material/Accordion';
 
 // Poppins, Montserrat, Oswald
 export const PoppinsTypo = styled(Typography)({
   fontFamily: 'Poppins',
 });
-
+export const MulishTypo = styled(Typography)({
+  fontFamily: 'Mulish',
+});
 export const MontserratTypo = styled(Typography)({
   fontFamily: 'Montserrat',
 });
@@ -28,8 +31,8 @@ export const RobotoTypo = styled(Typography)({
 export const HeaderItemTypo = styled(Typography)({
   fontSize: 17,
   letterSpacing: '1.2px',
-  fontFamily:'Oswald',
-  fontWeight:500,
+  fontFamily: 'Oswald',
+  fontWeight: 500,
   // color: 'white',
 });
 
@@ -39,7 +42,7 @@ export const MontserratDashboardTitle = styled(Typography)(({ theme }) => ({
   fontWeight: 900,
   color: 'black',
   textAlign: 'center',
-  textTransform:'uppercase',
+  textTransform: 'uppercase',
   [theme.breakpoints.down('sm')]: {
     fontSize: 30,
   },

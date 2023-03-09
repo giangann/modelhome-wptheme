@@ -1,17 +1,17 @@
-import { Box, FormControl, FormControlProps } from '@mui/material'
-import React, { memo } from 'react'
-import { FieldError } from 'react-hook-form'
+import { Box, FormControl, FormControlProps } from '@mui/material';
+import React, { memo } from 'react';
+import { FieldError } from 'react-hook-form';
 
-import { FormHelper } from './FormHelper'
-import { FormLabel } from './FormLabel'
+import { FormHelper } from './FormHelper';
+import { FormLabel } from './FormLabel';
 
 export type AddControlProps = {
-  helperText?: string | React.ReactNode
-  label?: string
-  fieldError?: FieldError | boolean
-}
+  helperText?: string | React.ReactNode;
+  label?: string;
+  fieldError?: FieldError | boolean;
+};
 
-export type InputControlProps = FormControlProps<'div', AddControlProps>
+export type InputControlProps = FormControlProps<'div', AddControlProps>;
 
 function RawInputControl({
   fieldError,
@@ -48,9 +48,9 @@ function RawInputControl({
       )}
       {helperText && <FormHelper error={false}>{helperText}</FormHelper>}
     </FormControl>
-  )
+  );
 }
 
-const InputControl = memo(RawInputControl) as typeof RawInputControl
+const InputControl = memo(RawInputControl) as typeof RawInputControl;
 
-export { InputControl }
+export { InputControl };

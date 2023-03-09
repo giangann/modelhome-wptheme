@@ -1,6 +1,7 @@
+import './style.css';
+
 import { useEffect } from 'react';
 import { useQuery } from 'react-query';
-import './style.css';
 export const Content = () => {
   const { data: testSunData } = useQuery('posts');
 

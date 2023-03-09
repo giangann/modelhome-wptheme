@@ -1,10 +1,12 @@
-import { Box, Button, Container } from '@mui/material';
-import { MontserratDashboardTitle, OswaldTypo } from '../../styled';
-import SunEditor from 'suneditor-react';
 import 'suneditor/dist/css/suneditor.min.css';
+
+import { Box, Button, Container } from '@mui/material';
 import axios from 'axios';
-import { API_PREFIX } from '../../constant';
 import { useNavigate } from 'react-router-dom';
+import SunEditor from 'suneditor-react';
+
+import { API_PREFIX } from '../../constant';
+import { MontserratDashboardTitle, OswaldTypo } from '../../styled';
 
 export const ManageProject = () => {
   const navigate = useNavigate();
@@ -29,12 +31,14 @@ export const ManageProject = () => {
   return (
     <Container sx={{ paddingY: 4 }}>
       <MontserratDashboardTitle>Quản lý Dự án</MontserratDashboardTitle>
-      <Button variant="outlined" onClick={handleCreate} >+ Tạo mới</Button>
+      <Button variant="outlined" onClick={handleCreate}>
+        + Tạo mới
+      </Button>
       <SunEditor
         // lang="en"
         width="100%"
         height="100%"
-        autoFocus={true}
+        // autoFocus={true}
         placeholder="Please type here..."
         onChange={handleChange}
         setOptions={{

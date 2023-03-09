@@ -1,5 +1,6 @@
 import { Box, Container } from '@mui/material';
 import { useQuery } from 'react-query';
+
 import { MontserratDashboardTitle, OswaldTypo } from '../../styled';
 export const ManageBlog = () => {
   const { data: testSunData } = useQuery('posts');

@@ -1,5 +1,6 @@
 import { Box, SxProps } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+
 import { DefectivePositionType } from '../libs';
 import { TriangleByBorder } from '../styled';
 

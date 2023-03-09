@@ -101,7 +101,7 @@ export type ProjectApiType = {
 
   location: string;
   finish_in: string;
-  customer: string;
+  customer_name: string;
   square: string;
 
   is_main?: boolean;

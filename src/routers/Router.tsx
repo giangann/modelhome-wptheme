@@ -27,7 +27,7 @@ export const Router = () => {
         <Route path="/project" element={<Projects />} />
         <Route path="/project/:slug" element={<ProjectDetail />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/service/:slug" element={<ServiceDetail/>}/>
+        <Route path="/service/:slug" element={<ServiceDetail />} />
       </Route>
 
       {/* Admin route */}

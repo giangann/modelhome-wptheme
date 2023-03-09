@@ -2,6 +2,7 @@ import { Box, Container, Grid } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
+
 import { Line } from '../../components';
 import { FadeInSection } from '../../components/FadeInSection';
 import { capatializeTransform, convertSlugToName } from '../../constant';

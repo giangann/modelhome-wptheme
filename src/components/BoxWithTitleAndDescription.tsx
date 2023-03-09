@@ -1,4 +1,5 @@
-import { Box, Stack, useTheme, useMediaQuery } from '@mui/material';
+import { Box, Stack, useMediaQuery, useTheme } from '@mui/material';
+
 import { black, grey, orange } from '../libs';
 import {
   MontserratTypo,

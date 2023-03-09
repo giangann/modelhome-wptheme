@@ -19,7 +19,7 @@
   width: 100%;
 }
 
-#sunedit-area img:first-child{
+#sunedit-area img:first-child {
   height: 70vh;
   object-fit: cover;
 }

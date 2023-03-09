@@ -1,4 +1,5 @@
 import { Box, BoxProps, SxProps } from '@mui/material';
+
 import { LayerBox } from '../styled';
 type BoxWithBackgroundAndLayerProps = {
   image?: string;

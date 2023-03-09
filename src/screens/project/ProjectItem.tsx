@@ -1,5 +1,6 @@
 import { Grid, useMediaQuery, useTheme } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+
 import { ImageWithDefectiveTrianglePart } from '../../components';
 import {
   BoxWithTitleAndDescription,

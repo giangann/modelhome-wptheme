@@ -1,4 +1,5 @@
 import { Box, Grid, Stack } from '@mui/material';
+
 import { BoxWithBackgroundAndLayer, CounterIncreaseValue, Line } from '../../components';
 import {
   GridCenter,
@@ -54,7 +55,7 @@ export const ImportantMilestone = () => {
         <Box width={{ sm: '70%', lg: '50%' }}>
           <Grid container>
             {milestones.map((mst, index) => (
-              <GridCenter sx={{ flexDirection: 'column' }} item xs={6}>
+              <GridCenter sx={{ flexDirection: 'column' }} item xs={6} key={index}>
                 <CounterIncreaseValue num={mst.number} fontSize={60} fontWeight={700} />
                 <OswaldTypo
                   variant="h5"

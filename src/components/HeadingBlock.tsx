@@ -1,6 +1,7 @@
 import { Title } from '@mui/icons-material';
 import { Box } from '@mui/material';
 import React from 'react';
+
 import { orange } from '../libs';
 import { OswaldTypo, OswaldTypoHeaddingContent } from '../styled';
 import { FadeInSection } from './FadeInSection';

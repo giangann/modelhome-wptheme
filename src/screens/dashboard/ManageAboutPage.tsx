@@ -1,5 +1,6 @@
 import { Box } from '@mui/material';
-import { OswaldTypo } from "../../styled";
+
+import { OswaldTypo } from '../../styled';
 
 export const ManageAboutPage = () => {
   return (

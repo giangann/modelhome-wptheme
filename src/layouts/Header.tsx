@@ -14,6 +14,7 @@ import {
 } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+
 import { CustomDrawer, CustomMenu, ItemType } from '../components';
 import { CodiconTriangleDown } from '../components/icon';
 import { grey, orange } from '../libs';
@@ -85,7 +86,6 @@ export const Header = () => {
   const handleCloseDrawer = () => {
     setOpenDrawer(false);
   };
-  useEffect(() => {}, []);
   return (
     <>
       <AppBar position="static" sx={{ backgroundColor: grey['800'] }} elevation={0}>
@@ -117,9 +117,8 @@ export const Header = () => {
               </Typography>
               <Stack direction="row" spacing={2}>
                 {pages.map((page: any) => (
-                  <Stack direction="row">
+                  <Stack direction="row" key={page.name}>
                     <Button
-                      key={page.name}
                       sx={{
                         color: location.pathname.includes(page.link)
                           ? orange['400']
@@ -128,7 +127,11 @@ export const Header = () => {
                       component="a"
                       href={page.children ? '#' : page.link}
                       onClick={
-                        page.children ? (event: any) => handleClick(event) : () => {}
+                        page.children
+                          ? (event: any) => handleClick(event)
+                          : () => {
+                              // do nothing
+                            }
                       }
                     >
                       <HeaderItemTypo>{page.name}</HeaderItemTypo>

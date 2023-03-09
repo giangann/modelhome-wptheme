@@ -1,5 +1,6 @@
 import { Box, Container, Grid, Stack } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+
 import { HeadingBlock } from '../../components';
 import { IMAGE_FOLDER_PATH } from '../../constant';
 import {
@@ -10,7 +11,6 @@ import {
   OswaldTypoHeaddingContent,
 } from '../../styled';
 export const OurProjects = () => {
-
   // replace this data by projects in projects table with is_main=true
   // const thumbnailsOfProjects = [
   //   {
@@ -71,11 +71,11 @@ export const OurProjects = () => {
         </Grid>
       </Container>
       <Grid container sx={{ marginY: 4 }} spacing={2} p={2}>
-        {[1,2,3,4,5,6].map((thumb, index) => (
+        {[1, 2, 3, 4, 5, 6].map((thumb, index) => (
           <Grid key={index} item xs={12} sm={4}>
             <Box
               component="img"
-              src={`${IMAGE_FOLDER_PATH}/main-projects/${index+1}.jpg`}
+              src={`${IMAGE_FOLDER_PATH}/main-projects/${index + 1}.jpg`}
               style={{
                 width: '100%',
                 height: '100%',

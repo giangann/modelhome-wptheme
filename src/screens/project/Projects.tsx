@@ -1,5 +1,6 @@
 import { Box, Grid, useMediaQuery, useTheme } from '@mui/material';
 import { useEffect } from 'react';
+
 import { HeadingBlock, Line } from '../../components';
 import { IMAGE_FOLDER_PATH, projects } from '../../constant';
 import { orange, ProjectType } from '../../libs';

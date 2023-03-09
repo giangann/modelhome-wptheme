@@ -1,4 +1,5 @@
 import { Box, Container, Grid } from '@mui/material';
+
 import { OswaldTypo } from '../../styled';
 import { BlogItem } from './BlogItem';
 import { BlogSidebar } from './BlogSidebar';

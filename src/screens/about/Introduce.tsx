@@ -1,4 +1,5 @@
 import { Box, Container, Grid, Stack } from '@mui/material';
+
 import { HeadingBlock } from '../../components';
 import { IMAGE_FOLDER_PATH } from '../../constant';
 import { MontserratTypoContent } from '../../styled';

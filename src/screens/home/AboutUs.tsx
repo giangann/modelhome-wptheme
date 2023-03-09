@@ -1,8 +1,7 @@
 import { Container, Grid, Stack } from '@mui/material';
+
 import { HeadingBlock } from '../../components';
-import {
-  MontserratTypoContent
-} from '../../styled';
+import { MontserratTypoContent } from '../../styled';
 
 export const AboutUs = () => {
   return (

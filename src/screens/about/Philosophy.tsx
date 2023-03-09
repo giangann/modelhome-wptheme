@@ -1,5 +1,6 @@
 import { Box, styled, Typography } from '@mui/material';
 import React from 'react';
+
 import { BoxWithBackgroundAndLayer, Line } from '../../components';
 import {
   Accordion,
@@ -70,6 +71,7 @@ export const Philosophy = () => {
         <div style={{ marginTop: '16px' }}>
           {accordion.map((accor, index) => (
             <Accordion
+              key={index}
               TransitionProps={{ timeout: 700 }}
               expanded={expanded === `panel${index + 1}`}
               onChange={handleChange(`panel${index + 1}`)}

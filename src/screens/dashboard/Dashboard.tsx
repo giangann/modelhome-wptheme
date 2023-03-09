@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { Outlet } from 'react-router-dom';
+
 import { CustomDrawer } from '../../components';
 import { API_PREFIX, homePage } from '../../constant';
 

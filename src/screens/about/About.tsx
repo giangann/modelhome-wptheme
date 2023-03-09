@@ -1,4 +1,5 @@
 import { Box, Grid, useMediaQuery, useTheme } from '@mui/material';
+
 import { ImportantMilestone } from './ImportantMilestone';
 import { Introduce } from './Introduce';
 import { Philosophy } from './Philosophy';

@@ -1,14 +1,14 @@
-import { FormControlProps, OutlinedInputProps } from '@mui/material'
-import { useController, UseControllerProps } from 'react-hook-form'
+import { FormControlProps, OutlinedInputProps } from '@mui/material';
+import { useController, UseControllerProps } from 'react-hook-form';
 
-import { AddControlProps, InputControl } from './InputControl'
-import { InputStyled } from './InputStyled'
+import { AddControlProps, InputControl } from './InputControl';
+import { InputStyled } from './InputStyled';
 
 export type InputProps<T> = UseControllerProps<T> &
   OutlinedInputProps &
   AddControlProps & {
-    controlProps?: FormControlProps
-  }
+    controlProps?: FormControlProps;
+  };
 
 function Input<T>({
   name,
@@ -24,7 +24,7 @@ function Input<T>({
   const {
     field: { ref, ...inputProps },
     fieldState: { error },
-  } = useController({ name, control, defaultValue })
+  } = useController({ name, control, defaultValue });
 
   return (
     <InputControl
@@ -37,7 +37,7 @@ function Input<T>({
     >
       <InputStyled {...inputProps} {...props} inputRef={ref} />
     </InputControl>
-  )
+  );
 }
 
-export { Input }
+export { Input };

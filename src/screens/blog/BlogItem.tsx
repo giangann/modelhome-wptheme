@@ -1,4 +1,5 @@
 import { Box, IconButton } from '@mui/material';
+
 import { MdiChat } from '../../components/icon';
 import { black, grey } from '../../libs';
 import { MontserratTypo, RobotoTypo, textHoverStyle } from '../../styled';
@@ -43,7 +44,9 @@ export const BlogItem = () => {
         sx={{ backgroundColor: grey['100'], borderRadius: 1, mb: 6, display: 'flex' }}
       >
         <MdiChat fontSize={16} />
-        <MontserratTypo fontSize={12} ml={0.5}>0</MontserratTypo>
+        <MontserratTypo fontSize={12} ml={0.5}>
+          0
+        </MontserratTypo>
       </IconButton>
     </Box>
   );

@@ -1,5 +1,5 @@
-
 import React, { useState } from 'react';
+
 import { OswaldTypo } from '../styled';
 
 export const CounterIncreaseValue = (props: { num: number } & React.CSSProperties) => {
@@ -14,7 +14,7 @@ export const CounterIncreaseValue = (props: { num: number } & React.CSSPropertie
         return;
       }
       setCounter((prev) => prev + 1);
-    }, 500/num);
+    }, 500 / num);
 
     return () => clearInterval(timer);
   }, [counter]);

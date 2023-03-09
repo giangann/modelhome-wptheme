@@ -1,4 +1,4 @@
-import { OutlinedInput, outlinedInputClasses, styled } from '@mui/material'
+import { OutlinedInput, outlinedInputClasses, styled } from '@mui/material';
 
 const InputStyled = styled(OutlinedInput)(({ theme }) => ({
   [`&.${outlinedInputClasses.disabled}`]: {
@@ -7,6 +7,6 @@ const InputStyled = styled(OutlinedInput)(({ theme }) => ({
   // '& fieldset::not()': {
   //   borderColor: 'red !important',
   // },
-}))
+}));
 
-export { InputStyled }
+export { InputStyled };
