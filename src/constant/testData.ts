@@ -209,26 +209,32 @@ export const serviceDetail = {
         ],
       },
       b: {
+        title: 'Làm concept',
+        content: [
+          'Việc làm Concept cho công trình là bước đầu tiên của KTS sau khi tiếp nhận thông tin của gia chủ. Quá trình này giúp cho gia chủ hình dung sơ bộ diện mạo căn nhà tương lai của mình. Gia chủ sẽ có ý kiến trao đổi lại với KTS, và 2 bên cùng bàn bạc thống nhất đưa ra giải pháp hợp lý nhất cho ngôi nhà từ công năng, vật liệu, mầu sắc...Việc làm này sẽ đẩy nhanh quá trình thiết kế, dự phòng rủi ro cho cả 2 bên!',
+        ],
+      },
+      c: {
         title: 'Tư vấn phương án mặt bằng công năng',
         content: [
           'Tư vấn và trình bày phương án mặt bằng công năng',
           'Ký hợp đồng thiết kế dựa trên những các thỏa thuận của hai bên, mẫu hợp đồng được soạn thảo quy định của công ty Xây Dựng và đã được văn phòng Luật Sư biên soạn',
         ],
       },
-      c: {
+      d: {
         title: 'Triển khai thiết kế cơ sở',
         content: [
           'Thiết kế mặt bằng các tầng, mặt đứng, mặt cắt',
           'Phối cảnh 3D ngoại thất và 3D nội thất',
         ],
       },
-      d: {
+      e: {
         title: 'Trình bày chỉnh sửa và thống nhất thiết kế cơ sở',
         content: [
           'Thống nhất bản vẽ kiến trúc chi tiết về hình dáng, kích thước cũng như kết cấu hoàn chỉnh của ngôi nhà',
         ],
       },
-      e: {
+      f: {
         title: 'Triển khai thiết kế kỹ thuật',
         content: [
           'Hồ sơ thiết kế kỹ thuật thi công chi tiết bao gồm:',
@@ -239,13 +245,13 @@ export const serviceDetail = {
           'Hồ sơ chi tiết nội thất',
         ],
       },
-      f: {
+      g: {
         title: 'Tiến hành thi công',
         content: [
           'Đội ngũ kiến trúc sư kiến trúc sư, kỹ sư và đội ngũ thi công chuyên nghiệp sẽ thực hiện các bước thi công hoàn thiện theo tiến độ và hợp đồng.',
         ],
       },
-      g: {
+      h: {
         title: 'Nguyên tắc an toàn lao động, vệ sinh môi trường, bao che công trình',
         content: [
           'Quy trình Thi Công An Toàn Lao Động theo tiêu chuẩn thi công nhà cao tầng. Công nhân được đào tạo về ATLĐ và sử dụng bảo vệ thiết bị khi thi công, ATLĐ đảm bảo.',
@@ -253,7 +259,7 @@ export const serviceDetail = {
           'Mua Bảo hiểm cho Công Nhân, Công Trình và cho bên Thứ Ba.',
         ],
       },
-      h: {
+      i: {
         title: 'Bảo trì, bảo hành',
         content: [
           'Trong thời gian bảo hành, nếu có vấn đề hỏng hóc do lỗi kỹ thuật thi công (không có tư liệu hoàn thiện), quý khách hàng vui lòng thông báo bằng điện thoại hoặc liên hệ trực tiếp đến công ty. Công ty trong vòng 48h sẽ cử người xem lại tại công ty, xác định chính thức nhân viên và sửa chữa phục hồi phương pháp',

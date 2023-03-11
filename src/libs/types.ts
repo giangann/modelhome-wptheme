@@ -105,4 +105,5 @@ export type ProjectApiType = {
   square: string;
 
   is_main?: boolean;
+  content?: string;
 };

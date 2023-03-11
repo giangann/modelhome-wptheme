@@ -70,7 +70,9 @@ export const ServiceDetail = () => {
                 </AccordionSummary>
                 <AccordionDetails sx={{ my: 1 }}>
                   {value.content.map((item, index) => (
-                    <AccordionDetailTypo key={index} sx={{ mt: 1 }}>+ {item}</AccordionDetailTypo>
+                    <AccordionDetailTypo key={index} sx={{ mt: 1 }}>
+                      + {item}
+                    </AccordionDetailTypo>
                   ))}
                 </AccordionDetails>
               </Accordion>

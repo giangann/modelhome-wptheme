@@ -29,17 +29,18 @@ const tempThumb =
 export const ProjectForm = () => {
   const navigate = useNavigate();
 
-  const { control, setValue, getValues, handleSubmit } = useForm<ProjectApiType>({
+  const { control, setValue, getValues, handleSubmit, watch } = useForm<ProjectApiType>({
     defaultValues: {},
   });
 
   const [imageFile, setImageFile] = useState(null);
+  const [sunContent, setSunContent] = useState(null);
 
   const params = useParams();
   const isEdit = params?.id ? true : false;
 
   if (isEdit)
-    useQuery(`/project/${params.id}`, {
+    useQuery(`/projects/${params.id}`, {
       onSuccess: (project: ProjectApiType) => {
         setValue('thumb', tempThumb);
         setValue('name', project.name);
@@ -50,6 +51,9 @@ export const ProjectForm = () => {
         setValue('customer_name', project.customer_name);
         setValue('square', project.square);
         setValue('is_main', project.is_main);
+
+        // if(project)
+        setValue('content', project.content);
       },
     });
 
@@ -60,11 +64,15 @@ export const ProjectForm = () => {
     // console.log('content', content);
   };
   const handleSave = async (content: any) => {
-    const res = await axios.post(`${API_PREFIX}/posts/create`, {
-      postable_type: MODEL_TYPE['PROJECT'],
-      postable_id: 1,
-      content: content,
-    });
+    setSunContent(content);
+
+    toast.success('Lưu bài viết thành công');
+    toast.warning('Nhấn nút lưu phía dưới để lưu toàn bộ thông tin dự án!');
+    // const res = await axios.post(`${API_PREFIX}/posts/create`, {
+    //   postable_type: MODEL_TYPE['PROJECT'],
+    //   postable_id: 1,
+    //   content: content,
+    // });
   };
 
   const onSubmit = async (value: ProjectApiType) => {
@@ -76,7 +84,17 @@ export const ProjectForm = () => {
       formData.append('thumb', imageFile);
     }
 
-    Object.entries(value).forEach(([key, value]) => formData.append(key, value));
+    Object.entries(value).forEach(([key, value]) => {
+      if (typeof value === 'boolean') {
+        formData.append(key, value ? '1' : '0');
+      } else {
+        formData.append(key, value);
+      }
+    });
+
+    if (sunContent) {
+      formData.set('content', sunContent);
+    }
 
     console.log('formData value', formData.get('is_main'));
     const res = await axios.post(`${API_PREFIX}/projects`, formData);
@@ -170,10 +188,10 @@ export const ProjectForm = () => {
               ],
             ],
           }}
+          defaultValue={watch('name')}
           onSave={handleSave}
         />
       </Box>
-
       <Box my={2}>
         <OswaldTypo mb={2}>Đánh dấu dự án nổi bật</OswaldTypo>
         <Box sx={{ display: 'flex' }}>
@@ -184,8 +202,12 @@ export const ProjectForm = () => {
       </Box>
 
       <Box my={4}>
-        <Button onClick={handleSubmit(onSubmit)} variant="contained">
-          Save
+        <Button
+          disabled={!sunContent}
+          onClick={handleSubmit(onSubmit)}
+          variant="contained"
+        >
+          Lưu
         </Button>
       </Box>
     </Container>
