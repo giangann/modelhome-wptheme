@@ -62,12 +62,7 @@ export const ProjectForm = () => {
     navigate('/dashboard/manage-project');
   };
   const handleChange = (content: any) => {
-    // console.log('content', content);
-  };
-  const handleSave = async (content: any) => {
-    setSunContent(content);
-    toast.success('Lưu bài viết thành công');
-    toast.warning('Nhấn nút lưu phía dưới để lưu toàn bộ thông tin dự án!');
+    setValue('content', content);
   };
 
   const onSubmit = async (value: ProjectApiType) => {
@@ -87,10 +82,6 @@ export const ProjectForm = () => {
       }
     });
 
-    if (sunContent) {
-      formData.set('content', sunContent);
-    }
-
     const res = await axios.post(`${API_PREFIX}/projects`, formData);
 
     if (res.status === 201 || res.status === 200) {
@@ -99,9 +90,6 @@ export const ProjectForm = () => {
   };
 
   const handleUpdate = async () => {
-    if (sunContent) {
-      setValue('content', sunContent);
-    }
     const data = getValues();
 
     if (imageFile) {
@@ -118,7 +106,10 @@ export const ProjectForm = () => {
 
   return (
     <Container sx={{ paddingY: 4 }}>
-      <MontserratDashboardTitle>Thêm mới dự án</MontserratDashboardTitle>
+      <MontserratDashboardTitle>
+        {' '}
+        {isEdit ? 'Chi tiết dự án' : 'Thêm mới dự án'}
+      </MontserratDashboardTitle>
       <Button variant="outlined" onClick={handleGoBack}>
         &lt; Trở lại
       </Button>
@@ -179,9 +170,6 @@ export const ProjectForm = () => {
         <Grid item xs={12} sm={6}>
           <Input control={control} name="square" fullWidth label="Diện tích" />
         </Grid>
-        {/* <Grid item xs={12} sm={6}>
-          <Input control={control} name="is_main" fullWidth label="Customer" />
-        </Grid> */}
       </Grid>
 
       <Box>
@@ -208,8 +196,6 @@ export const ProjectForm = () => {
               ],
             ],
           }}
-          defaultValue={watch('name')}
-          onSave={handleSave}
           setContents={watch('content')}
         />
       </Box>
@@ -224,7 +210,6 @@ export const ProjectForm = () => {
 
       <Box my={4}>
         <Button
-          disabled={!sunContent}
           onClick={isEdit ? handleUpdate : handleSubmit(onSubmit)}
           variant="contained"
         >

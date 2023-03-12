@@ -78,6 +78,10 @@ const Styles = styled.div`
       }
     }
 
+    tr:hover{
+      background-color: #0000001a;
+    }
+
     th,
     td {
       margin: 0;

@@ -1,3 +1,4 @@
+import { Row as RowProps } from 'react-table';
 import 'suneditor/dist/css/suneditor.min.css';
 
 import { Box, Button, Container } from '@mui/material';
@@ -10,6 +11,7 @@ import SunEditor from 'suneditor-react';
 import { ReactTableWithToolBar } from '../../components/ReactTable';
 import { API_PREFIX, STORAGE_PREFIX } from '../../constant';
 import { MontserratDashboardTitle, OswaldTypo } from '../../styled';
+import { ProjectApiType } from '@/libs';
 
 export const ManageProject = () => {
   const navigate = useNavigate();
@@ -57,63 +59,16 @@ export const ManageProject = () => {
         width: 400,
         sticky: 'left',
       },
-      // {
-      //   Header: t('form.money'),
-      //   accessor: 'money', // accessor is the "key" in the data
-      //   width: 50,
-      //   Cell: ({ value }: { value: number }) => {
-      //     return `${numberWithCommas(value)}đ`
-      //   },
-      //   sticky: 'left',
-      // },
-      // {
-      //   Header: t('form.status'),
-      //   accessor: 'status', // accessor is the "key" in the data
-      //   width: 100,
-      //   Cell: ({ value }: { value: number }) => {
-      //     return <StatusTag value={value} />
-      //   },
-      //   sticky: 'left',
-      // },
-      // {
-      //   Header: t('form.created_at'),
-      //   accessor: 'created_at', // accessor is the "key" in the data
-      //   width: 150,
-      //   Cell: ({ row }: { row: any }) => {
-      //     const asiaDate = convertDatetimeTZWithoutSecond(row.original.created_at)
-      //     return asiaDate
-      //   },
-      //   sticky: 'left',
-      // },
-      // {
-      //   Header: t('form.updated_at'),
-      //   accessor: 'updated_at', // accessor is the "key" in the data
-      //   width: 150,
-      //   Cell: ({ row }: { row: any }) => {
-      //     const asiaDate = convertDatetimeTZWithoutSecond(row.original.updated_at)
-      //     return asiaDate
-      //   },
-      //   sticky: 'left',
-      // },
     ],
     [],
   );
+
+  const onRowClick = (row: RowProps<ProjectApiType>) => {
+    console.log(row.values.id);
+    navigate(`/dashboard/project/${row.values.id}`);
+  };
   const handleCreate = () => {
     navigate('/dashboard/new-project');
-  };
-  const handleChange = (content: any) => {
-    console.log('content', content);
-  };
-  const handleSave = async (content: any) => {
-    console.log('save content', content);
-    const res = await axios.post(`${API_PREFIX}/posts/create`, {
-      postable_type: 'Project',
-      postable_id: 1,
-      content: content,
-    });
-
-    console.log('res of save', res);
-    // if (res.s)
   };
   return (
     <Container sx={{ paddingY: 4 }}>
@@ -125,7 +80,7 @@ export const ManageProject = () => {
         columns={columns}
         data={listProject || ([] as any)}
         isLoading={isLoading}
-        // onRowClick={onRowClick}
+        onRowClick={onRowClick}
         sxCustom={{ padding: 0 }}
       />
     </Container>
