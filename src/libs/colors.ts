@@ -16,7 +16,7 @@ export const black = {
   700: '#a1a2a4',
 };
 export const backgroundColor = {
-  primary: '#191F3A',
+  primary: '#000000a',
   main: '#0C1023',
   chip: '#252B44',
   chipHover: '#1e243f',

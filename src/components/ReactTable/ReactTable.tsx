@@ -63,8 +63,11 @@ const Styles = styled.div`
     border-spacing: 0;
 
     tr {
-      color: #fff;
-
+      color: black;
+      background-color: #0000000a;
+      td {
+        font-weight:400 !important;
+      }
       :last-child {
         td {
           border-bottom: 0;
@@ -92,6 +95,15 @@ const Styles = styled.div`
         width: 0.0000000001%;
       }
     }
+
+    th{
+      background-color:black;
+      padding-top:16px;
+      padding-bottom:16px;
+      color:white
+    }
+
+
   }
 
   .pagination {
@@ -173,7 +185,7 @@ function ReactTable<T extends object>(props: TableProperties<T>): ReactElement {
         <EmptyTable />
       ) : (
         <Styles>
-          <div
+          {/* <div
             style={{
               marginBottom: '8px',
               display: 'flex',
@@ -221,7 +233,7 @@ function ReactTable<T extends object>(props: TableProperties<T>): ReactElement {
               <FilterOutlined />
               {t('filter')}
             </span>
-          </div>
+          </div> */}
 
           <div className="tableWrap">
             <table {...getTableProps()} style={{ borderSpacing: 0 }}>
@@ -296,7 +308,7 @@ function ReactTable<T extends object>(props: TableProperties<T>): ReactElement {
             </table>
           </div>
 
-          <div className="pagination" style={{ textAlign: 'right' }}>
+          {/* <div className="pagination" style={{ textAlign: 'right' }}>
             <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
               {'<<'}
             </button>{' '}
@@ -317,7 +329,7 @@ function ReactTable<T extends object>(props: TableProperties<T>): ReactElement {
                 {pageOptions.length}
               </strong>{' '}
             </span>
-          </div>
+          </div> */}
         </Styles>
       )}
     </>
@@ -332,5 +344,5 @@ const stickyFirstCol = (index: number) =>
     position: 'sticky',
     left: index * 38,
     zIndex: 10,
-    backgroundColor: backgroundColor['primary'],
+    // backgroundColor: backgroundColor['primary'],
   } as React.CSSProperties);

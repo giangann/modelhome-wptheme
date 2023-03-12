@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import SunEditor from 'suneditor-react';
 
 import { ReactTableWithToolBar } from '../../components/ReactTable';
-import { API_PREFIX } from '../../constant';
+import { API_PREFIX, STORAGE_PREFIX } from '../../constant';
 import { MontserratDashboardTitle, OswaldTypo } from '../../styled';
 
 export const ManageProject = () => {
@@ -25,15 +25,24 @@ export const ManageProject = () => {
         sticky: 'left',
       },
       {
-        Header: 'Ảnh thumbnail',
-        accessor: 'thumb', // accessor is the "key" in the data
+        Header: 'Tên dự án',
+        accessor: 'name', // accessor is the "key" in the data
         width: 100,
         sticky: 'left',
       },
       {
-        Header: 'Tên dự án',
-        accessor: 'name', // accessor is the "key" in the data
-        width: 100,
+        Header: 'Ảnh thumbnail',
+        accessor: 'thumb', // accessor is the "key" in the data
+        width: 50,
+        Cell: ({ value }: { value: string }) => {
+          return (
+            <img
+              src={`${STORAGE_PREFIX}/${value}`}
+              style={{ maxWidth: '100%', objectFit: 'cover', objectPosition: 'center' }}
+              alt="thumb"
+            />
+          );
+        },
         sticky: 'left',
       },
       {
@@ -45,7 +54,7 @@ export const ManageProject = () => {
       {
         Header: 'Giới thiệu',
         accessor: 'summary', // accessor is the "key" in the data
-        width: 50,
+        width: 400,
         sticky: 'left',
       },
       // {

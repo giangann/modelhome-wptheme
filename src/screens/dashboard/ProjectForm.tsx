@@ -20,7 +20,7 @@ import SunEditor from 'suneditor-react';
 
 import { BoxWithBackgroundAndLayer, ImageUpload } from '../../components';
 import { Input } from '../../components/Input';
-import { API_PREFIX, MODEL_TYPE } from '../../constant';
+import { API_PREFIX, convertRelatePathImage, MODEL_TYPE } from '../../constant';
 import { ProjectApiType } from '../../libs';
 import { LayerBox, MontserratDashboardTitle, MulishTypo, OswaldTypo } from '../../styled';
 
@@ -34,7 +34,7 @@ export const ProjectForm = () => {
   });
 
   const [imageFile, setImageFile] = useState(null);
-  const [sunContent, setSunContent] = useState(null);
+  const [sunContent, setSunContent] = useState<string | null>(null);
 
   const params = useParams();
   const isEdit = params?.id ? true : false;
@@ -42,7 +42,7 @@ export const ProjectForm = () => {
   if (isEdit)
     useQuery(`/projects/${params.id}`, {
       onSuccess: (project: ProjectApiType) => {
-        setValue('thumb', tempThumb);
+        setValue('thumb', project.thumb);
         setValue('name', project.name);
         setValue('summary', project.summary);
         setValue('slug', project.slug);
@@ -54,6 +54,7 @@ export const ProjectForm = () => {
 
         // if(project)
         setValue('content', project.content);
+        setSunContent(project.content as string);
       },
     });
 
@@ -65,14 +66,8 @@ export const ProjectForm = () => {
   };
   const handleSave = async (content: any) => {
     setSunContent(content);
-
     toast.success('Lưu bài viết thành công');
     toast.warning('Nhấn nút lưu phía dưới để lưu toàn bộ thông tin dự án!');
-    // const res = await axios.post(`${API_PREFIX}/posts/create`, {
-    //   postable_type: MODEL_TYPE['PROJECT'],
-    //   postable_id: 1,
-    //   content: content,
-    // });
   };
 
   const onSubmit = async (value: ProjectApiType) => {
@@ -96,11 +91,28 @@ export const ProjectForm = () => {
       formData.set('content', sunContent);
     }
 
-    console.log('formData value', formData.get('is_main'));
     const res = await axios.post(`${API_PREFIX}/projects`, formData);
 
     if (res.status === 201 || res.status === 200) {
       toast.success('Tạo mới thành công');
+    }
+  };
+
+  const handleUpdate = async () => {
+    if (sunContent) {
+      setValue('content', sunContent);
+    }
+    const data = getValues();
+
+    if (imageFile) {
+      data.thumb = imageFile;
+    }
+
+    console.log('data', data);
+    const res = await axios.patch(`${API_PREFIX}/projects/${params.id}`, data);
+
+    if (res.status === 201 || res.status === 200) {
+      toast.success('Cập nhật thành công');
     }
   };
 
@@ -114,7 +126,15 @@ export const ProjectForm = () => {
         <Grid item xs={12} sm={6} sx={{ position: 'relative' }}>
           <FormLabel>Thumb</FormLabel>
           <ImageUpload
-            image={imageFile ? URL.createObjectURL(imageFile) : tempThumb}
+            image={
+              isEdit
+                ? imageFile
+                  ? URL.createObjectURL(imageFile)
+                  : convertRelatePathImage(watch('thumb'))
+                : imageFile
+                ? URL.createObjectURL(imageFile)
+                : tempThumb
+            }
             handleSetImage={(file: any) => setImageFile(file)}
           />
           {/* <BoxWithBackgroundAndLayer
@@ -190,6 +210,7 @@ export const ProjectForm = () => {
           }}
           defaultValue={watch('name')}
           onSave={handleSave}
+          setContents={watch('content')}
         />
       </Box>
       <Box my={2}>
@@ -204,7 +225,7 @@ export const ProjectForm = () => {
       <Box my={4}>
         <Button
           disabled={!sunContent}
-          onClick={handleSubmit(onSubmit)}
+          onClick={isEdit ? handleUpdate : handleSubmit(onSubmit)}
           variant="contained"
         >
           Lưu
