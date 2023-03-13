@@ -1,5 +1,5 @@
 import { Box, Drawer, DrawerProps, IconButton, MenuItem, Stack } from '@mui/material';
-import { useState } from 'react';
+import React, { Children, useState } from 'react';
 
 import { grey } from '../libs';
 import { LinkCustom, MontserratTypo, OswaldTypo } from '../styled';
@@ -14,11 +14,12 @@ export type ItemType = {
 
 type CustomDrawerProps = DrawerProps & {
   item: ItemType[];
+  children?: React.ReactElement
 };
 
 // Highlight when an item choossed
 export const CustomDrawer = (props: CustomDrawerProps) => {
-  const { item, open, onClose, ...drawerProps } = props;
+  const { item, open, onClose, children, ...drawerProps } = props;
   const [openMenu, setOpenMenu] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -61,6 +62,7 @@ export const CustomDrawer = (props: CustomDrawerProps) => {
           </Stack>
         ))}
       </Stack>
+      {children}
     </Drawer>
   );
 };

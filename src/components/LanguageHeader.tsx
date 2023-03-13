@@ -39,7 +39,6 @@ export const LanguageHeader = () => {
   };
 
   const setLang = async () => {
-    console.log('set lange')
     const symbol = await localStorage.getItem('language');
     if (symbol) {
       const l = LANGUAGES.find((i) => i.symbol === symbol);

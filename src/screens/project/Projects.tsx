@@ -1,15 +1,11 @@
 import { Box, Grid, useMediaQuery, useTheme } from '@mui/material';
 import { useEffect } from 'react';
+import { useQuery } from 'react-query';
 
-import { HeadingBlock, Line } from '../../components';
-import { IMAGE_FOLDER_PATH, projects } from '../../constant';
-import { orange, ProjectType } from '../../libs';
+import { HeadingBlock } from '../../components';
+import { ProjectApiType } from '../../libs';
 import {
-  GridCenter,
-  GridCenterHorizontal,
-  GridCenterVertical,
-  OswaldTypo,
-  OswaldTypoHeaddingContent,
+  GridCenterHorizontal, OswaldTypoHeaddingContent
 } from '../../styled';
 import { FilterBar } from './FilterBar';
 import { ProjectItem } from './ProjectItem';
@@ -18,6 +14,8 @@ export const Projects = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
+  const { data: listProject, isLoading: isLoading } = useQuery<ProjectApiType[]>('projects');
+  console.log('list project', listProject);
   const isLeftDefective = (index: number) => {
     // in mobile
     if (isMobile) {
@@ -66,16 +64,13 @@ export const Projects = () => {
         </Grid>
       </Grid>
       <Grid container sx={{ mt: 4 }}>
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item, index) => (
+        {listProject?.map((project: ProjectApiType, index: any) => (
           <Grid key={index} item xs={12} sm={index === 0 ? 12 : 6}>
             <ProjectItem
-              project={{
-                ...projects[index],
-                thumb: `${IMAGE_FOLDER_PATH}/project_thumb/${index + 1}.jpg`,
-              }}
+              project={project}
               isLastest={!index ?? true}
               defectivePosition={
-                index !== 0 ? (isLeftDefective(index) ? 'left' : 'right') : 'right'
+                !project.is_main ? (isLeftDefective(index) ? 'left' : 'right') : 'right'
               }
             />
           </Grid>

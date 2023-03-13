@@ -18,7 +18,7 @@ import { useLocation } from 'react-router-dom';
 import { CustomDrawer, CustomMenu, ItemType, LanguageHeader } from '../components';
 import { CodiconTriangleDown } from '../components/icon';
 import { grey, orange } from '../libs';
-import { HeaderItemTypo } from '../styled';
+import { HeaderItemTypo, MulishTypo } from '../styled';
 
 export const Header = () => {
   const [openDrawer, setOpenDrawer] = useState<boolean>(false);
@@ -151,7 +151,7 @@ export const Header = () => {
                     )}
                   </Stack>
                 ))}
-                <LanguageHeader/>
+                <LanguageHeader />
               </Stack>
             </Stack>
           ) : (
@@ -194,7 +194,22 @@ export const Header = () => {
               >
                 ModelHome
               </Typography>
-              <CustomDrawer open={openDrawer} onClose={handleCloseDrawer} item={pages} />
+              <CustomDrawer open={openDrawer} onClose={handleCloseDrawer} item={pages}>
+                <Box>
+                  <MulishTypo
+                    ml={2}
+                    sx={{
+                      color: 'white',
+                      fontWeight: 500,
+                      position: 'relative',
+                      top: 10,
+                    }}
+                  >
+                    Ngôn ngữ
+                  </MulishTypo>
+                  <LanguageHeader />
+                </Box>
+              </CustomDrawer>
             </Toolbar>
           )}
         </Container>

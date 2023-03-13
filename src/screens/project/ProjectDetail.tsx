@@ -1,12 +1,12 @@
 import { Box, Container, Grid } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 
 import { Line } from '../../components';
 import { FadeInSection } from '../../components/FadeInSection';
-import { capatializeTransform, convertSlugToName } from '../../constant';
+import { convertSlugToName } from '../../constant';
 import { grey, orange, ProjectApiType } from '../../libs';
 import {
   GridCenter,
@@ -14,7 +14,6 @@ import {
   OswaldTypo,
   OswaldTypoHeaddingContent,
 } from '../../styled';
-import { Content } from './content';
 
 export const ProjectDetail = () => {
   const params = useParams();
