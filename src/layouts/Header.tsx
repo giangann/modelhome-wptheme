@@ -15,7 +15,7 @@ import {
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { CustomDrawer, CustomMenu, ItemType } from '../components';
+import { CustomDrawer, CustomMenu, ItemType, LanguageHeader } from '../components';
 import { CodiconTriangleDown } from '../components/icon';
 import { grey, orange } from '../libs';
 import { HeaderItemTypo } from '../styled';
@@ -151,6 +151,7 @@ export const Header = () => {
                     )}
                   </Stack>
                 ))}
+                <LanguageHeader/>
               </Stack>
             </Stack>
           ) : (

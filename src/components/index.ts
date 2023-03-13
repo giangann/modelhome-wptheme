@@ -8,3 +8,5 @@ export * from './ImageUpload';
 export * from './ImageWithDefectiveTrianglePart';
 export * from './Line';
 export * from './TextFieldWithCustomFont';
+export * from './EmptyContent';
+export * from './LanguageHeader';

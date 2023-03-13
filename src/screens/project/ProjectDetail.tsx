@@ -1,12 +1,13 @@
 import { Box, Container, Grid } from '@mui/material';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 
 import { Line } from '../../components';
 import { FadeInSection } from '../../components/FadeInSection';
 import { capatializeTransform, convertSlugToName } from '../../constant';
-import { grey, orange } from '../../libs';
+import { grey, orange, ProjectApiType } from '../../libs';
 import {
   GridCenter,
   MontserratTypo,
@@ -17,19 +18,19 @@ import { Content } from './content';
 
 export const ProjectDetail = () => {
   const params = useParams();
+  const { t } = useTranslation();
 
   const projectName = convertSlugToName(params.slug);
 
   const testImage =
     'https://measured.ca/wp-content/uploads/1709-RiftHouse-Web-RearSquareDay-PhotographerEmaPeter.jpg';
 
-  const projectSummary = {
-    'Địa điểm': 'Viet Nam',
-    'Khách hàng': 'Mrs Thuy',
-    'diện tích': '100 sq.m',
-    'Hoàn thành năm': '2021',
-  };
+  const projectSummary = ['location', 'customer_name', 'square', 'finish_in'];
 
+  const { data: projectData, isLoading: isLoading } = useQuery<ProjectApiType>(
+    `projects/get-by-slug/${params.slug}`,
+  );
+  console.log('projectData', projectData);
   const img1 = 'https://zikzakarchitects.com/hwp/wp-content/uploads/2022/12/33-2.jpg';
   const img2 =
     'https://measured.ca/wp-content/uploads/1508-CubeHouse-Web-Rear-Entry-Square-Photographer-Ema-Peter.jpg';
@@ -60,7 +61,7 @@ export const ProjectDetail = () => {
               </FadeInSection>
               <FadeInSection fade="fade-in-left">
                 <OswaldTypoHeaddingContent mb={2} letterSpacing={`${0.5}px !important`}>
-                  {projectName}
+                  {projectData?.name}
                 </OswaldTypoHeaddingContent>
               </FadeInSection>
               <FadeInSection fade="fade-in-right">
@@ -69,15 +70,13 @@ export const ProjectDetail = () => {
             </Box>
 
             <Grid container spacing={1}>
-              {Object.entries(projectSummary).map(([key, value], index) => (
+              {projectSummary.map((key, index) => (
                 <Grid item xs={6} key={index}>
                   <Box>
-                    <OswaldTypo letterSpacing={1.5}>
-                      {capatializeTransform(key)}
-                    </OswaldTypo>
+                    <OswaldTypo letterSpacing={1.5}>{t(`project.${key}`)}</OswaldTypo>
                   </Box>
                   <Box>
-                    <MontserratTypo>{value}</MontserratTypo>
+                    <MontserratTypo>{projectData ? projectData[key] : ''}</MontserratTypo>
                   </Box>
                 </Grid>
               ))}

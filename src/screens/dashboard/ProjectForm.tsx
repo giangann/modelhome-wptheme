@@ -34,7 +34,6 @@ export const ProjectForm = () => {
   });
 
   const [imageFile, setImageFile] = useState(null);
-  const [sunContent, setSunContent] = useState<string | null>(null);
 
   const params = useParams();
   const isEdit = params?.id ? true : false;
@@ -54,7 +53,6 @@ export const ProjectForm = () => {
 
         // if(project)
         setValue('content', project.content);
-        setSunContent(project.content as string);
       },
     });
 
@@ -65,14 +63,12 @@ export const ProjectForm = () => {
     setValue('content', content);
   };
 
+  const handleCheck = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setValue('is_main', event.target.checked);
+  };
+
   const onSubmit = async (value: ProjectApiType) => {
-    console.log('value', value);
-
     const formData = new FormData();
-
-    if (imageFile) {
-      formData.append('thumb', imageFile);
-    }
 
     Object.entries(value).forEach(([key, value]) => {
       if (typeof value === 'boolean') {
@@ -82,10 +78,27 @@ export const ProjectForm = () => {
       }
     });
 
-    const res = await axios.post(`${API_PREFIX}/projects`, formData);
+    if (imageFile && !isEdit) {
+      formData.append('thumb', imageFile);
+    }
 
-    if (res.status === 201 || res.status === 200) {
-      toast.success('Tạo mới thành công');
+    if (imageFile && isEdit) {
+      formData.set('thumb', imageFile);
+    }
+
+    if (isEdit) {
+      const res = await axios.post(
+        `${API_PREFIX}/projects/update/${params.id}`,
+        formData,
+      );
+      if (res.status === 201 || res.status === 200) {
+        toast.success('Cập nhật thành công');
+      }
+    } else {
+      const res = await axios.post(`${API_PREFIX}/projects`, formData);
+      if (res.status === 201 || res.status === 200) {
+        toast.success('Tạo mới thành công');
+      }
     }
   };
 
@@ -203,16 +216,16 @@ export const ProjectForm = () => {
         <OswaldTypo mb={2}>Đánh dấu dự án nổi bật</OswaldTypo>
         <Box sx={{ display: 'flex' }}>
           <FormGroup>
-            <FormControlLabel control={<Switch />} label="Dự án nổi bật" />
+            <FormControlLabel
+              control={<Switch onChange={handleCheck} checked={watch('is_main')} />}
+              label="Dự án nổi bật"
+            />
           </FormGroup>
         </Box>
       </Box>
 
       <Box my={4}>
-        <Button
-          onClick={isEdit ? handleUpdate : handleSubmit(onSubmit)}
-          variant="contained"
-        >
+        <Button onClick={handleSubmit(onSubmit)} variant="contained">
           Lưu
         </Button>
       </Box>

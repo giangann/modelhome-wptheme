@@ -149,6 +149,13 @@ export const GridCenter = styled(Grid)({
   alignItems: 'center',
 });
 
+export const ToogleLanguageText = styled(Typography)(({ theme }) => ({
+  fontSize: 16,
+  fontWeight: 200,
+  color: "white",
+  opacity: 0.7,
+}));
+
 export const TriangleByBorder = styled(Box, {
   shouldForwardProp: (prop) => prop !== 'defectivePosition',
 })<{ defectivePosition: DefectivePositionType }>(({ defectivePosition }) => ({

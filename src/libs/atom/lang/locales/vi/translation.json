@@ -1,0 +1,46 @@
+{
+  "time": "Thời gian",
+  "activity": "Hoạt động",
+  "cancel": "Hủy",
+  "submit": "Đăng ký",
+  "price": "Giá",
+  "person": "Người",
+  "amount": "Số lượng",
+  "home": {
+    "about_me": "Về mình",
+    "contact": "Liên hệ",
+    "trip_detail": "Chi tiết chuyến đi",
+    "view_more": "Vào xem thêm bài mới nè",
+    "form": {
+      "form_title_footer": "Đăng kí để nhận tour mới nhất",
+      "your_name": "Tên của bạn",
+      "email": "Địa chỉ email",
+      "register": "Đăng ký"
+    }
+  },
+
+  "about": {
+    "introduce": "Giới thiệu",
+    "news": "Bản tin",
+    "album_image": "Album ảnh",
+    "feel": "Cảm thấy",
+    "in": "Tại"
+  },
+
+  "footer": {
+    "follow_us": "Theo dõi chúng tôi tại",
+    "about_us": "Về chúng tôi"
+  },
+  "form": {
+    "register_trip": "Đăng ký chuyến đi",
+    "name": "Tên",
+    "email": "Địa chỉ email",
+    "amount": "Số lượng người tham gia"
+  },
+  "project": {
+    "location": "Địa điểm",
+    "customer_name": "Khách hàng",
+    "square": "Diện tích",
+    "finish_in": "Hoàn thành năm"
+  }
+}
