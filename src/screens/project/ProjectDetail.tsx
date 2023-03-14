@@ -30,16 +30,6 @@ export const ProjectDetail = () => {
   const { data: projectData, isLoading: isLoading } = useQuery<ProjectApiType>(
     `projects/get-by-slug/${params.slug}`,
   );
-  console.log('projectData', projectData);
-  const img1 = 'https://zikzakarchitects.com/hwp/wp-content/uploads/2022/12/33-2.jpg';
-  const img2 =
-    'https://measured.ca/wp-content/uploads/1508-CubeHouse-Web-Rear-Entry-Square-Photographer-Ema-Peter.jpg';
-  const img3 =
-    'https://measured.ca/wp-content/uploads/1515-ShiftHouse-Web-Front-PhotographerEmaPeter.jpg';
-  const img4 =
-    'https://measured.ca/wp-content/uploads/1614-LagoonHouse-Web-FrontSquare-Photographer-Ema-Peter.jpg';
-  const img5 =
-    'https://measured.ca/wp-content/uploads/1508-CubeHouse-Web-Rear-Entry-Square-Photographer-Ema-Peter.jpg';
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -76,7 +66,9 @@ export const ProjectDetail = () => {
                     <OswaldTypo letterSpacing={1.5}>{t(`project.${key}`)}</OswaldTypo>
                   </Box>
                   <Box>
-                    <MontserratTypo>{projectData ? projectData[key] : ''}</MontserratTypo>
+                    <MontserratTypo>
+                      {projectData ? projectData[key as keyof ProjectApiType] : ''}
+                    </MontserratTypo>
                   </Box>
                 </Grid>
               ))}
