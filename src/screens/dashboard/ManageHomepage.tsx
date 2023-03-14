@@ -250,7 +250,7 @@ export const ManageHomepage = () => {
             <Grid item xs={6} sm={4}>
               <Input
                 fullWidth
-                name="servicePart.leftCard.subTitle"
+                name="servicePart.leftCard.title"
                 control={control}
                 label="Title"
               />
@@ -258,7 +258,7 @@ export const ManageHomepage = () => {
             <Grid item xs={6} sm={4}>
               <Input
                 fullWidth
-                name="servicePart.leftCard.title"
+                name="servicePart.leftCard.subTitle"
                 control={control}
                 label="Subtitle"
               />
@@ -282,7 +282,7 @@ export const ManageHomepage = () => {
             <Grid item xs={6} sm={4}>
               <Input
                 fullWidth
-                name="servicePart.rightCard.subTitle"
+                name="servicePart.rightCard.title"
                 control={control}
                 label="Title"
               />
@@ -290,7 +290,7 @@ export const ManageHomepage = () => {
             <Grid item xs={6} sm={4}>
               <Input
                 fullWidth
-                name="servicePart.rightCard.title"
+                name="servicePart.rightCard.subTitle"
                 control={control}
                 label="Subtitle"
               />
