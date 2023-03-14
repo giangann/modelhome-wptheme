@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 
-import { Line } from '../../components';
+import { EmptyContent, Line } from '../../components';
 import { FadeInSection } from '../../components/FadeInSection';
 import { convertSlugToName } from '../../constant';
 import { grey, orange, ProjectApiType } from '../../libs';
@@ -14,6 +14,7 @@ import {
   OswaldTypo,
   OswaldTypoHeaddingContent,
 } from '../../styled';
+import { Content } from './content';
 
 export const ProjectDetail = () => {
   const params = useParams();
@@ -84,7 +85,7 @@ export const ProjectDetail = () => {
         </GridCenter>
       </Grid>
       {/* Part 2 */}
-      <Box>
+      {/* <Box>
         <FadeInSection>
           <img
             src={img1}
@@ -183,8 +184,12 @@ export const ProjectDetail = () => {
             </MontserratTypo>
           </Container>
         </FadeInSection>
-      </Box>
-      {/* <Content /> */}
+      </Box> */}
+      {projectData?.content ? (
+        <Content content={projectData?.content} />
+      ) : (
+        <EmptyContent />
+      )}
     </Box>
   );
 };

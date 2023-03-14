@@ -1,3 +1,4 @@
+import { BannerType } from '@/libs';
 import { Box, Stack } from '@mui/material';
 
 import { IMAGE_FOLDER_PATH } from '../../constant';
@@ -10,7 +11,8 @@ import {
   OswaldTypoHeaddingBanner,
 } from '../../styled';
 
-export const Banner = () => {
+export const Banner = (props: { data: BannerType }) => {
+  const { data } = props;
   return (
     <Box sx={{ position: 'relative' }}>
       <Box
@@ -44,7 +46,7 @@ export const Banner = () => {
             MODEL HOME
           </OswaldTypoHeaddingBanner>
           <OswaldSubtitle sx={{ color: 'white', textAlign: 'center' }}>
-            Độc đáo - Hiện Đại - Sang Trọng
+            {data.slogan}
           </OswaldSubtitle>
           <Box sx={{ display: 'flex', jusitfyContent: 'center', width: '100%', mt: 6 }}>
             <OrangeContainedBtn

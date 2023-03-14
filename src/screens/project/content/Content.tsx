@@ -2,13 +2,13 @@ import './style.css';
 
 import { useEffect } from 'react';
 import { useQuery } from 'react-query';
-export const Content = () => {
-  const { data: testSunData } = useQuery('posts');
 
-  console.log('test Sun Data', testSunData);
+export const Content = (props: { content: string }) => {
+  const { content } = props;
+  console.log('content', content);
 
   function createMarkup() {
-    return { __html: testSunData ? 'testSunData[3].content' : '' };
+    return { __html: content ? content : '' };
   }
 
   useEffect(() => {

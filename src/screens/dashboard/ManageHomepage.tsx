@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useFieldArray, useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
+import { toast } from 'react-toastify';
 
 import { Input } from '../../components/Input';
 import { API_PREFIX, homePage } from '../../constant';
@@ -69,6 +70,11 @@ export const ManageHomepage = () => {
           leftCard: {},
           rightCard: {},
         },
+        // projectPart: {
+        //   title: '',
+        //   subTitle: '',
+        //   description: '',
+        // },
       },
     });
 
@@ -80,11 +86,11 @@ export const ManageHomepage = () => {
   // const [serviceProvide, setServiceProvide] = useState(getValues)
 
   const { data: homePageData } = useQuery('home-page', {
-    onSuccess: (value: HomePageApiType) => {
-      const bannerData = JSON.parse(value.banner);
-      const aboutData = JSON.parse(value.about_us);
-      const serviceData = JSON.parse(value.services);
-      const projectData = JSON.parse(value.projects);
+    onSuccess: (homePage: HomePageApiType) => {
+      const bannerData = JSON.parse(homePage.banner);
+      const aboutData = JSON.parse(homePage.about_us);
+      const serviceData = JSON.parse(homePage.services);
+      const projectData = JSON.parse(homePage.projects);
 
       setValue('bannerPart.backgroundImg', bannerData.backgroundImg);
       setValue('bannerPart.slogan', bannerData.slogan);
@@ -97,20 +103,25 @@ export const ManageHomepage = () => {
       setValue('servicePart.serviceProvide', serviceData.serviceProvide);
       setValue('servicePart.leftCard', serviceData.leftCard);
       setValue('servicePart.rightCard', serviceData.rightCard);
+
+      setValue('projectPart.title', projectData.title);
+      setValue('projectPart.subTitle', projectData.subTitle);
+      setValue('projectPart.description', projectData.description);
     },
   });
 
-  const onSubmit = async (value: any) => {
-    console.log('value submit: ', value);
-  };
-
-  const handleUpdate = async () => {
+  const onSubmit = async (homePage: any) => {
+    console.log('value submit: ', homePage);
     const res = await axios.post(`${API_PREFIX}/home-page/update`, {
       banner: JSON.stringify(homePage.bannerPart),
       about_us: JSON.stringify(homePage.aboutPart),
       services: JSON.stringify(homePage.servicePart),
       projects: JSON.stringify(homePage.projectPart),
     });
+
+    if (res.status === 200 || res.status === 201) {
+      toast.success('Cập nhật thành công');
+    }
   };
 
   console.log('{...register(`servicePart.serviceProvide.${index}.link`)}', {
@@ -119,7 +130,6 @@ export const ManageHomepage = () => {
   return (
     <Container sx={{ paddingY: 4 }}>
       <MontserratDashboardTitle>Quản lý Trang chủ</MontserratDashboardTitle>
-      <Button onClick={handleUpdate}>Test post</Button>
 
       {/* Phần banner */}
       <Box>
@@ -289,6 +299,36 @@ export const ManageHomepage = () => {
               <Input
                 fullWidth
                 name="servicePart.rightCard.description"
+                control={control}
+                label="Description"
+                maxRows={4}
+                multiline
+              />
+            </Grid>
+          </Grid>
+        </Box>
+      </Box>
+
+      {/* Phần dự án của chúng tôi */}
+      <Box mt={4}>
+        <OswaldTypo>Phần Dự án</OswaldTypo>
+        <Box mt={2}>
+          <Grid container spacing={2}>
+            <Grid item xs={6} sm={4}>
+              <Input fullWidth name="projectPart.title" control={control} label="Title" />
+            </Grid>
+            <Grid item xs={6} sm={4}>
+              <Input
+                fullWidth
+                name="projectPart.subTitle"
+                control={control}
+                label="Subtitle"
+              />
+            </Grid>
+            <Grid item xs={12} sm={4}>
+              <Input
+                fullWidth
+                name="projectPart.description"
                 control={control}
                 label="Description"
                 maxRows={4}
