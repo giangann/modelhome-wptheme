@@ -2,6 +2,12 @@
   width: 100%;
 }
 
+#sunedit-area {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
 #sunedit-area p {
   font-size: 1rem;
   line-height: 1.5;
@@ -11,18 +17,23 @@
   font-weight: 500;
   width: 50%;
   margin: 20px auto;
-  align-self: center;
   box-sizing: border-box;
 }
 
-#sunedit-area img {
-  width: 100%;
-}
-
-#sunedit-area img:first-child {
-  height: 70vh;
+/* #sunedit-area img {
+  width: 100% !important;
   object-fit: cover;
-}
+  object-position: 'center';
+} */
+
+/* #sunedit-area img:nth-of-type(1) {
+  height: 70vh !important;
+  object-fit: cover;
+} */
+
+/* .se-image-container img{
+  height: 500px;
+} */
 
 @media only screen and (max-width: 1200px) {
   /*Tablets [601px -> 1200px]*/
