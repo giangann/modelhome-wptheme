@@ -195,76 +195,121 @@ export const aboutPage = {
   },
 };
 
-export const serviceDetail = {
-  title: 'Dịch vụ thiết kế kiến trúc nội thất',
-  description:
-    'Thiết kế kiến trúc là việc bố trí các kết cấu, kiến trúc, hệ thống cấp điện chiếu sáng, cấp thoát nước và điều hòa thông gió,… để tạo nên một nơi sinh sống chất lượng, tiện ích với đầy đủ công năng sống thuận tiện, thoải mái và là niềm tự hào của các thành viên trong gia đình.',
-  workFlow: {
-    step: {
-      a: {
-        title: 'Tìm hiểu nhu cầu khách hàng',
-        content: [
-          'Trao đổi thông tin sơ bộ về nhu cầu, sở thích, phong cách thiết kế, thông tin khu đất, pháp lý, chi phí dự định đầu tư…',
-          'Trình bày quy trình làm việc rõ ràng và báo giá thi công',
-        ],
-      },
-      b: {
-        title: 'Làm concept',
-        content: [
-          'Việc làm Concept cho công trình là bước đầu tiên của KTS sau khi tiếp nhận thông tin của gia chủ. Quá trình này giúp cho gia chủ hình dung sơ bộ diện mạo căn nhà tương lai của mình. Gia chủ sẽ có ý kiến trao đổi lại với KTS, và 2 bên cùng bàn bạc thống nhất đưa ra giải pháp hợp lý nhất cho ngôi nhà từ công năng, vật liệu, mầu sắc...Việc làm này sẽ đẩy nhanh quá trình thiết kế, dự phòng rủi ro cho cả 2 bên!',
-        ],
-      },
-      c: {
-        title: 'Tư vấn phương án mặt bằng công năng',
-        content: [
-          'Tư vấn và trình bày phương án mặt bằng công năng',
-          'Ký hợp đồng thiết kế dựa trên những các thỏa thuận của hai bên, mẫu hợp đồng được soạn thảo quy định của công ty Xây Dựng và đã được văn phòng Luật Sư biên soạn',
-        ],
-      },
-      d: {
-        title: 'Triển khai thiết kế cơ sở',
-        content: [
-          'Thiết kế mặt bằng các tầng, mặt đứng, mặt cắt',
-          'Phối cảnh 3D ngoại thất và 3D nội thất',
-        ],
-      },
-      e: {
-        title: 'Trình bày chỉnh sửa và thống nhất thiết kế cơ sở',
-        content: [
-          'Thống nhất bản vẽ kiến trúc chi tiết về hình dáng, kích thước cũng như kết cấu hoàn chỉnh của ngôi nhà',
-        ],
-      },
-      f: {
-        title: 'Triển khai thiết kế kỹ thuật',
-        content: [
-          'Hồ sơ thiết kế kỹ thuật thi công chi tiết bao gồm:',
-          'Hồ sơ thiết kế kiến trúc',
-          'Hồ sơ chi tiết kết cấu',
-          'Hồ sơ chi tiết hệ thống điện',
-          'Hồ sơ chi tiết hệ thống cấp thoát nước',
-          'Hồ sơ chi tiết nội thất',
-        ],
-      },
-      g: {
-        title: 'Tiến hành thi công',
-        content: [
-          'Đội ngũ kiến trúc sư kiến trúc sư, kỹ sư và đội ngũ thi công chuyên nghiệp sẽ thực hiện các bước thi công hoàn thiện theo tiến độ và hợp đồng.',
-        ],
-      },
-      h: {
-        title: 'Nguyên tắc an toàn lao động, vệ sinh môi trường, bao che công trình',
-        content: [
-          'Quy trình Thi Công An Toàn Lao Động theo tiêu chuẩn thi công nhà cao tầng. Công nhân được đào tạo về ATLĐ và sử dụng bảo vệ thiết bị khi thi công, ATLĐ đảm bảo.',
-          'Xây dựng hệ thống Bao Che Chắn gọn gàng cho công việc, thực hiện đấu nối đặc biệt theo nước ngoài quy định, không làm ảnh hưởng đến các công ty.',
-          'Mua Bảo hiểm cho Công Nhân, Công Trình và cho bên Thứ Ba.',
-        ],
-      },
-      i: {
-        title: 'Bảo trì, bảo hành',
-        content: [
-          'Trong thời gian bảo hành, nếu có vấn đề hỏng hóc do lỗi kỹ thuật thi công (không có tư liệu hoàn thiện), quý khách hàng vui lòng thông báo bằng điện thoại hoặc liên hệ trực tiếp đến công ty. Công ty trong vòng 48h sẽ cử người xem lại tại công ty, xác định chính thức nhân viên và sửa chữa phục hồi phương pháp',
-        ],
+export const serviceDetail = [
+  {
+    title: 'Dịch vụ thiết kế kiến trúc và thi công nội thất',
+    description:
+      'Thiết kế kiến trúc là việc bố trí các kết cấu, kiến trúc, hệ thống cấp điện chiếu sáng, cấp thoát nước và điều hòa thông gió,… để tạo nên một nơi sinh sống chất lượng, tiện ích với đầy đủ công năng sống thuận tiện, thoải mái và là niềm tự hào của các thành viên trong gia đình.',
+    workFlow: {
+      title: 'Quy trình thiết kế Kiến trúc và thi công nội thất',
+      step: {
+        a: {
+          title: 'Tìm hiểu nhu cầu khách hàng',
+          content: [
+            'Trao đổi thông tin sơ bộ về nhu cầu, sở thích, phong cách thiết kế, thông tin khu đất, pháp lý, chi phí dự định đầu tư…',
+            'Trình bày quy trình làm việc rõ ràng và báo giá thi công',
+          ],
+        },
+        b: {
+          title: 'Làm concept',
+          content: [
+            'Việc làm Concept cho công trình là bước đầu tiên của KTS sau khi tiếp nhận thông tin của gia chủ. Quá trình này giúp cho gia chủ hình dung sơ bộ diện mạo căn nhà tương lai của mình. Gia chủ sẽ có ý kiến trao đổi lại với KTS, và 2 bên cùng bàn bạc thống nhất đưa ra giải pháp hợp lý nhất cho ngôi nhà từ công năng, vật liệu, mầu sắc...Việc làm này sẽ đẩy nhanh quá trình thiết kế, dự phòng rủi ro cho cả 2 bên!',
+          ],
+        },
+        c: {
+          title: 'Tư vấn phương án mặt bằng công năng',
+          content: [
+            'Tư vấn và trình bày phương án mặt bằng công năng',
+            'Ký hợp đồng thiết kế dựa trên những các thỏa thuận của hai bên, mẫu hợp đồng được soạn thảo quy định của công ty Xây Dựng và đã được văn phòng Luật Sư biên soạn',
+          ],
+        },
+        d: {
+          title: 'Triển khai thiết kế cơ sở',
+          content: [
+            'Thiết kế mặt bằng các tầng, mặt đứng, mặt cắt',
+            'Phối cảnh 3D ngoại thất và 3D nội thất',
+          ],
+        },
+        e: {
+          title: 'Trình bày chỉnh sửa và thống nhất thiết kế cơ sở',
+          content: [
+            'Thống nhất bản vẽ kiến trúc chi tiết về hình dáng, kích thước cũng như kết cấu hoàn chỉnh của ngôi nhà',
+          ],
+        },
+        f: {
+          title: 'Triển khai thiết kế kỹ thuật',
+          content: [
+            'Hồ sơ thiết kế kỹ thuật thi công chi tiết bao gồm:',
+            'Hồ sơ thiết kế kiến trúc',
+            'Hồ sơ chi tiết kết cấu',
+            'Hồ sơ chi tiết hệ thống điện',
+            'Hồ sơ chi tiết hệ thống cấp thoát nước',
+            'Hồ sơ chi tiết nội thất',
+          ],
+        },
+        g: {
+          title: 'Thi công nội thất',
+          content: [
+            'Làm concept về nội thất',
+            'Triển khai bản vẽ thiết kế 3d nội thất',
+            'Triển khai bản vẽ chi tiết nội thất',
+            'Triển khai đóng đồ nội thất',
+          ],
+        },
+
+        h: {
+          title: 'Thi công xây dựng:',
+          content: [
+            'Đội ngũ kiến trúc sư kiến trúc sư, kỹ sư và đội ngũ thi công chuyên nghiệp sẽ thực hiện các bước thi công hoàn thiện theo tiến độ và hợp đồng.',
+          ],
+        },
+        i: {
+          title: 'Nguyên tắc an toàn lao động, vệ sinh môi trường, bao che công trình',
+          content: [
+            'Quy trình Thi Công An Toàn Lao Động theo tiêu chuẩn thi công nhà cao tầng. Công nhân được đào tạo về ATLĐ và sử dụng bảo vệ thiết bị khi thi công, ATLĐ đảm bảo.',
+            'Xây dựng hệ thống Bao Che Chắn gọn gàng cho công việc, thực hiện đấu nối đặc biệt theo nước ngoài quy định, không làm ảnh hưởng đến các công ty.',
+            'Mua Bảo hiểm cho Công Nhân, Công Trình và cho bên Thứ Ba.',
+          ],
+        },
+        k: {
+          title: 'Bảo trì, bảo hành',
+          content: [
+            'Trong thời gian bảo hành, nếu có vấn đề hỏng hóc do lỗi kỹ thuật thi công (không có tư liệu hoàn thiện), quý khách hàng vui lòng thông báo bằng điện thoại hoặc liên hệ trực tiếp đến công ty. Công ty trong vòng 48h sẽ cử người xem lại tại công ty, xác định chính thức nhân viên và sửa chữa phục hồi phương pháp',
+          ],
+        },
       },
     },
   },
-};
+  {
+    title: 'Dịch vụ cải tạo, nâng cấp công trình',
+    description:
+      'Cải tạo nội thất nhà phố là phương án nâng cấp nhà phố hữu hiệu khi kinh phí không đủ để xây nhà mới. Việc cải tạo nhà sẽ giúp bạn tiết kiệm được khá nhiều chi phí xây nhà khi tận dụng nền móng nhà cũ và những vật dụng cũ.',
+    workFlow: {
+      title: 'Quy trình cải tạo, nâng cấp',
+      step: [
+        'Nhận mặt bằng, trao đổi với gia chủ các vấn đề của ngôi nhà.',
+        'Điều chỉnh mặt bằng công năng cho phù hợp với nhu cầu thực tế của gia chủ',
+        'Làm concept về nội thất',
+        'Triển khai bản vẽ thiết kế 3d nội thất',
+        'Triển khai bản vẽ chi tiết nội thất',
+        'Triển khai điểu chỉnh mặt bằng theo đúng thiết kế đã duyệt, đóng đồ nội thất',
+      ],
+    },
+  },
+  {
+    title: 'Dịch vụ cải tạo, nâng cấp công trình',
+    description:
+      'Cải tạo nội thất nhà phố là phương án nâng cấp nhà phố hữu hiệu khi kinh phí không đủ để xây nhà mới. Việc cải tạo nhà sẽ giúp bạn tiết kiệm được khá nhiều chi phí xây nhà khi tận dụng nền móng nhà cũ và những vật dụng cũ.',
+    workFlow: {
+      title: 'Quy trình cải tạo, nâng cấp',
+      step: [
+        'Nhận mặt bằng, trao đổi với gia chủ các vấn đề của ngôi nhà.',
+        'Điều chỉnh mặt bằng công năng cho phù hợp với nhu cầu thực tế của gia chủ',
+        'Làm concept về nội thất',
+        'Triển khai bản vẽ thiết kế 3d nội thất',
+        'Triển khai bản vẽ chi tiết nội thất',
+        'Triển khai điểu chỉnh mặt bằng theo đúng thiết kế đã duyệt, đóng đồ nội thất',
+      ],
+    },
+  },
+];

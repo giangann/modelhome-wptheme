@@ -55,11 +55,11 @@ export const Header = () => {
         },
         {
           name: 'Xây dựng phần thô',
-          link: '/service/1',
+          link: '/service/2',
         },
         {
           name: 'Cải tạo, nâng cấp',
-          link: '/service/1',
+          link: '/service/3',
         },
       ],
     },
