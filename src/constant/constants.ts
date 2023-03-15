@@ -70,3 +70,9 @@ export const MODEL_TYPE = {
   PROJECT: 'Project',
   BLOG: 'Blog',
 };
+
+export const SERVICE_TYPE = {
+  DESIGN_ARCHITECT: 1,
+  BUILD_ROUGH_PART: 2,
+  UPDATE_REPAIR: 3,
+};
