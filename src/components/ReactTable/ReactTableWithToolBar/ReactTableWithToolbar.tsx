@@ -20,7 +20,6 @@ function ReactTableWithToolBar<T extends object>({
   onRowClick,
   ...props
 }: ReactTableWithToolBarProps<T>) {
-  console.log('table data', data);
   return (
     <Page title={title} sxCustom={sxCustom}>
       <ReactTable

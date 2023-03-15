@@ -13,7 +13,6 @@ import {
 } from '../../styled';
 export const OurProjects = (props: { data: OurProjectsType }) => {
   const { data } = props;
-  console.log('data projects', data);
   const navigate = useNavigate();
   return (
     <Box sx={{ zIndex: 6, position: 'relative' }}>

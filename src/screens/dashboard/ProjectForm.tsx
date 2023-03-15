@@ -109,7 +109,6 @@ export const ProjectForm = () => {
       data.thumb = imageFile;
     }
 
-    console.log('data', data);
     const res = await axios.patch(`${API_PREFIX}/projects/${params.id}`, data);
 
     if (res.status === 201 || res.status === 200) {

@@ -111,7 +111,6 @@ export const ManageHomepage = () => {
   });
 
   const onSubmit = async (homePage: any) => {
-    console.log('value submit: ', homePage);
     const res = await axios.post(`${API_PREFIX}/home-page/update`, {
       banner: JSON.stringify(homePage.bannerPart),
       about_us: JSON.stringify(homePage.aboutPart),
@@ -124,9 +123,9 @@ export const ManageHomepage = () => {
     }
   };
 
-  console.log('{...register(`servicePart.serviceProvide.${index}.link`)}', {
-    ...register(`servicePart.serviceProvide.${1}.link`),
-  });
+  // console.log('{...register(`servicePart.serviceProvide.${index}.link`)}', {
+  //   ...register(`servicePart.serviceProvide.${1}.link`),
+  // });
   return (
     <Container sx={{ paddingY: 4 }}>
       <MontserratDashboardTitle>Quản lý Trang chủ</MontserratDashboardTitle>

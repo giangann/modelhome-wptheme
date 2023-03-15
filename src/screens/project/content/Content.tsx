@@ -5,7 +5,6 @@ import { useQuery } from 'react-query';
 
 export const Content = (props: { content: string }) => {
   const { content } = props;
-  console.log('content', content);
 
   function createMarkup() {
     return { __html: content ? content : '' };

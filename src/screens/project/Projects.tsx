@@ -15,7 +15,6 @@ export const Projects = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const { data: listProject, isLoading: isLoading } = useQuery<ProjectApiType[]>('projects');
-  console.log('list project', listProject);
   const isLeftDefective = (index: number) => {
     // in mobile
     if (isMobile) {

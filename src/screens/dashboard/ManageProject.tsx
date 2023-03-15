@@ -64,7 +64,6 @@ export const ManageProject = () => {
   );
 
   const onRowClick = (row: RowProps<ProjectApiType>) => {
-    console.log(row.values.id);
     navigate(`/dashboard/project/${row.values.id}`);
   };
   const handleCreate = () => {
