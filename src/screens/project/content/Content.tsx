@@ -1,4 +1,5 @@
 import './style.css';
+import 'suneditor/dist/css/suneditor.min.css';
 
 import { useEffect } from 'react';
 import { useQuery } from 'react-query';
@@ -22,5 +23,5 @@ export const Content = (props: { content: string }) => {
       document.body.removeChild(script);
     };
   }, []);
-  return <div id="sunedit-area" dangerouslySetInnerHTML={createMarkup()} />;
+  return <div id="sunedit-area" className='sun-editor-editable' dangerouslySetInnerHTML={createMarkup()} />;
 };

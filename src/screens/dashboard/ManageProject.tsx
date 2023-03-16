@@ -1,5 +1,4 @@
 import { Row as RowProps } from 'react-table';
-import 'suneditor/dist/css/suneditor.min.css';
 
 import { Box, Button, Container } from '@mui/material';
 import axios from 'axios';

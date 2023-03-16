@@ -20,11 +20,10 @@
   box-sizing: border-box;
 }
 
-/* #sunedit-area img {
-  width: 100% !important;
+#sunedit-area img {
   object-fit: cover;
   object-position: 'center';
-} */
+}
 
 /* #sunedit-area img:nth-of-type(1) {
   height: 70vh !important;
