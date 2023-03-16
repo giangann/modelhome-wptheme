@@ -1,17 +1,16 @@
 import { Box, Button, Container, Grid, Stack } from '@mui/material';
 import axios from 'axios';
-import { useState } from 'react';
 import { useFieldArray, useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
 import { toast } from 'react-toastify';
 
 import { Input } from '../../components/Input';
-import { API_PREFIX, homePage } from '../../constant';
+import { API_PREFIX } from '../../constant';
 import { HomePageApiType, HomePageType } from '../../libs';
 import {
   MontserratDashboardTitle,
   MontserratTypoContent,
-  OswaldTypo,
+  OswaldTypo
 } from '../../styled';
 
 // function nestedLoop(obj) {
@@ -111,7 +110,7 @@ export const ManageHomepage = () => {
   });
 
   const onSubmit = async (homePage: any) => {
-    const res = await axios.post(`${API_PREFIX}/home-page/update`, {
+    const res = await axios.post(`${API_PREFIX}home-page/update`, {
       banner: JSON.stringify(homePage.bannerPart),
       about_us: JSON.stringify(homePage.aboutPart),
       services: JSON.stringify(homePage.servicePart),

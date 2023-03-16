@@ -1,4 +1,4 @@
-import { DefectivePositionType } from '../libs';
+import { baseStorage, baseURL, DefectivePositionType } from '../libs';
 
 export const generateDefectiveTriangleByPosition = (
   defectivePosition: DefectivePositionType,
@@ -60,8 +60,8 @@ export const convertRelatePathImage = (relativePath: string) => {
   return `${STORAGE_PREFIX}/${relativePath}`;
 };
 
-export const API_PREFIX = 'http://127.0.0.1:8000/api';
-export const STORAGE_PREFIX = 'http://127.0.0.1:8000/storage';
+export const API_PREFIX = baseURL;
+export const STORAGE_PREFIX = baseStorage;
 export const IMAGE_FOLDER_PATH = '/images';
 export const ZALO_LINK = 'https://zalo.me/0979828688';
 // export const PHONE_NUMBER = 0979828688;

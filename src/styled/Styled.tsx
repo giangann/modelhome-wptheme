@@ -152,7 +152,7 @@ export const GridCenter = styled(Grid)({
 export const ToogleLanguageText = styled(Typography)(({ theme }) => ({
   fontSize: 16,
   fontWeight: 200,
-  color: "white",
+  color: 'white',
   opacity: 0.7,
 }));
 
@@ -239,4 +239,12 @@ export const centerDiv = {
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
+};
+
+export const styleTypoHeadingFooter = {
+  fontFamily: 'Oswald',
+  fontSize: 36,
+  fontWeight: 700,
+  letterSpacing: 1.8,
+  lineHeight: '1.33em',
 };

@@ -134,9 +134,10 @@ export const OurServices = (props: { data: OurServicesType }) => {
                     >
                       {data.rightCard.subTitle}
                     </OswaldTypo>
-                    <OswaldTypoHeaddingFooter color="white">
-                      {data.rightCard.title}
-                    </OswaldTypoHeaddingFooter>
+                    <OswaldTypoHeaddingFooter
+                      color="white"
+                      dangerouslySetInnerHTML={{ __html: data.rightCard.title }}
+                    />
 
                     <MontserratTypoContent
                       color="white"
@@ -194,9 +195,8 @@ export const OurServices = (props: { data: OurServicesType }) => {
                       color="white"
                       mb={4}
                       sx={{ textTransform: 'uppercase' }}
-                    >
-                      {data.leftCard.title}
-                    </OswaldTypoHeaddingFooter>
+                      dangerouslySetInnerHTML={{ __html: data.leftCard.title }}
+                    />
 
                     <MontserratTypoContent
                       color="white"

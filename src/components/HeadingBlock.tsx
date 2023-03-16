@@ -20,9 +20,10 @@ export const HeadingBlock = (props: HeadingBlockProps) => {
       </FadeInSection>
       <FadeInSection fade="fade-in-left">
         {typeof title === 'string' ? (
-          <OswaldTypoHeaddingContent mb={{ xs: 4, sm: 4 }}>
-            {title.toUpperCase()}
-          </OswaldTypoHeaddingContent>
+          <OswaldTypoHeaddingContent
+            mb={{ xs: 4, sm: 4 }}
+            dangerouslySetInnerHTML={{ __html: title }}
+          />
         ) : (
           title
         )}

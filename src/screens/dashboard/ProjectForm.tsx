@@ -18,11 +18,11 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import SunEditor from 'suneditor-react';
 
-import { BoxWithBackgroundAndLayer, ImageUpload } from '../../components';
+import { ImageUpload } from '../../components';
 import { Input } from '../../components/Input';
-import { API_PREFIX, convertRelatePathImage, MODEL_TYPE } from '../../constant';
+import { API_PREFIX, convertRelatePathImage } from '../../constant';
 import { ProjectApiType } from '../../libs';
-import { LayerBox, MontserratDashboardTitle, MulishTypo, OswaldTypo } from '../../styled';
+import { MontserratDashboardTitle, OswaldTypo } from '../../styled';
 
 const tempThumb =
   'https://measured.ca/wp-content/uploads/1508-CubeHouse-Web-Rear-Entry-Square-Photographer-Ema-Peter.jpg';
@@ -86,33 +86,22 @@ export const ProjectForm = () => {
       formData.set('thumb', imageFile);
     }
 
+    const contentFieldData = getValues('content');
+    if (contentFieldData) {
+      if (contentFieldData.length < 20) {
+        formData.delete('content');
+      }
+    }
     if (isEdit) {
-      const res = await axios.post(
-        `${API_PREFIX}/projects/update/${params.id}`,
-        formData,
-      );
+      const res = await axios.post(`${API_PREFIX}projects/update/${params.id}`, formData);
       if (res.status === 201 || res.status === 200) {
         toast.success('Cập nhật thành công');
       }
     } else {
-      const res = await axios.post(`${API_PREFIX}/projects`, formData);
+      const res = await axios.post(`${API_PREFIX}projects`, formData);
       if (res.status === 201 || res.status === 200) {
         toast.success('Tạo mới thành công');
       }
-    }
-  };
-
-  const handleUpdate = async () => {
-    const data = getValues();
-
-    if (imageFile) {
-      data.thumb = imageFile;
-    }
-
-    const res = await axios.patch(`${API_PREFIX}/projects/${params.id}`, data);
-
-    if (res.status === 201 || res.status === 200) {
-      toast.success('Cập nhật thành công');
     }
   };
 
@@ -140,18 +129,6 @@ export const ProjectForm = () => {
             }
             handleSetImage={(file: any) => setImageFile(file)}
           />
-          {/* <BoxWithBackgroundAndLayer
-            width="50%%"
-            height="90%"
-            sx={{
-              backgroundImage: `url(${tempThumb})`,
-              backgroundSize: 'cover',
-              width: '50%',
-              height: '90%',
-            }}
-          >
-            <MulishTypo>This is content</MulishTypo>
-          </BoxWithBackgroundAndLayer> */}
         </Grid>
         <Grid item xs={12} sm={6}>
           <Input
