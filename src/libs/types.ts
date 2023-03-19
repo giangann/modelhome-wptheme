@@ -121,3 +121,8 @@ export type PostType = {
   content: string;
   id: number;
 };
+
+export type TagType = {
+  name: string;
+  id: number;
+};

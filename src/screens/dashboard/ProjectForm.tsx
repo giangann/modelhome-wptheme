@@ -1,6 +1,7 @@
 import 'suneditor/dist/css/suneditor.min.css';
 
 import {
+  Autocomplete,
   Box,
   Button,
   Container,
@@ -9,6 +10,7 @@ import {
   FormLabel,
   Grid,
   Switch,
+  TextField,
 } from '@mui/material';
 import axios from 'axios';
 import { useState } from 'react';
@@ -21,22 +23,45 @@ import SunEditor from 'suneditor-react';
 import { ImageUpload } from '../../components';
 import { Input } from '../../components/Input';
 import { API_PREFIX, convertRelatePathImage } from '../../constant';
-import { ProjectApiType } from '../../libs';
+import { ProjectApiType, TagType } from '../../libs';
 import { MontserratDashboardTitle, OswaldTypo } from '../../styled';
+import { CustomAutoComplete } from '../../components/Input';
 
 const tempThumb =
   'https://measured.ca/wp-content/uploads/1508-CubeHouse-Web-Rear-Entry-Square-Photographer-Ema-Peter.jpg';
 export const ProjectForm = () => {
   const navigate = useNavigate();
 
-  const { control, setValue, getValues, handleSubmit, watch } = useForm<ProjectApiType>({
-    defaultValues: {},
-  });
+  const { control, setValue, getValues, handleSubmit, register, watch } =
+    useForm<ProjectApiType>({
+      defaultValues: {},
+    });
 
   const [imageFile, setImageFile] = useState(null);
+  const [listTag, setListTag] = useState<TagType[]>([]);
 
   const params = useParams();
   const isEdit = params?.id ? true : false;
+
+  useQuery<TagType[]>('tags', {
+    onSuccess: (tag: TagType[]) => {
+      setListTag(
+        tag.map((tag: TagType, index: number) => {
+          return {
+            ...tag,
+            label: tag.name,
+            id: tag.id,
+          };
+        }),
+      );
+    },
+  });
+
+  // get all tags
+
+  // choose tags
+
+  // handle on submit -> request data contain tag_id to table
 
   if (isEdit)
     useQuery(`/projects/${params.id}`, {
@@ -158,6 +183,19 @@ export const ProjectForm = () => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <Input control={control} name="square" fullWidth label="Diện tích" />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <FormLabel>Thẻ</FormLabel>
+          {/* <Input control={control} name="square" fullWidth label="Diện tích" /> */}
+          <CustomAutoComplete
+            name="tag"
+            multiple
+            getOptionLabel={(option) => option.name}
+            disablePortal
+            id="combo-box-demo"
+            renderInput={(params) => <TextField {...params} label="Movie" />}
+            options={listTag}
+          />
         </Grid>
       </Grid>
 

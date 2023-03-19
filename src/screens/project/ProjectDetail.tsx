@@ -28,15 +28,19 @@ export const ProjectDetail = () => {
     `projects/get-by-slug/${params.slug}`,
   );
 
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+ 
   return (
     // Part 1: Project summary <Name of project, Size, Customer, Location, Year >
     // Part 2: Blocks of content, each block contain Images (admin choose how many image) and Text
 
     <Box mt={10}>
+      {/* test get tag */}
+
       {/* Part 1 */}
       <Grid container mb={6}>
         <GridCenter container item xs={12} sm={6}>
