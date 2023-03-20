@@ -50,11 +50,11 @@ export const Header = () => {
       link: '/service',
       children: [
         {
-          name: 'Thiết kế kiến trúc',
+          name: 'Thiết kế kiến trúc-nội thất',
           link: '/service/1',
         },
         {
-          name: 'Xây dựng phần thô',
+          name: 'Thi công nội thất',
           link: '/service/2',
         },
         {
@@ -66,16 +66,6 @@ export const Header = () => {
     {
       name: 'DỰ ÁN',
       link: '/project',
-      // children: [
-      //   {
-      //     name: 'THIẾT KẾ',
-      //     link: '/project/design',
-      //   },
-      //   {
-      //     name: 'THI CÔNG',
-      //     link: '/project/implement',
-      //   },
-      // ],
     },
     {
       name: 'BLOG',

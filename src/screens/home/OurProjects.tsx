@@ -1,5 +1,6 @@
 import { OurProjectsType } from '@/libs';
 import { Box, Container, Grid, Stack } from '@mui/material';
+import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 
 import { HeadingBlock } from '../../components';
@@ -13,6 +14,8 @@ import {
 } from '../../styled';
 export const OurProjects = (props: { data: OurProjectsType }) => {
   const { data } = props;
+  const {data: projectData, isLoading:isLoading} = useQuery('projects')
+  console.log('project data', projectData)
   const navigate = useNavigate();
   return (
     <Box sx={{ zIndex: 6, position: 'relative' }}>

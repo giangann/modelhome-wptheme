@@ -22,13 +22,13 @@ export const OurServices = (props: { data: OurServicesType }) => {
 
   const serviceThumbs = [
     {
-      name: ' Thiết kế  kiến trúc và thi công Nội thất',
+      name: ' Thiết kế  kiến trúc - Nội thất',
       image: `${IMAGE_FOLDER_PATH}/service_thumb/1.jpg`,
       fade: 'fade-in-down',
       link: '/service/1',
     },
     {
-      name: 'Thi công xây dựng phần thô',
+      name: 'Thi công nội thất',
       image: `${IMAGE_FOLDER_PATH}/service_thumb/2.jpg`,
       fade: 'fade-in-up',
       link: '/service/2',
