@@ -76,3 +76,5 @@ export const SERVICE_TYPE = {
   BUILD_ROUGH_PART: 2,
   UPDATE_REPAIR: 3,
 };
+
+export const NUM_OF_PROJECT_SERVICE = 6
