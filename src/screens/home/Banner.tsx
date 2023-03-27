@@ -1,5 +1,6 @@
-import { BannerType } from '@/libs';
 import { Box, Stack } from '@mui/material';
+
+import { BannerType } from '@/libs';
 
 import { IMAGE_FOLDER_PATH } from '../../constant';
 import {

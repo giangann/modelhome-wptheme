@@ -23,5 +23,11 @@ export const Content = (props: { content: string }) => {
       document.body.removeChild(script);
     };
   }, []);
-  return <div id="sunedit-area" className='sun-editor-editable' dangerouslySetInnerHTML={createMarkup()} />;
+  return (
+    <div
+      id="sunedit-area"
+      className="sun-editor-editable"
+      dangerouslySetInnerHTML={createMarkup()}
+    />
+  );
 };

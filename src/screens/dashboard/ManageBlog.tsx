@@ -5,7 +5,6 @@ import { MontserratDashboardTitle, OswaldTypo } from '../../styled';
 export const ManageBlog = () => {
   const { data: testSunData } = useQuery('posts');
 
-
   function createMarkup() {
     return { __html: testSunData ? 'testSunData[3].content' : '' };
   }

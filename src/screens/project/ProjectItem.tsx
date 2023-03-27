@@ -1,9 +1,9 @@
-import { STORAGE_PREFIX } from '../../constant';
 import { Grid, useMediaQuery, useTheme } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 import { ImageWithDefectiveTrianglePart } from '../../components';
 import { BoxWithTitleAndDescription } from '../../components/BoxWithTitleAndDescription';
+import { STORAGE_PREFIX } from '../../constant';
 import { DefectivePositionType, ProjectApiType } from '../../libs';
 
 type ProjectItemProps = {

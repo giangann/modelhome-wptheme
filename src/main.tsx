@@ -2,10 +2,11 @@ import './index.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
 import { I18nextProvider } from 'react-i18next';
-import i18n from './libs/atom/lang/translations/i18n';
+import { BrowserRouter } from 'react-router-dom';
+
 import App from './App';
+import i18n from './libs/atom/lang/translations/i18n';
 
 ReactDOM.render(
   <BrowserRouter>

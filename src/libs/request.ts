@@ -2,7 +2,7 @@ import Axios from 'axios';
 
 // export const baseURL = 'http://127.0.0.1:8000/api/'
 export const baseURL = import.meta.env.VITE_BASE_URL_API;
-export const baseStorage = import.meta.env.VITE_BASE_URL_STORAGE
+export const baseStorage = import.meta.env.VITE_BASE_URL_STORAGE;
 // const refetchTokenURL = ${baseURL}/${V1}/user/refresh-token
 async function authRequestInterceptor(config: any) {
   const _token = await localStorage.getItem('user-token');

@@ -1,7 +1,8 @@
-import { homePage } from '@/constant';
-import { HomePageApiType } from '@/libs';
 import { Box } from '@mui/material';
 import { useQuery } from 'react-query';
+
+import { homePage } from '@/constant';
+import { HomePageApiType } from '@/libs';
 
 import { AboutUs } from './AboutUs';
 import { Banner } from './Banner';

@@ -10,7 +10,7 @@ import { HomePageApiType, HomePageType } from '../../libs';
 import {
   MontserratDashboardTitle,
   MontserratTypoContent,
-  OswaldTypo
+  OswaldTypo,
 } from '../../styled';
 
 // function nestedLoop(obj) {

@@ -1,8 +1,9 @@
-import { OurProjectsType, ProjectApiType } from '@/libs';
 import { Box, Container, Grid, Stack, styled, Typography } from '@mui/material';
 import { useState } from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
+
+import { OurProjectsType, ProjectApiType } from '@/libs';
 
 import { BoxWithBackgroundAndLayer, HeadingBlock } from '../../components';
 import {
@@ -19,9 +20,12 @@ import {
   OswaldTypo,
   OswaldTypoHeaddingContent,
 } from '../../styled';
+
+type FocusProjectType = ProjectApiType & { isFocus: boolean };
+
 export const OurProjects = (props: { data: OurProjectsType }) => {
   const { data } = props;
-  const [listProject, setListProject] = useState<ProjectApiType[]>([]);
+  const [listProject, setListProject] = useState<FocusProjectType[]>([]);
   useQuery<ProjectApiType[]>('projects', {
     onSuccess: (project) => {
       const tempProject = project

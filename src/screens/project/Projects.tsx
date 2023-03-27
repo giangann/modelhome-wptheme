@@ -4,9 +4,7 @@ import { useQuery } from 'react-query';
 
 import { HeadingBlock } from '../../components';
 import { ProjectApiType } from '../../libs';
-import {
-  GridCenterHorizontal, OswaldTypoHeaddingContent
-} from '../../styled';
+import { GridCenterHorizontal, OswaldTypoHeaddingContent } from '../../styled';
 import { FilterBar } from './FilterBar';
 import { ProjectItem } from './ProjectItem';
 
@@ -14,7 +12,8 @@ export const Projects = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const { data: listProject, isLoading: isLoading } = useQuery<ProjectApiType[]>('projects');
+  const { data: listProject, isLoading: isLoading } =
+    useQuery<ProjectApiType[]>('projects');
   const isLeftDefective = (index: number) => {
     // in mobile
     if (isMobile) {

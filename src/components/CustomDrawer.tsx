@@ -14,7 +14,7 @@ export type ItemType = {
 
 type CustomDrawerProps = DrawerProps & {
   item: ItemType[];
-  children?: React.ReactElement
+  children?: React.ReactElement;
 };
 
 // Highlight when an item choossed

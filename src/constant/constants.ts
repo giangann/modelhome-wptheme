@@ -77,4 +77,4 @@ export const SERVICE_TYPE = {
   UPDATE_REPAIR: 3,
 };
 
-export const NUM_OF_PROJECT_SERVICE = 6
+export const NUM_OF_PROJECT_SERVICE = 6;

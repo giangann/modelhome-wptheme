@@ -1,5 +1,6 @@
-import { centerDiv, MulishTypo } from '../styled';
 import { Box, Typography } from '@mui/material';
+
+import { centerDiv, MulishTypo } from '../styled';
 
 export const EmptyContent = () => {
   return (

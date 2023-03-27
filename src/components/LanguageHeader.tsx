@@ -1,14 +1,15 @@
-import { ToogleLanguageText } from '../styled';
 import { IconButton, MenuItem, MenuList, Popover } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
+import { ToogleLanguageText } from '../styled';
 
 export const LanguageHeader = () => {
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
   const [language, setLanguages] = useState();
   const { i18n } = useTranslation();
   const open = Boolean(anchorEl);
-  const id = open ? "simple-popover" : undefined;
+  const id = open ? 'simple-popover' : undefined;
 
   const LANGUAGES = [
     {

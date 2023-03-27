@@ -1,5 +1,6 @@
-import { AboutUsType } from '@/libs';
 import { Box, Grid, useMediaQuery, useTheme } from '@mui/material';
+
+import { AboutUsType } from '@/libs';
 
 import { ImportantMilestone } from './ImportantMilestone';
 import { Introduce } from './Introduce';

@@ -1,5 +1,6 @@
-import { AboutUsType } from '@/libs';
 import { Container, Grid, Stack } from '@mui/material';
+
+import { AboutUsType } from '@/libs';
 
 import { HeadingBlock } from '../../components';
 import { MontserratTypoContent } from '../../styled';
@@ -10,10 +11,7 @@ export const AboutUs = (props: { data: AboutUsType }) => {
     <Container sx={{ marginTop: { xs: 8, sm: 12 }, maxWidth: '1000px !important' }}>
       <Grid container columnSpacing={4}>
         <Grid item xs={12} sm={5} mb={{ xs: 2.5, sm: 'none' }}>
-          <HeadingBlock
-            subTitle={data.subTitle}
-            title={data.title}
-          />
+          <HeadingBlock subTitle={data.subTitle} title={data.title} />
         </Grid>
 
         <Grid item xs={12} sm={7}>
