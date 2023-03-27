@@ -1,0 +1,44 @@
+{
+  "time": "Time",
+  "activity": "Activity",
+  "cancel": "Cancel",
+  "submit": "Submit",
+  "price": "Price",
+  "amount": "Amount",
+  "person": "Person",
+  "home": {
+    "about_me": "About me",
+    "contact": "Contact",
+    "trip_detail": "Trip detail",
+    "view_more": "Watch new blog here",
+    "form": {
+      "form_title_footer": "Register to take newest tour",
+      "your_name": "Your name",
+      "email": "Email",
+      "register": "Register"
+    }
+  },
+  "about": {
+    "introduce": "Introduce",
+    "news": "News",
+    "album_image": "Image Album",
+    "feel": "Feel",
+    "in": "in"
+  },
+  "footer": {
+    "follow_us": "Follow us in",
+    "about_us": "About us"
+  },
+  "form": {
+    "register_trip": "Register trip",
+    "name": "Name",
+    "email": "Email address",
+    "amount": "Number of persons"
+  },
+  "project": {
+    "location": "Location",
+    "customer_name": "Customer",
+    "square": "Square",
+    "finish_in": "Finish in"
+  }
+}

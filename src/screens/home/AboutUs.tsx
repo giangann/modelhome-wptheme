@@ -1,35 +1,25 @@
 import { Container, Grid, Stack } from '@mui/material';
 
+import { AboutUsType } from '@/libs';
+
 import { HeadingBlock } from '../../components';
 import { MontserratTypoContent } from '../../styled';
 
-export const AboutUs = () => {
+export const AboutUs = (props: { data: AboutUsType }) => {
+  const { data } = props;
   return (
     <Container sx={{ marginTop: { xs: 8, sm: 12 }, maxWidth: '1000px !important' }}>
       <Grid container columnSpacing={4}>
         <Grid item xs={12} sm={5} mb={{ xs: 2.5, sm: 'none' }}>
-          <HeadingBlock
-            subTitle="Về công ty"
-            title="Chúng tôi tạo ra và hiện thực hóa ý tưởng"
-          />
+          <HeadingBlock subTitle={data.subTitle} title={data.title} />
         </Grid>
 
         <Grid item xs={12} sm={7}>
           <Stack spacing={4}>
             <MontserratTypoContent sx={{ fontWeight: 500 }}>
-              Có rất nhiều phong cách nội thất chung cư cho bạn lựa chọn: Phong cách nội
-              thất hiện đại, phong cách nội thất tân cổ điển, phong cách nội thất
-              Indochine, Wabi sabi, Minimalism, Bắc Âu...Bạn vui lòng tham khảo các mẫu
-              thiết kế nội thất chung cư tại đây
+              {data.description.highlight}
             </MontserratTypoContent>
-            <MontserratTypoContent>
-              Bạn đang muốn tìm ý tưởng thiết kế nội thất cho chung cư, biệt thự, nhà phố,
-              nhà liền kề, khách sạn, nhà hàng, showroom? MoreHome mong muốn được hỗ trợ
-              và đồng hành cùng bạn từ khâu thiết kế nội thất đến thi công nội thất.
-              MoreHome với nhiều năm kinh nghiệm trong nghề luôn luôn cải tiến, và tìm tòi
-              những giải pháp và công nghệ để công việc ngày một hiệu quả mang lại nhiều
-              giá trị cho khách hàng.
-            </MontserratTypoContent>
+            <MontserratTypoContent>{data.description.normal}</MontserratTypoContent>
           </Stack>
         </Grid>
       </Grid>

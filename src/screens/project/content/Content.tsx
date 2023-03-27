@@ -1,14 +1,14 @@
 import './style.css';
+import 'suneditor/dist/css/suneditor.min.css';
 
 import { useEffect } from 'react';
 import { useQuery } from 'react-query';
-export const Content = () => {
-  const { data: testSunData } = useQuery('posts');
 
-  console.log('test Sun Data', testSunData);
+export const Content = (props: { content: string }) => {
+  const { content } = props;
 
   function createMarkup() {
-    return { __html: testSunData ? 'testSunData[3].content' : '' };
+    return { __html: content ? content : '' };
   }
 
   useEffect(() => {
@@ -23,5 +23,11 @@ export const Content = () => {
       document.body.removeChild(script);
     };
   }, []);
-  return <div id="sunedit-area" dangerouslySetInnerHTML={createMarkup()} />;
+  return (
+    <div
+      id="sunedit-area"
+      className="sun-editor-editable"
+      dangerouslySetInnerHTML={createMarkup()}
+    />
+  );
 };

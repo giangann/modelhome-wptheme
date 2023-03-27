@@ -66,7 +66,7 @@ const Styles = styled.div`
       color: black;
       background-color: #0000000a;
       td {
-        font-weight:400 !important;
+        font-weight: 400 !important;
       }
       :last-child {
         td {
@@ -78,7 +78,7 @@ const Styles = styled.div`
       }
     }
 
-    tr:hover{
+    tr:hover {
       background-color: #0000001a;
     }
 
@@ -100,14 +100,12 @@ const Styles = styled.div`
       }
     }
 
-    th{
-      background-color:black;
-      padding-top:16px;
-      padding-bottom:16px;
-      color:white
+    th {
+      background-color: black;
+      padding-top: 16px;
+      padding-bottom: 16px;
+      color: white;
     }
-
-
   }
 
   .pagination {

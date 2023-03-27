@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { BoxWithBackgroundAndLayer, FadeInSection, Line } from '../../components';
 import { IcBaselineFormatQuote } from '../../components/icon';
 import { IMAGE_FOLDER_PATH } from '../../constant';
-import { black, orange } from '../../libs';
+import { black, orange, OurServicesType } from '../../libs';
 import {
   btnTextStyle,
   LinkCustom,
@@ -14,20 +14,21 @@ import {
   OswaldTypoHeaddingFooter,
 } from '../../styled';
 
-export const OurServices = () => {
+export const OurServices = (props: { data: OurServicesType }) => {
+  const { data } = props;
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('m'));
   const navigate = useNavigate();
 
   const serviceThumbs = [
     {
-      name: ' Thiết kế  kiến trúc và thi công Nội thất',
+      name: ' Thiết kế  kiến trúc - Nội thất',
       image: `${IMAGE_FOLDER_PATH}/service_thumb/1.jpg`,
       fade: 'fade-in-down',
       link: '/service/1',
     },
     {
-      name: 'Thi công xây dựng phần thô',
+      name: 'Thi công nội thất',
       image: `${IMAGE_FOLDER_PATH}/service_thumb/2.jpg`,
       fade: 'fade-in-up',
       link: '/service/2',
@@ -131,11 +132,12 @@ export const OurServices = () => {
                       letterSpacing={1.4}
                       fontSize={14}
                     >
-                      PHẢN HỒI
+                      {data.rightCard.subTitle}
                     </OswaldTypo>
-                    <OswaldTypoHeaddingFooter color="white">
-                      KHÁCH HÀNG <br /> ĐÁNH GIÁ
-                    </OswaldTypoHeaddingFooter>
+                    <OswaldTypoHeaddingFooter
+                      color="white"
+                      dangerouslySetInnerHTML={{ __html: data.rightCard.title }}
+                    />
 
                     <MontserratTypoContent
                       color="white"
@@ -144,15 +146,7 @@ export const OurServices = () => {
                       fontSize="18px!important"
                       lineHeight={'1.8em !important'}
                     >
-                      ModelHome đã triển khai Cải tạo công trình và làm Nội thất cho gia
-                      đình tôi tại Long Biên. Trong thời gian hơn 4 tháng hợp tác, tôi
-                      thấy các thành viên của công ty tuy tuổi đời còn rất trẻ, nhưng
-                      phong cách làm việc rất chuyên nghiệp. Các em luôn nhiệt tình, cầu
-                      thị và biết lắng nghe. Căn nhà của gia đình tôi trước kia là một
-                      công trình xây sẵn thiết kế mô tuýp điển hình lỗi thời, giờ đây đã
-                      trở thành một ngôi nhà sang trọng không gian phòng khách đa chức
-                      năng. Xin cảm ơn và chúc ModelHome ngày càng phát triển, luôn nhận
-                      được sự tin yêu của khách hàng.
+                      {data.rightCard.description}
                     </MontserratTypoContent>
 
                     <Stack
@@ -195,15 +189,14 @@ export const OurServices = () => {
                       fontSize={14}
                       mb={2}
                     >
-                      LỢI THẾ
+                      {data.leftCard.subTitle}
                     </OswaldTypo>
                     <OswaldTypoHeaddingFooter
                       color="white"
                       mb={4}
                       sx={{ textTransform: 'uppercase' }}
-                    >
-                      Đội ngũ <br /> tay nghề cao
-                    </OswaldTypoHeaddingFooter>
+                      dangerouslySetInnerHTML={{ __html: data.leftCard.title }}
+                    />
 
                     <MontserratTypoContent
                       color="white"
@@ -211,10 +204,7 @@ export const OurServices = () => {
                       // fontStyle="italic"
                       mb={8}
                     >
-                      Với đội ngũ kiến trúc sư giàu kinh nghiệm, sáng tạo và chuyên môn
-                      cao kết hợp đội ngũ kỹ sư, nhân công tay nghề cao cùng cùng thiết bị
-                      công nghệ hiện đại, MODEL HOME đã, đang và sẽ mang lại sự hài lòng
-                      cho khách hàng từ chất lượng sản phẩm đến độ thẩm mỹ cao.
+                      {data.leftCard.description}
                     </MontserratTypoContent>
 
                     <OrangeOutlinedBtn sx={{ padding: '16px 48px', margin: 'auto' }}>

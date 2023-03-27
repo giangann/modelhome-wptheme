@@ -15,10 +15,10 @@ import {
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { CustomDrawer, CustomMenu, ItemType } from '../components';
+import { CustomDrawer, CustomMenu, ItemType, LanguageHeader } from '../components';
 import { CodiconTriangleDown } from '../components/icon';
 import { grey, orange } from '../libs';
-import { HeaderItemTypo } from '../styled';
+import { HeaderItemTypo, MulishTypo } from '../styled';
 
 export const Header = () => {
   const [openDrawer, setOpenDrawer] = useState<boolean>(false);
@@ -50,11 +50,11 @@ export const Header = () => {
       link: '/service',
       children: [
         {
-          name: 'Thiết kế kiến trúc',
+          name: 'Thiết kế kiến trúc-nội thất',
           link: '/service/1',
         },
         {
-          name: 'Xây dựng phần thô',
+          name: 'Thi công nội thất',
           link: '/service/2',
         },
         {
@@ -66,16 +66,6 @@ export const Header = () => {
     {
       name: 'DỰ ÁN',
       link: '/project',
-      // children: [
-      //   {
-      //     name: 'THIẾT KẾ',
-      //     link: '/project/design',
-      //   },
-      //   {
-      //     name: 'THI CÔNG',
-      //     link: '/project/implement',
-      //   },
-      // ],
     },
     {
       name: 'BLOG',
@@ -151,6 +141,7 @@ export const Header = () => {
                     )}
                   </Stack>
                 ))}
+                <LanguageHeader />
               </Stack>
             </Stack>
           ) : (
@@ -193,7 +184,22 @@ export const Header = () => {
               >
                 ModelHome
               </Typography>
-              <CustomDrawer open={openDrawer} onClose={handleCloseDrawer} item={pages} />
+              <CustomDrawer open={openDrawer} onClose={handleCloseDrawer} item={pages}>
+                <Box>
+                  <MulishTypo
+                    ml={2}
+                    sx={{
+                      color: 'white',
+                      fontWeight: 500,
+                      position: 'relative',
+                      top: 10,
+                    }}
+                  >
+                    Ngôn ngữ
+                  </MulishTypo>
+                  <LanguageHeader />
+                </Box>
+              </CustomDrawer>
             </Toolbar>
           )}
         </Container>

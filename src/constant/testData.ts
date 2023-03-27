@@ -247,7 +247,17 @@ export const serviceDetail = [
             'Hồ sơ chi tiết nội thất',
           ],
         },
-        g: {
+      },
+    },
+  },
+  {
+    title: 'Dịch vụ thi công nội thất',
+    description:
+      'Thi công nội thất là phương án nâng cấp nhà phố hữu hiệu khi kinh phí không đủ để xây nhà mới. Việc cải tạo nhà sẽ giúp bạn tiết kiệm được khá nhiều chi phí xây nhà khi tận dụng nền móng nhà cũ và những vật dụng cũ.',
+    workFlow: {
+      title: 'Quy trình thi công nội thất',
+      step: {
+        a: {
           title: 'Thi công nội thất',
           content: [
             'Làm concept về nội thất',
@@ -257,13 +267,13 @@ export const serviceDetail = [
           ],
         },
 
-        h: {
+        b: {
           title: 'Thi công xây dựng:',
           content: [
             'Đội ngũ kiến trúc sư kiến trúc sư, kỹ sư và đội ngũ thi công chuyên nghiệp sẽ thực hiện các bước thi công hoàn thiện theo tiến độ và hợp đồng.',
           ],
         },
-        i: {
+        c: {
           title: 'Nguyên tắc an toàn lao động, vệ sinh môi trường, bao che công trình',
           content: [
             'Quy trình Thi Công An Toàn Lao Động theo tiêu chuẩn thi công nhà cao tầng. Công nhân được đào tạo về ATLĐ và sử dụng bảo vệ thiết bị khi thi công, ATLĐ đảm bảo.',
@@ -271,29 +281,13 @@ export const serviceDetail = [
             'Mua Bảo hiểm cho Công Nhân, Công Trình và cho bên Thứ Ba.',
           ],
         },
-        k: {
+        d: {
           title: 'Bảo trì, bảo hành',
           content: [
             'Trong thời gian bảo hành, nếu có vấn đề hỏng hóc do lỗi kỹ thuật thi công (không có tư liệu hoàn thiện), quý khách hàng vui lòng thông báo bằng điện thoại hoặc liên hệ trực tiếp đến công ty. Công ty trong vòng 48h sẽ cử người xem lại tại công ty, xác định chính thức nhân viên và sửa chữa phục hồi phương pháp',
           ],
         },
       },
-    },
-  },
-  {
-    title: 'Dịch vụ cải tạo, nâng cấp công trình',
-    description:
-      'Cải tạo nội thất nhà phố là phương án nâng cấp nhà phố hữu hiệu khi kinh phí không đủ để xây nhà mới. Việc cải tạo nhà sẽ giúp bạn tiết kiệm được khá nhiều chi phí xây nhà khi tận dụng nền móng nhà cũ và những vật dụng cũ.',
-    workFlow: {
-      title: 'Quy trình cải tạo, nâng cấp',
-      step: [
-        'Nhận mặt bằng, trao đổi với gia chủ các vấn đề của ngôi nhà.',
-        'Điều chỉnh mặt bằng công năng cho phù hợp với nhu cầu thực tế của gia chủ',
-        'Làm concept về nội thất',
-        'Triển khai bản vẽ thiết kế 3d nội thất',
-        'Triển khai bản vẽ chi tiết nội thất',
-        'Triển khai điểu chỉnh mặt bằng theo đúng thiết kế đã duyệt, đóng đồ nội thất',
-      ],
     },
   },
   {

@@ -1,12 +1,13 @@
 import { Box, Container, Grid } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 
-import { Line } from '../../components';
+import { EmptyContent, Line } from '../../components';
 import { FadeInSection } from '../../components/FadeInSection';
-import { capatializeTransform, convertSlugToName } from '../../constant';
-import { grey, orange } from '../../libs';
+import { convertSlugToName } from '../../constant';
+import { grey, orange, ProjectApiType } from '../../libs';
 import {
   GridCenter,
   MontserratTypo,
@@ -17,28 +18,18 @@ import { Content } from './content';
 
 export const ProjectDetail = () => {
   const params = useParams();
+  const { t } = useTranslation();
 
   const projectName = convertSlugToName(params.slug);
 
   const testImage =
     'https://measured.ca/wp-content/uploads/1709-RiftHouse-Web-RearSquareDay-PhotographerEmaPeter.jpg';
 
-  const projectSummary = {
-    'Địa điểm': 'Viet Nam',
-    'Khách hàng': 'Mrs Thuy',
-    'diện tích': '100 sq.m',
-    'Hoàn thành năm': '2021',
-  };
+  const projectSummary = ['location', 'customer_name', 'square', 'finish_in'];
 
-  const img1 = 'https://zikzakarchitects.com/hwp/wp-content/uploads/2022/12/33-2.jpg';
-  const img2 =
-    'https://measured.ca/wp-content/uploads/1508-CubeHouse-Web-Rear-Entry-Square-Photographer-Ema-Peter.jpg';
-  const img3 =
-    'https://measured.ca/wp-content/uploads/1515-ShiftHouse-Web-Front-PhotographerEmaPeter.jpg';
-  const img4 =
-    'https://measured.ca/wp-content/uploads/1614-LagoonHouse-Web-FrontSquare-Photographer-Ema-Peter.jpg';
-  const img5 =
-    'https://measured.ca/wp-content/uploads/1508-CubeHouse-Web-Rear-Entry-Square-Photographer-Ema-Peter.jpg';
+  const { data: projectData, isLoading: isLoading } = useQuery<ProjectApiType>(
+    `projects/get-by-slug/${params.slug}`,
+  );
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -60,7 +51,7 @@ export const ProjectDetail = () => {
               </FadeInSection>
               <FadeInSection fade="fade-in-left">
                 <OswaldTypoHeaddingContent mb={2} letterSpacing={`${0.5}px !important`}>
-                  {projectName}
+                  {projectData?.name}
                 </OswaldTypoHeaddingContent>
               </FadeInSection>
               <FadeInSection fade="fade-in-right">
@@ -69,15 +60,15 @@ export const ProjectDetail = () => {
             </Box>
 
             <Grid container spacing={1}>
-              {Object.entries(projectSummary).map(([key, value], index) => (
+              {projectSummary.map((key, index) => (
                 <Grid item xs={6} key={index}>
                   <Box>
-                    <OswaldTypo letterSpacing={1.5}>
-                      {capatializeTransform(key)}
-                    </OswaldTypo>
+                    <OswaldTypo letterSpacing={1.5}>{t(`project.${key}`)}</OswaldTypo>
                   </Box>
                   <Box>
-                    <MontserratTypo>{value}</MontserratTypo>
+                    <MontserratTypo>
+                      {projectData ? projectData[key as keyof ProjectApiType] : ''}
+                    </MontserratTypo>
                   </Box>
                 </Grid>
               ))}
@@ -85,108 +76,13 @@ export const ProjectDetail = () => {
           </Box>
         </GridCenter>
       </Grid>
+
       {/* Part 2 */}
-      <Box>
-        <FadeInSection>
-          <img
-            src={img1}
-            alt="Main"
-            style={{
-              width: '100%',
-              height: '70vh',
-              objectFit: 'cover',
-              marginBottom: 32,
-            }}
-          />
-        </FadeInSection>
-
-        <FadeInSection fade="fade-in-left">
-          <Container sx={{ mb: 4 }} maxWidth="sm">
-            <MontserratTypo sx={{ color: grey['600'], fontWeight: 500 }}>
-              An office – creative workshop with large shelves with samples of design
-              materials and professional books – this is how the client saw the concept of
-              the project. Designers created an environment that reflects the character of
-              the architectural bureau. The corrugation, a tube that interprets the
-              ideological thread, the search for meaning, and the path to the goal, became
-              a cross-cutting symbolic idea.
-              <br />
-              <br />
-              <br />
-              <br />
-              In the open space area, the corrugation is freed and untangled to give more
-              space for ideas and inspiration.
-            </MontserratTypo>
-          </Container>
-        </FadeInSection>
-
-        <FadeInSection fade="fade-in-right">
-          <Container>
-            <Grid container spacing={2}>
-              <Grid item xs={6}>
-                <img
-                  src={img2}
-                  alt="Main"
-                  style={{
-                    width: '100%',
-                    height: '50vh',
-                    objectFit: 'cover',
-                    marginBottom: 32,
-                  }}
-                />
-              </Grid>
-              <Grid item xs={6}>
-                <img
-                  src={img3}
-                  alt="Main"
-                  style={{
-                    width: '100%',
-                    height: '50vh',
-                    objectFit: 'cover',
-                    marginBottom: 32,
-                  }}
-                />
-              </Grid>
-            </Grid>
-          </Container>
-        </FadeInSection>
-
-        <FadeInSection>
-          <Container sx={{ mb: 4 }} maxWidth="sm">
-            <MontserratTypo sx={{ color: grey['600'], fontWeight: 500 }}>
-              100% sản phẩm thực tế giống thiết kế 3D. Chúng tôi có đội ngũ giám sát sản
-              xuất tại nhà máy và giám sát lắp đặt tại công trình sẽ mang đến sự “ Hài
-              lòng tuyệt đối” cho quý khách.
-            </MontserratTypo>
-          </Container>
-        </FadeInSection>
-
-        <FadeInSection>
-          <Container>
-            <img
-              src={img2}
-              alt="Main"
-              style={{
-                width: '100%',
-                height: '70vh',
-                objectFit: 'cover',
-                marginBottom: 32,
-              }}
-            />
-          </Container>
-        </FadeInSection>
-
-        <FadeInSection>
-          <Container sx={{ mb: 4 }} maxWidth="sm">
-            <MontserratTypo sx={{ color: grey['600'], fontWeight: 500 }}>
-              Work on the Levelstudio office was creative and coordinated both by the
-              customer and the ZIKZAK Architects team. Designers are proud of the result
-              and are honored to be the creators of an exemplary workspace for colleagues
-              in their field.
-            </MontserratTypo>
-          </Container>
-        </FadeInSection>
-      </Box>
-      {/* <Content /> */}
+      {projectData?.content ? (
+        <Content content={projectData?.content} />
+      ) : (
+        <EmptyContent />
+      )}
     </Box>
   );
 };

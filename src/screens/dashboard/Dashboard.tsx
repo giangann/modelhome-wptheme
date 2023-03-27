@@ -1,11 +1,8 @@
 import { Box, Button, useMediaQuery, useTheme } from '@mui/material';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { useQuery } from 'react-query';
+import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import { CustomDrawer } from '../../components';
-import { API_PREFIX, homePage } from '../../constant';
 
 const drawerWidth = 240;
 export const Dashboard = () => {

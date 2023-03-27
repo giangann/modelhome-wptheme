@@ -1,17 +1,14 @@
-import { Row as RowProps } from 'react-table';
-import 'suneditor/dist/css/suneditor.min.css';
-
-import { Box, Button, Container } from '@mui/material';
-import axios from 'axios';
+import { Button, Container } from '@mui/material';
 import React from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
-import SunEditor from 'suneditor-react';
+import { Row as RowProps } from 'react-table';
+
+import { ProjectApiType } from '@/libs';
 
 import { ReactTableWithToolBar } from '../../components/ReactTable';
-import { API_PREFIX, STORAGE_PREFIX } from '../../constant';
-import { MontserratDashboardTitle, OswaldTypo } from '../../styled';
-import { ProjectApiType } from '@/libs';
+import { STORAGE_PREFIX } from '../../constant';
+import { MontserratDashboardTitle } from '../../styled';
 
 export const ManageProject = () => {
   const navigate = useNavigate();
@@ -64,7 +61,6 @@ export const ManageProject = () => {
   );
 
   const onRowClick = (row: RowProps<ProjectApiType>) => {
-    console.log(row.values.id);
     navigate(`/dashboard/project/${row.values.id}`);
   };
   const handleCreate = () => {

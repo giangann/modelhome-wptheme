@@ -1,49 +1,60 @@
-import { Box, Container, Grid, Stack } from '@mui/material';
+import { Box, Container, Grid, Stack, styled, Typography } from '@mui/material';
+import { useState } from 'react';
+import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 
-import { HeadingBlock } from '../../components';
-import { IMAGE_FOLDER_PATH } from '../../constant';
+import { OurProjectsType, ProjectApiType } from '@/libs';
+
+import { BoxWithBackgroundAndLayer, HeadingBlock } from '../../components';
+import {
+  IMAGE_FOLDER_PATH,
+  NUM_OF_PROJECT_SERVICE,
+  STORAGE_PREFIX,
+} from '../../constant';
 import {
   btnTextStyle,
+  centerDiv,
   MontserratTypo,
+  MulishTypo,
   OrangeOutlinedBtn,
   OswaldTypo,
   OswaldTypoHeaddingContent,
 } from '../../styled';
-export const OurProjects = () => {
-  // replace this data by projects in projects table with is_main=true
-  // const thumbnailsOfProjects = [
-  //   {
-  //     image:
-  //       'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-1-600x616.jpg',
-  //     link: '#',
-  //   },
-  //   {
-  //     image:
-  //       'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-2-600x616.jpg',
-  //     link: '#',
-  //   },
-  //   {
-  //     image:
-  //       'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-3-600x616.jpg',
-  //     link: '#',
-  //   },
-  //   {
-  //     image:
-  //       'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-4-600x616.jpg',
-  //     link: '#',
-  //   },
-  //   {
-  //     image:
-  //       'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-5-600x616.jpg',
-  //     link: '#',
-  //   },
-  //   {
-  //     image:
-  //       'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/gallery-6-600x616.jpg',
-  //     link: '#',
-  //   },
-  // ];
+
+type FocusProjectType = ProjectApiType & { isFocus: boolean };
+
+export const OurProjects = (props: { data: OurProjectsType }) => {
+  const { data } = props;
+  const [listProject, setListProject] = useState<FocusProjectType[]>([]);
+  useQuery<ProjectApiType[]>('projects', {
+    onSuccess: (project) => {
+      const tempProject = project
+        .map((project, index) => {
+          return {
+            ...project,
+            isFocus: false,
+          };
+        })
+        .slice(0, NUM_OF_PROJECT_SERVICE);
+      setListProject(tempProject);
+    },
+  });
+
+  const handleFocusProject = (id: number) => {
+    const tempProject = listProject.map((project, index) => {
+      return index === id
+        ? {
+            ...project,
+            isFocus: true,
+          }
+        : {
+            ...project,
+            isFocus: false,
+          };
+    });
+    setListProject(tempProject);
+  };
+  console.log('listProject', listProject);
 
   const navigate = useNavigate();
   return (
@@ -51,26 +62,18 @@ export const OurProjects = () => {
       <Container sx={{ marginTop: 12 }}>
         <Grid container columnSpacing={12}>
           <Grid item xs={12} sm={5} mb={{ xs: 2.5, sm: 'none' }}>
-            <HeadingBlock subTitle="Hồ sơ" title="Các dự án của Model Home" />
+            <HeadingBlock subTitle={data.subTitle} title={data.title} />
           </Grid>
           <Grid item xs={12} sm={7}>
             <Stack spacing={2}>
               <MontserratTypo sx={{ fontSize: 14, fontWeight: 300, lineHeight: '30px' }}>
-                Nhà đẹp cần có thiết kế đẹp” Bạn đang quan tâm đến thiết kế nội thất là
-                bạn đang tiết kiệm chi phí đầu tư vào thi công và đảm bảo có một căn nhà
-                đẹp trong thời gian dài. Giá thiết kế nếu so với chi phí thi công thì
-                không nhiều, bạn chọn đơn vị thiết kế giá rẻ thì tương đương chất lượng
-                cũng rẻ. Với MoreHome chúng tôi không làm chạy theo số lượng mà đặt vấn đề
-                chất lượng lên hàng đầu. Vì vậy bạn hãy lựa chọn phù hợp với mong chờ của
-                bạn. Chương trình khuyến mãi đặc biệt giảm 50% phí thiết kế nội thất cho
-                những khách sử dụng dịch vụ thi công nội thất tổng thể khi thiết kế nội
-                thất.
+                {data.description}
               </MontserratTypo>
             </Stack>
           </Grid>
         </Grid>
       </Container>
-      <Grid container sx={{ marginY: 4 }} spacing={2} p={2}>
+      {/* <Grid container sx={{ marginY: 4 }} spacing={2} p={2}>
         {[1, 2, 3, 4, 5, 6].map((thumb, index) => (
           <Grid key={index} item xs={12} sm={4}>
             <Box
@@ -89,7 +92,65 @@ export const OurProjects = () => {
             />
           </Grid>
         ))}
+      </Grid> */}
+
+      <Grid container sx={{ marginY: 4 }} spacing={2} p={2}>
+        {listProject.map((project, index) => (
+          <Grid key={index} item xs={12} sm={4}>
+            {/* <Box
+              component="img"
+              src={`${STORAGE_PREFIX}/${project.thumb}`}
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+              }}
+              sx={{
+                '&:hover': {
+                  cursor: 'pointer',
+                },
+              }}
+            /> */}
+            <BoxWithBackgroundAndLayer
+              image={`${STORAGE_PREFIX}/${project.thumb}`}
+              width="100%"
+              height={500}
+              sx={{ backgroundColor: 'black', opacity: 0.5 }}
+            >
+              <Box sx={{ ...centerDiv, width: '100%', height: '100%' }}>
+                <Stack spacing={2}>
+                  <div
+                    style={{ cursor: 'pointer' }}
+                    onClick={() => handleFocusProject(index)}
+                  >
+                    <ThumbTitle
+                      color="white"
+                      sx={{
+                        opacity: project.isFocus ? 1 : 0.5,
+                      }}
+                    >
+                      {project.name}
+                    </ThumbTitle>
+                  </div>
+
+                  {/* info of project */}
+                  <Box
+                    sx={{
+                      transition: 'all 0.5s',
+                      opacity: (project.isFocus as any) ? 1 : 0,
+                    }}
+                  >
+                    <MulishTypo color="white">{project.location}</MulishTypo>
+                    <MulishTypo color="white">{project.customer_name}</MulishTypo>
+                    <MulishTypo color="white">{project.square}</MulishTypo>
+                  </Box>
+                </Stack>
+              </Box>
+            </BoxWithBackgroundAndLayer>
+          </Grid>
+        ))}
       </Grid>
+
       <Box sx={{ width: '100%', justifyContent: 'center', display: 'flex' }}>
         <OrangeOutlinedBtn
           onClick={() => navigate('/project')}
@@ -101,3 +162,15 @@ export const OurProjects = () => {
     </Box>
   );
 };
+
+const ThumbTitle = styled(Typography)(({ theme }) => ({
+  fontFamily: 'Mulish',
+  fontSize: 24,
+  fontWeight: 700,
+  color: 'white',
+  textAlign: 'center',
+  textTransform: 'uppercase',
+  [theme.breakpoints.down('sm')]: {
+    fontSize: 18,
+  },
+}));
