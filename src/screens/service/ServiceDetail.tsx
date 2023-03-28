@@ -14,7 +14,6 @@ import {
 export const ServiceDetail = () => {
   const params = useParams();
   const id = parseInt(params.id as string);
-  console.log('id', id);
 
   const introduceImage = `${IMAGE_FOLDER_PATH}/service_thumb/${2}.jpg`;
 

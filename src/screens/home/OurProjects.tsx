@@ -54,7 +54,6 @@ export const OurProjects = (props: { data: OurProjectsType }) => {
     });
     setListProject(tempProject);
   };
-  console.log('listProject', listProject);
 
   const navigate = useNavigate();
   return (

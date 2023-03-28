@@ -1,11 +1,12 @@
+import { EmptyContent, FadeInSection, Line } from '@/components';
+import { postsAtom } from '@/libs/atom/data';
 import { Box, Container, Grid } from '@mui/material';
+import { useAtomValue } from 'jotai';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 
-import { EmptyContent, Line } from '../../components';
-import { FadeInSection } from '../../components/FadeInSection';
 import { convertSlugToName } from '../../constant';
 import { grey, orange, ProjectApiType } from '../../libs';
 import {
@@ -19,11 +20,7 @@ import { Content } from './content';
 export const ProjectDetail = () => {
   const params = useParams();
   const { t } = useTranslation();
-
-  const projectName = convertSlugToName(params.slug);
-
-  const testImage =
-    'https://measured.ca/wp-content/uploads/1709-RiftHouse-Web-RearSquareDay-PhotographerEmaPeter.jpg';
+  const listPosts = useAtomValue(postsAtom);
 
   const projectSummary = ['location', 'customer_name', 'square', 'finish_in'];
 
@@ -33,7 +30,6 @@ export const ProjectDetail = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    // window.location.reload();
   }, []);
 
   return (
@@ -78,8 +74,8 @@ export const ProjectDetail = () => {
       </Grid>
 
       {/* Part 2 */}
-      {projectData?.content ? (
-        <Content content={projectData?.content} />
+      {projectData?.post_id ? (
+        <Content content={listPosts[projectData.post_id].content} />
       ) : (
         <EmptyContent />
       )}

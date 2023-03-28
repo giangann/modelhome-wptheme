@@ -102,6 +102,8 @@ export type ProjectApiType = {
 
   is_main?: boolean;
   content?: string;
+
+  post_id?: number;
 };
 
 export type ProjectType = {
@@ -111,4 +113,11 @@ export type ProjectType = {
   description: string;
   slug: string;
   project_images?: string[];
+};
+
+export type PostType = {
+  postable_type: string;
+  postable_id: number;
+  content: string;
+  id: number;
 };
