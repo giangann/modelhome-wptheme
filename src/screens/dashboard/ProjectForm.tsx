@@ -67,7 +67,7 @@ export const ProjectForm = () => {
     setValue('is_main', event.target.checked);
   };
 
-  const onSubmit = async (value: ProjectApiType) => {
+  const onSubmit = async (value: Omit<ProjectApiType, 'post_id'>) => {
     const formData = new FormData();
 
     Object.entries(value).forEach(([key, value]) => {
