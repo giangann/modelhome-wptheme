@@ -1,7 +1,6 @@
 import 'suneditor/dist/css/suneditor.min.css';
 
 import {
-  Autocomplete,
   Box,
   Button,
   Container,
@@ -10,22 +9,20 @@ import {
   FormLabel,
   Grid,
   Switch,
-  TextField,
 } from '@mui/material';
-import axios from 'axios';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import SunEditor from 'suneditor-react';
 
+import { CustomAutoComplete, Input } from '@/components/Input';
 import { ImageUpload } from '../../components';
-import { Input } from '../../components/Input';
-import { API_PREFIX, convertRelatePathImage } from '../../constant';
 import { ProjectApiType, TagType } from '../../libs';
 import { MontserratDashboardTitle, OswaldTypo } from '../../styled';
-import { CustomAutoComplete } from '../../components/Input';
+import axios from 'axios';
+import { API_PREFIX, convertRelatePathImage } from '@/constant';
+import { toast } from 'react-toastify';
 
 const tempThumb =
   'https://measured.ca/wp-content/uploads/1508-CubeHouse-Web-Rear-Entry-Square-Photographer-Ema-Peter.jpg';
@@ -39,10 +36,12 @@ export const ProjectForm = () => {
 
   const [imageFile, setImageFile] = useState(null);
   const [listTag, setListTag] = useState<TagType[]>([]);
+  const [choosenTag, setChoosenTag] = useState<TagType[]>([]);
 
   const params = useParams();
   const isEdit = params?.id ? true : false;
 
+  // get all tags
   useQuery<TagType[]>('tags', {
     onSuccess: (tag: TagType[]) => {
       setListTag(
@@ -56,8 +55,6 @@ export const ProjectForm = () => {
       );
     },
   });
-
-  // get all tags
 
   // choose tags
 
@@ -76,6 +73,11 @@ export const ProjectForm = () => {
         setValue('square', project.square);
         setValue('is_main', project.is_main);
 
+        // set current tags of project
+        if (project.tag_id) {
+          setChoosenTag(listTag.filter((tag) => project.tag_id?.includes(tag.id)));
+        }
+
         // if(project)
         setValue('content', project.content);
       },
@@ -92,7 +94,7 @@ export const ProjectForm = () => {
     setValue('is_main', event.target.checked);
   };
 
-  const onSubmit = async (value: Omit<ProjectApiType, 'post_id'>) => {
+  const onSubmit = async (value: Omit<ProjectApiType, 'post_id' | 'tags' | 'tag_id'>) => {
     const formData = new FormData();
 
     Object.entries(value).forEach(([key, value]) => {
@@ -109,6 +111,10 @@ export const ProjectForm = () => {
 
     if (imageFile && isEdit) {
       formData.set('thumb', imageFile);
+    }
+
+    if (choosenTag.length) {
+      formData.append('tag_id', JSON.stringify(choosenTag));
     }
 
     const contentFieldData = getValues('content');
@@ -188,12 +194,16 @@ export const ProjectForm = () => {
           <FormLabel>Thẻ</FormLabel>
           {/* <Input control={control} name="square" fullWidth label="Diện tích" /> */}
           <CustomAutoComplete
-            name="tag"
+            // name="tag"
+            onChange={(event, value) => {
+              console.log('value', value);
+              setChoosenTag(value);
+            }}
             multiple
             getOptionLabel={(option) => option.name}
-            disablePortal
             id="combo-box-demo"
-            renderInput={(params) => <TextField {...params} label="Movie" />}
+            defaultValue={choosenTag}
+            value={choosenTag}
             options={listTag}
           />
         </Grid>

@@ -104,6 +104,8 @@ export type ProjectApiType = {
   content?: string;
 
   post_id?: number;
+  tags?: TagType[];
+  tag_id?: number[]
 };
 
 export type ProjectType = {
@@ -125,4 +127,5 @@ export type PostType = {
 export type TagType = {
   name: string;
   id: number;
+  [key: string | number]: any;
 };

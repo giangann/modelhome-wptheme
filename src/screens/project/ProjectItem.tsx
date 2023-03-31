@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { ImageWithDefectiveTrianglePart } from '../../components';
 import { BoxWithTitleAndDescription } from '../../components/BoxWithTitleAndDescription';
 import { STORAGE_PREFIX } from '../../constant';
-import { DefectivePositionType, ProjectApiType } from '../../libs';
+import { DefectivePositionType, ProjectApiType, TagType } from '../../libs';
 
 type ProjectItemProps = {
   isLastest?: boolean;
@@ -18,6 +18,13 @@ export const ProjectItem = (props: ProjectItemProps) => {
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+  let listTags = '';
+  project.tags?.forEach((tag) => {
+    listTags = listTags + ' / ' + tag.name;
+  });
+
+  console.log(listTags);
 
   const handleNavigate: any = () => {
     navigate(project.slug);
@@ -36,7 +43,7 @@ export const ProjectItem = (props: ProjectItemProps) => {
       <Grid item xs={isLastest ? 12 : 6} sm={6}>
         <BoxWithTitleAndDescription
           title={project.name}
-          tag={'project.tag'}
+          tag={listTags.length ? listTags : '/ No Tag'}
           description={project.summary}
           showAllInfo={isLastest}
           onNavigate={handleNavigate}
