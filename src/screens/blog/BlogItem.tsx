@@ -1,10 +1,11 @@
 import { Box, IconButton } from '@mui/material';
 
 import { MdiChat } from '../../components/icon';
-import { black, grey } from '../../libs';
+import { black, BlogApiType, grey } from '../../libs';
 import { MontserratTypo, RobotoTypo, textHoverStyle } from '../../styled';
 
-export const BlogItem = () => {
+export const BlogItem = (props: { blog: BlogApiType }) => {
+  const { blog } = props;
   const placeholdImage =
     'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/about.jpg';
   return (
@@ -17,7 +18,7 @@ export const BlogItem = () => {
         lineHeight={1.4}
         mb={4}
       >
-        Fitting a Square Building
+        {blog.title}
       </RobotoTypo>
       <MontserratTypo fontSize={14} color={black['700']} letterSpacing={0} mb={4}>
         By admin In Uncategorized Posted April 9, 2019
@@ -35,10 +36,7 @@ export const BlogItem = () => {
         fontWeight={300}
         mb={2}
       >
-        Tips on Buying a Fixer Upper There are many people that are opting to purchase a
-        home that, in it’s current state, would make Bob Vila cry. For starters, fixer
-        uppers could be purchased for a price so low it’ll make you giddy, while other
-        benefits include being able to...
+        {blog.summary}
       </MontserratTypo>
       <IconButton
         sx={{ backgroundColor: grey['100'], borderRadius: 1, mb: 6, display: 'flex' }}

@@ -105,7 +105,20 @@ export type ProjectApiType = {
 
   post_id?: number;
   tags?: TagType[];
-  tag_id?: number[]
+  tag_id?: number[];
+};
+
+export type BlogApiType = {
+  thumb: string;
+  title: string;
+  author: string;
+  summary: string;
+  
+  content?: string;
+
+  post_id?: number;
+  tags?: TagType[];
+  tag_id?: number[];
 };
 
 export type ProjectType = {

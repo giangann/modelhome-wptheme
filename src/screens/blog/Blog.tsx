@@ -1,17 +1,22 @@
+import { BlogApiType } from '@/libs';
 import { Box, Container, Grid } from '@mui/material';
+import { useQuery } from 'react-query';
 
 import { OswaldTypo } from '../../styled';
 import { BlogItem } from './BlogItem';
 import { BlogSidebar } from './BlogSidebar';
 
 export const Blog = () => {
-  return (
+  const { data: listBlog, isLoading: isLoading } = useQuery<BlogApiType[]>('blogs');
+  return isLoading ? (
+    'Loading'
+  ) : (
     <Container sx={{ mt: 8 }}>
       <Grid container columnSpacing={4}>
         <Grid container item xs={12} sm={7}>
-          {[1, 2, 3].map((item, index) => (
+          {listBlog?.map((blog, index) => (
             <Grid key={index} item xs={12}>
-              <BlogItem />
+              <BlogItem blog={blog} />
             </Grid>
           ))}
         </Grid>

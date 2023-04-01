@@ -1,3 +1,4 @@
+import { BlogForm } from '@/screens/dashboard/BlogForm';
 import { Route, Routes } from 'react-router-dom';
 
 import { Layout } from '../layouts';
@@ -34,10 +35,15 @@ export const Router = () => {
       <Route path="/dashboard" element={isAdmin ? <Dashboard /> : <Forbidden />}>
         <Route index element={<ManageHomepage />} />
         <Route path="/dashboard/manage-about-page" element={<ManageAboutPage />} />
+
         <Route path="/dashboard/manage-project" element={<ManageProject />} />
-        <Route path="/dashboard/manage-blog" element={<ManageBlog />} />
         <Route path="/dashboard/new-project" element={<ProjectForm />} />
         <Route path="/dashboard/project/:id" element={<ProjectForm />} />
+
+        <Route path="/dashboard/manage-blog" element={<ManageBlog />} />
+        <Route path="/dashboard/new-blog" element={<BlogForm />} />
+        <Route path="/dashboard/blog/:id" element={<BlogForm />} />
+
       </Route>
     </Routes>
   );
