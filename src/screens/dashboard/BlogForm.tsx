@@ -58,6 +58,7 @@ export const BlogForm = () => {
         setValue('title', blog.title);
         setValue('author', blog.author);
         setValue('summary', blog.summary);
+        setValue('slug', blog.slug);
 
         // set current tags of project
         if (blog.tag_id) {
@@ -176,6 +177,9 @@ export const BlogForm = () => {
             value={choosenTag}
             options={listTag}
           />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <Input control={control} name="slug" fullWidth label="Slug" />
         </Grid>
       </Grid>
 

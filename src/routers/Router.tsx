@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import { Layout } from '../layouts';
 import { About } from '../screens/about';
-import { Blog } from '../screens/blog';
+import { Blog, BlogDetail, BlogList } from '../screens/blog';
 import {
   Dashboard,
   ManageAboutPage,
@@ -27,7 +27,10 @@ export const Router = () => {
         <Route path="/about" element={<About />} />
         <Route path="/project" element={<Projects />} />
         <Route path="/project/:slug" element={<ProjectDetail />} />
-        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog" element={<Blog />}>
+          <Route index element={<BlogList />} />
+          <Route path="/blog/:slug" element={<BlogDetail />} />
+        </Route>
         <Route path="/service/:id" element={<ServiceDetail />} />
       </Route>
 
@@ -43,7 +46,6 @@ export const Router = () => {
         <Route path="/dashboard/manage-blog" element={<ManageBlog />} />
         <Route path="/dashboard/new-blog" element={<BlogForm />} />
         <Route path="/dashboard/blog/:id" element={<BlogForm />} />
-
       </Route>
     </Routes>
   );

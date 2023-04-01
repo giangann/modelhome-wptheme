@@ -214,6 +214,7 @@ export const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 
 export const LinkCustom = styled('a')({
   textDecoration: 'none',
+  color: 'inherit',
 });
 
 export const poppinsFontStyle = {

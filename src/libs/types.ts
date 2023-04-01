@@ -113,6 +113,7 @@ export type BlogApiType = {
   title: string;
   author: string;
   summary: string;
+  slug: string;
   
   content?: string;
 

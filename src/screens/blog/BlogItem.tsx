@@ -1,25 +1,41 @@
 import { Box, IconButton } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 import { MdiChat } from '../../components/icon';
 import { black, BlogApiType, grey } from '../../libs';
-import { MontserratTypo, RobotoTypo, textHoverStyle } from '../../styled';
+import { LinkCustom, MontserratTypo, RobotoTypo, textHoverStyle } from '../../styled';
+import { Content } from '../project';
 
-export const BlogItem = (props: { blog: BlogApiType }) => {
-  const { blog } = props;
+type BlogItemProps = {
+  blog: BlogApiType;
+  isDetail: boolean;
+  content?: string;
+};
+export const BlogItem = (props: BlogItemProps) => {
+  const { blog, isDetail, content } = props;
   const placeholdImage =
     'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/about.jpg';
   return (
     <Box>
-      <RobotoTypo
-        variant="h3"
-        sx={{ ...textHoverStyle }}
-        fontSize={{ xs: 21, sm: 28 }}
-        fontWeight={400}
-        lineHeight={1.4}
-        mb={4}
+      <LinkCustom
+        sx={{
+          // '& a:visited': {
+          //   color: 'inherit',
+          // },
+        }}
+        href={`/blog/${blog.slug}`}
       >
-        {blog.title}
-      </RobotoTypo>
+        <RobotoTypo
+          variant="h3"
+          sx={{ ...textHoverStyle }}
+          fontSize={{ xs: 21, sm: 28 }}
+          fontWeight={400}
+          lineHeight={1.4}
+          mb={4}
+        >
+          {blog.title}
+        </RobotoTypo>
+      </LinkCustom>
       <MontserratTypo fontSize={14} color={black['700']} letterSpacing={0} mb={4}>
         By admin In Uncategorized Posted April 9, 2019
       </MontserratTypo>
@@ -38,6 +54,8 @@ export const BlogItem = (props: { blog: BlogApiType }) => {
       >
         {blog.summary}
       </MontserratTypo>
+
+      {isDetail ? <Content content={content ? content : ''} /> : undefined}
       <IconButton
         sx={{ backgroundColor: grey['100'], borderRadius: 1, mb: 6, display: 'flex' }}
       >
