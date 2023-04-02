@@ -5,6 +5,7 @@ import { useAtomValue } from 'jotai';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import { BlogItem } from './BlogItem';
+import './blog.css'
 
 export const BlogDetail = () => {
   const params = useParams();

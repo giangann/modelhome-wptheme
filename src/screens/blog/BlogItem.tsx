@@ -18,11 +18,13 @@ export const BlogItem = (props: BlogItemProps) => {
   return (
     <Box>
       <LinkCustom
-        sx={{
-          // '& a:visited': {
-          //   color: 'inherit',
-          // },
-        }}
+        sx={
+          {
+            // '& a:visited': {
+            //   color: 'inherit',
+            // },
+          }
+        }
         href={`/blog/${blog.slug}`}
       >
         <RobotoTypo
@@ -45,7 +47,7 @@ export const BlogItem = (props: BlogItemProps) => {
         style={{ maxWidth: '100%', marginBottom: 32 }}
       />
       <MontserratTypo
-        fontSize={18}
+        fontSize={{ xs: 16, sm: 18 }}
         color={grey['800']}
         letterSpacing={0}
         lineHeight={2.142}
