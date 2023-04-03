@@ -20,11 +20,15 @@ import {
   OswaldTypo,
   OswaldTypoHeaddingContent,
 } from '../../styled';
+import { useTranslation } from 'react-i18next';
+import { IcBaselineArrowUpward } from '@/components/icon';
 
 type FocusProjectType = ProjectApiType & { isFocus: boolean };
 
 export const OurProjects = (props: { data: OurProjectsType }) => {
   const { data } = props;
+  const { t } = useTranslation();
+  const projectSummary = ['location', 'customer_name', 'square', 'finish_in'];
   const [listProject, setListProject] = useState<FocusProjectType[]>([]);
   useQuery<ProjectApiType[]>('projects', {
     onSuccess: (project) => {
@@ -72,44 +76,10 @@ export const OurProjects = (props: { data: OurProjectsType }) => {
           </Grid>
         </Grid>
       </Container>
-      {/* <Grid container sx={{ marginY: 4 }} spacing={2} p={2}>
-        {[1, 2, 3, 4, 5, 6].map((thumb, index) => (
-          <Grid key={index} item xs={12} sm={4}>
-            <Box
-              component="img"
-              src={`${IMAGE_FOLDER_PATH}/main-projects/${index + 1}.jpg`}
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-              }}
-              sx={{
-                '&:hover': {
-                  cursor: 'pointer',
-                },
-              }}
-            />
-          </Grid>
-        ))}
-      </Grid> */}
 
       <Grid container sx={{ marginY: 4 }} spacing={2} p={2}>
         {listProject.map((project, index) => (
           <Grid key={index} item xs={12} sm={4}>
-            {/* <Box
-              component="img"
-              src={`${STORAGE_PREFIX}/${project.thumb}`}
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-              }}
-              sx={{
-                '&:hover': {
-                  cursor: 'pointer',
-                },
-              }}
-            /> */}
             <BoxWithBackgroundAndLayer
               image={`${STORAGE_PREFIX}/${project.thumb}`}
               width="100%"
@@ -119,13 +89,18 @@ export const OurProjects = (props: { data: OurProjectsType }) => {
               <Box sx={{ ...centerDiv, width: '100%', height: '100%' }}>
                 <Stack spacing={2}>
                   <div
-                    style={{ cursor: 'pointer' }}
+                    style={{
+                      cursor: 'pointer',
+                      transform: project.isFocus ? 'translateY(0)' : 'translateY(50px)',
+                      transition: 'all 0.5s',
+                    }}
                     onClick={() => handleFocusProject(index)}
                   >
                     <ThumbTitle
                       color="white"
                       sx={{
                         opacity: project.isFocus ? 1 : 0.5,
+                        transition: 'all 0.5s',
                       }}
                     >
                       {project.name}
@@ -135,13 +110,38 @@ export const OurProjects = (props: { data: OurProjectsType }) => {
                   {/* info of project */}
                   <Box
                     sx={{
-                      transition: 'all 0.5s',
+                      transition: 'all 1s',
+                      transform: project.isFocus ? 'translateY(0)' : 'translateY(50px)',
                       opacity: (project.isFocus as any) ? 1 : 0,
                     }}
                   >
-                    <MulishTypo color="white">{project.location}</MulishTypo>
-                    <MulishTypo color="white">{project.customer_name}</MulishTypo>
-                    <MulishTypo color="white">{project.square}</MulishTypo>
+                    <Grid container spacing={{ xs: 1, sm: 2 }}>
+                      {projectSummary.map((key, index) => (
+                        <Grid item xs={12} key={index}>
+                          <Box>
+                            <MontserratTypo
+                              letterSpacing={1.5}
+                              color="white"
+                              textAlign="center"
+                              fontWeight={600}
+                            >
+                              {t(`project.${key}`)}
+                            </MontserratTypo>
+                          </Box>
+                          <Box>
+                            <MontserratTypo
+                              color="white"
+                              textAlign="center"
+                              fontSize={{ xs: 12, sm: 14 }}
+                            >
+                              {listProject[index]
+                                ? listProject[index][key as keyof ProjectApiType]
+                                : ''}
+                            </MontserratTypo>
+                          </Box>
+                        </Grid>
+                      ))}
+                    </Grid>
                   </Box>
                 </Stack>
               </Box>
