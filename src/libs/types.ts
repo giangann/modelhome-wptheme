@@ -114,6 +114,7 @@ export type BlogApiType = {
   author: string;
   summary: string;
   slug: string;
+  created_at: string | Date
   
   content?: string;
 

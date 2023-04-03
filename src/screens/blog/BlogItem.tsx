@@ -1,9 +1,15 @@
-import { Box, IconButton } from '@mui/material';
+import { Box, IconButton, styled } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 import { MdiChat } from '../../components/icon';
-import { black, BlogApiType, grey } from '../../libs';
-import { LinkCustom, MontserratTypo, RobotoTypo, textHoverStyle } from '../../styled';
+import { black, BlogApiType, grey, orange } from '../../libs';
+import {
+  LinkCustom,
+  LinkRouterCustom,
+  MontserratTypo,
+  RobotoTypo,
+  textHoverStyle,
+} from '../../styled';
 import { Content } from '../project';
 
 type BlogItemProps = {
@@ -15,18 +21,15 @@ export const BlogItem = (props: BlogItemProps) => {
   const { blog, isDetail, content } = props;
   const placeholdImage =
     'https://ld-wp.template-help.com/wordpress_free/23520/wp-content/uploads/2019/04/about.jpg';
+
+  const tagNameList = blog.tags?.reduce(
+    (accumulator, currentValue) => accumulator + currentValue.name,
+    '',
+  );
+
   return (
     <Box>
-      <LinkCustom
-        sx={
-          {
-            // '& a:visited': {
-            //   color: 'inherit',
-            // },
-          }
-        }
-        href={`/blog/${blog.slug}`}
-      >
+      <LinkRouterCustom to={`/blog/${blog.slug}`}>
         <RobotoTypo
           variant="h3"
           sx={{ ...textHoverStyle }}
@@ -37,9 +40,10 @@ export const BlogItem = (props: BlogItemProps) => {
         >
           {blog.title}
         </RobotoTypo>
-      </LinkCustom>
+      </LinkRouterCustom>
       <MontserratTypo fontSize={14} color={black['700']} letterSpacing={0} mb={4}>
-        By admin In Uncategorized Posted April 9, 2019
+        By <StyledSpanLink>{blog.author}</StyledSpanLink> In{' '}
+        <StyledSpanLink>{tagNameList}</StyledSpanLink> Posted {blog.created_at}
       </MontserratTypo>
       <img
         src={placeholdImage}
@@ -69,3 +73,8 @@ export const BlogItem = (props: BlogItemProps) => {
     </Box>
   );
 };
+
+const StyledSpanLink = styled('a')({
+  color: orange['400'],
+  cursor: 'pointer',
+});

@@ -5,7 +5,8 @@ import { useAtomValue } from 'jotai';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import { BlogItem } from './BlogItem';
-import './blog.css'
+import './blog.css';
+import { useEffect } from 'react';
 
 export const BlogDetail = () => {
   const params = useParams();
@@ -14,6 +15,13 @@ export const BlogDetail = () => {
   const { data: blogData, isLoading: isLoading } = useQuery<BlogApiType>(
     `blogs/get-by-slug/${params.slug}`,
   );
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }, []);
   return (
     <>
       {isLoading ? (
@@ -30,4 +38,3 @@ export const BlogDetail = () => {
     </>
   );
 };
-

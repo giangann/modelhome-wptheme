@@ -5,6 +5,7 @@ import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import MuiAccordionSummary, {
   AccordionSummaryProps,
 } from '@mui/material/AccordionSummary';
+import { Link } from 'react-router-dom';
 
 import {
   capatializeTransform,
@@ -213,6 +214,11 @@ export const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 export const LinkCustom = styled('a')({
+  textDecoration: 'none',
+  color: 'inherit',
+});
+
+export const LinkRouterCustom = styled(Link)({
   textDecoration: 'none',
   color: 'inherit',
 });

@@ -1,102 +1,81 @@
+import { tagsAtom } from '@/libs/atom/data';
 import { Box, Divider, Grid, IconButton, Stack, styled, Typography } from '@mui/material';
+import { useAtomValue } from 'jotai';
+import { Link } from 'react-router-dom';
 
 import { TextFieldWithCustomFont } from '../../components';
 import { IcBaselineSearch } from '../../components/icon';
-import { grey, orange } from '../../libs';
-import { centerDiv, LinkCustom, MontserratTypo, textHoverStyle } from '../../styled';
+import { BlogApiType, grey, orange } from '../../libs';
+import { centerDiv, LinkCustom, LinkRouterCustom, MontserratTypo, textHoverStyle } from '../../styled';
 
-export const BlogSidebar = () => {
-  const recentPost = [
-    {
-      title: 'Fitting a Square Building',
-      slug: 'fitting-a-square-building',
-    },
-    {
-      title: 'MODERN EXTENSION TO BRICK HOUSE',
-      slug: 'extension-brick-house',
-    },
-    {
-      title: 'Groundbreaking Women in Construction',
-      slug: 'fitting-a-square-building',
-    },
-    {
-      title: 'Tips on Buying a Fixer Upper',
-      slug: 'extension-brick-house',
-    },
-  ];
+export const BlogSidebar = (props: { listBlog: BlogApiType[]; isLoading: boolean }) => {
+  const { listBlog, isLoading } = props;
+  const tagsListAtom = useAtomValue(tagsAtom);
 
-  const categoryList = [
-    {
-      name: 'Phong thủy',
-    },
-    {
-      name: 'Thiết kế',
-    },
-    {
-      name: 'Nội thất',
-    },
-    {
-      name: 'Kiến trúc',
-    },
-  ];
   return (
-    <Grid item xs={12} sm={5} justifyContent="flex-start">
-      <Stack spacing={4}>
-        {/* Search field */}
-        <Stack direction="row" spacing={1}>
-          <TextFieldWithCustomFont
-            fullWidth
-            placeholder="Nhập từ khóa tìm kiếm"
-            fontName="Montserrat"
-            InputProps={{
-              sx: {
-                height: '36px !important',
-                fontSize: 13,
-              },
-            }}
-          />
-          <Box sx={{ backgroundColor: orange['400'], borderRadius: 1, ...centerDiv }}>
-            <IconButton>
-              <IcBaselineSearch fontSize={16} color="white" />
-            </IconButton>
-          </Box>
-        </Stack>
-        <Divider orientation="horizontal" flexItem />
-        {/* Recent post */}
-        <Box>
-          <TitleSidebarBlock sx={{ mb: 4 }} variant="h4">
-            Bài viết gần đây
-          </TitleSidebarBlock>
-          <Stack spacing={3}>
-            {recentPost.map((post, index) => (
-              <LinkCustom href={`blog/${post.slug}`} key={index}>
-                <PostTittleSidebarRecentPost sx={{ ...textHoverStyle }}>
-                  {post.title}
-                </PostTittleSidebarRecentPost>
-              </LinkCustom>
-            ))}
-          </Stack>
-        </Box>
-        <Divider orientation="horizontal" flexItem />
+    <>
+      {isLoading ? (
+        'Loading'
+      ) : (
+        <Grid item xs={12} sm={5} justifyContent="flex-start">
+          <Stack spacing={4}>
+            {/* Search field */}
+            <Stack direction="row" spacing={1}>
+              <TextFieldWithCustomFont
+                fullWidth
+                placeholder="Nhập từ khóa tìm kiếm"
+                fontName="Montserrat"
+                InputProps={{
+                  sx: {
+                    height: '36px !important',
+                    fontSize: 13,
+                  },
+                }}
+              />
+              <Box sx={{ backgroundColor: orange['400'], borderRadius: 1, ...centerDiv }}>
+                <IconButton>
+                  <IcBaselineSearch fontSize={16} color="white" />
+                </IconButton>
+              </Box>
+            </Stack>
+            <Divider orientation="horizontal" flexItem />
+            {/* Recent post */}
+            <Box>
+              <TitleSidebarBlock sx={{ mb: 4 }} variant="h4">
+                Bài viết gần đây
+              </TitleSidebarBlock>
+              <Stack spacing={3}>
+                {listBlog.map((blog, index) => (
+                  <LinkRouterCustom to={`/blog/${blog.slug}`} key={index}>
+                    <PostTittleSidebarRecentPost sx={{ ...textHoverStyle }}>
+                      {blog.title}
+                    </PostTittleSidebarRecentPost>
+                  </LinkRouterCustom>
+                ))}
+              </Stack>
+            </Box>
+            <Divider orientation="horizontal" flexItem />
 
-        {/* Recent comment */}
-        <Box>
-          <TitleSidebarBlock variant="h4">Bình luận gần đây</TitleSidebarBlock>
-        </Box>
-        <Divider orientation="horizontal" flexItem />
-        {/* Tags or Categories */}
-        <Box>
-          <TitleSidebarBlock variant="h4" sx={{ mb: 3 }}>
-            Phân loại
-          </TitleSidebarBlock>
-          <Stack spacing={2}>
-            {categoryList.map((category, index) => (
-              <TagTypo key={index}>{category.name}</TagTypo>
-            ))}
+            {/* Recent comment */}
+            <Box>
+              <TitleSidebarBlock variant="h4">Bình luận gần đây</TitleSidebarBlock>
+            </Box>
+            <Divider orientation="horizontal" flexItem />
+            {/* Tags or Categories */}
+            <Box>
+              <TitleSidebarBlock variant="h4" sx={{ mb: 3 }}>
+                Phân loại
+              </TitleSidebarBlock>
+              <Stack spacing={2}>
+                {tagsListAtom.map((tag, index) => (
+                  <TagTypo key={index}>{tag.name}</TagTypo>
+                ))}
+              </Stack>
+            </Box>
           </Stack>
-        </Box>
-      </Stack>
-    </Grid>
+        </Grid>
+      )}
+    </>
   );
 };
 
