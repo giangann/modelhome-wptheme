@@ -4,6 +4,7 @@ var isMobile = browserWidth <= 600;
 var sunEditor = document.getElementById('sunedit-area');
 var oImg = sunEditor.getElementsByTagName('img');
 var oImgContainer = sunEditor.getElementsByClassName('se-image-container');
+var oParagraph = sunEditor.getElementsByTagName('p');
 
 var coupleElementLength = 2;
 var coupleId = 1;
@@ -45,12 +46,17 @@ for (let i = 0; i < oImg.length; i++) {
 
 // main algorithm to sync couple image have the same height
 Object.entries(listCouple).forEach(([key, imageArr]) => {
-
   if (imageArr[0].clientHeight > imageArr[1].clientHeight) {
     imageArr[0].style.height = imageArr[1].clientHeight + 'px';
   } else {
     imageArr[1].style.height = imageArr[0].clientHeight + 'px';
   }
-
 });
 
+// remove redudant unknow empty <p/> tags
+for (let i = 0; i < oParagraph.length; i++) {
+  console.log('oParagraph[i].innerText', oParagraph[i].innerText.length <= 2);
+  if (oParagraph[i].innerText.length <= 2) {
+    oParagraph[i].remove();
+  }
+}
