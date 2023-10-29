@@ -1,12 +1,15 @@
-import { BlogApiType } from '@/libs';
-import { postsAtom } from '@/libs/atom/data';
+import './blog.css';
+
 import { Grid } from '@mui/material';
 import { useAtomValue } from 'jotai';
+import { useEffect } from 'react';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
+
+import { BlogApiType } from '@/libs';
+import { postsAtom } from '@/libs/atom/data';
+
 import { BlogItem } from './BlogItem';
-import './blog.css';
-import { useEffect } from 'react';
 
 export const BlogDetail = () => {
   const params = useParams();

@@ -1,16 +1,19 @@
 import 'suneditor/dist/css/suneditor.min.css';
 
 import { Box, Button, Container, FormLabel, Grid } from '@mui/material';
+import axios from 'axios';
+import { useAtom } from 'jotai';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import SunEditor from 'suneditor-react';
 
 import { CustomAutoComplete, Input } from '@/components/Input';
 import { API_PREFIX, convertRelatePathImage } from '@/constant';
-import axios from 'axios';
-import { toast } from 'react-toastify';
+import { postsAtom } from '@/libs/atom/data';
+
 import { ImageUpload } from '../../components';
 import { BlogApiType, TagType } from '../../libs';
 import { MontserratDashboardTitle, OswaldTypo } from '../../styled';
@@ -19,6 +22,7 @@ const tempThumb =
   'https://measured.ca/wp-content/uploads/1508-CubeHouse-Web-Rear-Entry-Square-Photographer-Ema-Peter.jpg';
 export const BlogForm = () => {
   const navigate = useNavigate();
+  const [postsAtomValue, setPostsAtom] = useAtom(postsAtom);
 
   const { control, setValue, getValues, handleSubmit, register, watch } =
     useForm<BlogApiType>({
@@ -66,7 +70,7 @@ export const BlogForm = () => {
         }
 
         // if(project)
-        setValue('content', blog.content);
+        setValue('content', postsAtomValue[blog.post_id as number].content);
       },
     });
 

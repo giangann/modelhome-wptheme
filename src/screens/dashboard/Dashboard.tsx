@@ -1,6 +1,11 @@
 import { Box, Button, useMediaQuery, useTheme } from '@mui/material';
+import { useSetAtom } from 'jotai';
 import { useState } from 'react';
+import { useQuery } from 'react-query';
 import { Outlet } from 'react-router-dom';
+
+import { PostType } from '@/libs';
+import { postsAtom } from '@/libs/atom/data';
 
 import { CustomDrawer } from '../../components';
 
@@ -62,6 +67,19 @@ export const Dashboard = () => {
       link: '/dashboard/manage-blog',
     },
   ];
+
+  const setPostsAtom = useSetAtom(postsAtom);
+  const { data: listPostData, isLoading: isPostLoading } = useQuery<PostType[]>('posts', {
+    onSuccess: (data) => {
+      const newPostData: { [key: number]: PostType } = {};
+
+      data.forEach((value: PostType) => {
+        newPostData[value.id] = value;
+      });
+
+      setPostsAtom(newPostData);
+    },
+  });
 
   return (
     <Box sx={{ display: 'flex' }}>

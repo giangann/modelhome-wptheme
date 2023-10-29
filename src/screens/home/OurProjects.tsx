@@ -1,21 +1,19 @@
 import { Box, Container, Grid, Stack, styled, Typography } from '@mui/material';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 
 import { OurProjectsType, ProjectApiType } from '@/libs';
 
-import { useTranslation } from 'react-i18next';
 import { BoxWithBackgroundAndLayer, HeadingBlock } from '../../components';
-import {
-  NUM_OF_PROJECT_SERVICE,
-  STORAGE_PREFIX
-} from '../../constant';
+import { NUM_OF_PROJECT_SERVICE, STORAGE_PREFIX } from '../../constant';
 import {
   btnTextStyle,
   centerDiv,
-  MontserratTypo, OrangeOutlinedBtn,
-  OswaldTypo
+  MontserratTypo,
+  OrangeOutlinedBtn,
+  OswaldTypo,
 } from '../../styled';
 
 type FocusProjectType = ProjectApiType & { isFocus: boolean };

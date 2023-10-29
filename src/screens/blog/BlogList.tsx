@@ -1,7 +1,8 @@
-import { BlogApiType } from '@/libs';
 import { Box, Container, Grid } from '@mui/material';
 import { useQuery } from 'react-query';
 import { useOutletContext } from 'react-router-dom';
+
+import { BlogApiType } from '@/libs';
 
 import { OswaldTypo } from '../../styled';
 import { BlogItem } from './BlogItem';

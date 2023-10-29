@@ -1,10 +1,10 @@
 import { Box } from '@mui/material';
+import { useSetAtom } from 'jotai';
 import { useQuery } from 'react-query';
 
 import { HomePageApiType, PostType } from '@/libs';
-
 import { postsAtom } from '@/libs/atom/data';
-import { useSetAtom } from 'jotai';
+
 import { AboutUs } from './AboutUs';
 import { Banner } from './Banner';
 import { OurProjects } from './OurProjects';
@@ -14,7 +14,7 @@ export const Home = () => {
   const setPostsAtom = useSetAtom(postsAtom);
   const { data: listPostData, isLoading: isPostLoading } = useQuery<PostType[]>('posts', {
     onSuccess: (data) => {
-      let newPostData: { [key: number]: PostType } = {};
+      const newPostData: { [key: number]: PostType } = {};
 
       data.forEach((value: PostType) => {
         newPostData[value.id] = value;

@@ -8,7 +8,7 @@ export const Content = (props: { content: string }) => {
   const { content } = props;
 
   function createMarkup() {
-    return { __html: (content || content !== null) ? content : '' };
+    return { __html: content || content !== null ? content : '' };
   }
 
   useEffect(() => {

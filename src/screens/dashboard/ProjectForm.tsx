@@ -10,19 +10,22 @@ import {
   Grid,
   Switch,
 } from '@mui/material';
+import axios from 'axios';
+import { useAtom } from 'jotai';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
 import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import SunEditor from 'suneditor-react';
 
 import { CustomAutoComplete, Input } from '@/components/Input';
-import { ImageUpload } from '../../components';
-import { ProjectApiType, TagType } from '../../libs';
-import { MontserratDashboardTitle, OswaldTypo } from '../../styled';
-import axios from 'axios';
 import { API_PREFIX, convertRelatePathImage } from '@/constant';
-import { toast } from 'react-toastify';
+import { postsAtom } from '@/libs/atom/data';
+
+import { ImageUpload } from '../../components';
+import { ProjectApiType, TagType, updatePostStorage } from '../../libs';
+import { MontserratDashboardTitle, OswaldTypo } from '../../styled';
 
 const tempThumb =
   'https://measured.ca/wp-content/uploads/1508-CubeHouse-Web-Rear-Entry-Square-Photographer-Ema-Peter.jpg';
@@ -33,6 +36,8 @@ export const ProjectForm = () => {
     useForm<ProjectApiType>({
       defaultValues: {},
     });
+
+  const [postsAtomValue, setPostsAtom] = useAtom(postsAtom);
 
   const [imageFile, setImageFile] = useState(null);
   const [listTag, setListTag] = useState<TagType[]>([]);
@@ -79,7 +84,7 @@ export const ProjectForm = () => {
         }
 
         // if(project)
-        setValue('content', project.content);
+        setValue('content', postsAtomValue[project.post_id as number].content);
       },
     });
 
@@ -127,6 +132,7 @@ export const ProjectForm = () => {
       const res = await axios.post(`${API_PREFIX}projects/update/${params.id}`, formData);
       if (res.status === 201 || res.status === 200) {
         toast.success('Cập nhật thành công');
+        updatePostStorage(Number(params.id), value.content || '');
       }
     } else {
       const res = await axios.post(`${API_PREFIX}projects`, formData);

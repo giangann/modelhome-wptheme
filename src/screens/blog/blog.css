@@ -15,7 +15,7 @@
   /*Big smartphones [426px -> 600px]*/
   #sunedit-area p,
   #sunedit-area p * {
-    padding:0; /*disable padding in styled.css file */
+    padding: 0; /*disable padding in styled.css file */
     width: 100%;
     font-size: 16px !important;
   }

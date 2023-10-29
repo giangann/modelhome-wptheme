@@ -1,5 +1,6 @@
-import { BlogForm } from '@/screens/dashboard/BlogForm';
 import { Route, Routes } from 'react-router-dom';
+
+import { BlogForm } from '@/screens/dashboard/BlogForm';
 
 import { Layout } from '../layouts';
 import { About } from '../screens/about';

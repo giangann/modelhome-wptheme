@@ -1,11 +1,12 @@
-import { EmptyContent, FadeInSection, Line } from '@/components';
-import { postsAtom } from '@/libs/atom/data';
 import { Box, Container, Grid } from '@mui/material';
 import { useAtomValue } from 'jotai';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
+
+import { EmptyContent, FadeInSection, Line } from '@/components';
+import { postsAtom } from '@/libs/atom/data';
 
 import { convertSlugToName } from '../../constant';
 import { grey, orange, ProjectApiType } from '../../libs';

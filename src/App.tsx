@@ -2,15 +2,15 @@ import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { ThemeProvider } from '@mui/material';
+import axios from 'axios';
+import { useEffect } from 'react';
 import { QueryClientProvider, useQuery } from 'react-query';
 import { ToastContainer } from 'react-toastify';
 
+import { API_PREFIX } from './constant';
 import { queryClient } from './libs';
 import { Router } from './routers';
 import { theme } from './theme';
-import axios from 'axios';
-import { API_PREFIX } from './constant';
-import { useEffect } from 'react';
 
 function App() {
   // fetch data of all Project when initial (sync when user interact with page)
