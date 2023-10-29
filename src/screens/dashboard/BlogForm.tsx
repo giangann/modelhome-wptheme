@@ -111,12 +111,12 @@ export const BlogForm = () => {
       }
     }
     if (isEdit) {
-      const res = await axios.post(`${API_PREFIX}blogs/update/${params.id}`, formData);
+      const res = await axios.post(`${API_PREFIX}/blogs/update/${params.id}`, formData);
       if (res.status === 201 || res.status === 200) {
         toast.success('Cập nhật thành công');
       }
     } else {
-      const res = await axios.post(`${API_PREFIX}blogs`, formData);
+      const res = await axios.post(`${API_PREFIX}/blogs`, formData);
       if (res.status === 201 || res.status === 200) {
         toast.success('Tạo mới thành công');
       }

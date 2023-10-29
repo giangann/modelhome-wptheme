@@ -110,7 +110,7 @@ export const ManageHomepage = () => {
   });
 
   const onSubmit = async (homePage: any) => {
-    const res = await axios.post(`${API_PREFIX}home-page/update`, {
+    const res = await axios.post(`${API_PREFIX}/home-page/update`, {
       banner: JSON.stringify(homePage.bannerPart),
       about_us: JSON.stringify(homePage.aboutPart),
       services: JSON.stringify(homePage.servicePart),

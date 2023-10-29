@@ -129,13 +129,13 @@ export const ProjectForm = () => {
       }
     }
     if (isEdit) {
-      const res = await axios.post(`${API_PREFIX}projects/update/${params.id}`, formData);
+      const res = await axios.post(`${API_PREFIX}/projects/update/${params.id}`, formData);
       if (res.status === 201 || res.status === 200) {
         toast.success('Cập nhật thành công');
         updatePostStorage(Number(params.id), value.content || '');
       }
     } else {
-      const res = await axios.post(`${API_PREFIX}projects`, formData);
+      const res = await axios.post(`${API_PREFIX}/projects`, formData);
       if (res.status === 201 || res.status === 200) {
         toast.success('Tạo mới thành công');
       }
