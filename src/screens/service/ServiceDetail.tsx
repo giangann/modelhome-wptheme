@@ -33,6 +33,7 @@ export const ServiceDetail = () => {
 
         <Grid item xs={12} sm={7}>
           <img
+            loading="lazy"
             src={introduceImage}
             alt="introduce"
             style={{ marginBottom: 40, maxWidth: '100%' }}

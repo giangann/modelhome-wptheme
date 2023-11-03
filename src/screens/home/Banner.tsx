@@ -18,7 +18,8 @@ export const Banner = (props: { data: BannerType }) => {
     <Box sx={{ position: 'relative' }}>
       <Box
         component="img"
-        src={`${IMAGE_FOLDER_PATH}/home_banner.jpg`}
+        loading="lazy"
+        src={`${IMAGE_FOLDER_PATH}/home_banner.webp`}
         style={{
           width: '100%',
           height: '100vh',

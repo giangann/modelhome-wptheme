@@ -36,6 +36,7 @@ export const ManageProject = () => {
         Cell: ({ value }: { value: string }) => {
           return (
             <img
+              loading="lazy"
               src={`${STORAGE_PREFIX}/${value}`}
               style={{ maxWidth: '100%', objectFit: 'cover', objectPosition: 'center' }}
               alt="thumb"

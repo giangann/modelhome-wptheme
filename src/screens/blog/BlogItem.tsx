@@ -46,6 +46,7 @@ export const BlogItem = (props: BlogItemProps) => {
         <StyledSpanLink>{tagNameList}</StyledSpanLink> Posted {blog.created_at}
       </MontserratTypo>
       <img
+        loading="lazy"
         src={placeholdImage}
         alt="post-thumb"
         style={{ maxWidth: '100%', marginBottom: 32 }}

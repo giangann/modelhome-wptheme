@@ -10,6 +10,7 @@ export const PhoneFloatIcon = () => {
       <div className="suntory-alo-ph-circle-fill"></div>
       <div className="suntory-alo-ph-img-circle">
         <img
+          loading="lazy"
           src="//bizweb.dktcdn.net/100/468/541/themes/882827/assets/telephone.svg?1667840231206"
           alt="hotline"
           style={{ width: 30, position: 'relative', top: 7 }}

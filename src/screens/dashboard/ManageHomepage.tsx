@@ -137,6 +137,7 @@ export const ManageHomepage = () => {
           <Grid item xs={6}>
             <MontserratTypoContent sx={{ color: 'black' }}>Ảnh nền</MontserratTypoContent>
             <img
+              loading="lazy"
               src={getValues('bannerPart.backgroundImg')}
               alt="introduce"
               style={{ marginBottom: 40, maxWidth: '100%' }}

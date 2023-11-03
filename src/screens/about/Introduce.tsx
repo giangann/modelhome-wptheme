@@ -4,7 +4,7 @@ import { HeadingBlock } from '../../components';
 import { IMAGE_FOLDER_PATH } from '../../constant';
 import { MontserratTypoContent } from '../../styled';
 export const Introduce = () => {
-  const introduceImage = `${IMAGE_FOLDER_PATH}/about.jpg`;
+  const introduceImage = `${IMAGE_FOLDER_PATH}/about.webp`;
   return (
     <Container sx={{ marginTop: { xs: 8, sm: 12 }, maxWidth: '1000px !important' }}>
       <Grid container columnSpacing={4}>
@@ -17,6 +17,7 @@ export const Introduce = () => {
 
         <Grid item xs={12} sm={7}>
           <img
+            loading="lazy"
             src={introduceImage}
             alt="introduce"
             style={{ marginBottom: 40, maxWidth: '100%' }}

@@ -19,6 +19,7 @@ export const ZaloFloatIcon = () => {
         rel="noreferrer"
       >
         <img
+          loading="lazy"
           src="//bizweb.dktcdn.net/100/468/541/themes/882827/assets/zalo_icon.png?1667840231206"
           alt="Liên hệ qua Zalo"
           width="50"
