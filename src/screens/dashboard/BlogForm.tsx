@@ -70,7 +70,7 @@ export const BlogForm = () => {
         }
 
         // if(project)
-        setValue('content', postsAtomValue[blog.post_id as number].content);
+        setValue('content', blog.content);
       },
     });
 

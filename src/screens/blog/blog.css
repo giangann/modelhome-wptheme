@@ -1,9 +1,9 @@
 #sunedit-area p,
-#sunedit-area p * {
-  width: 100%;
+.blog #sunedit-area p * {
+  width: 100% !important;
   font-size: 18px !important;
-  font-weight: 300;
-  line-height: 2.142;
+  font-weight: 300 !important;
+  line-height: 2.142 !important;
   color: #3b3d42 !important;
 }
 

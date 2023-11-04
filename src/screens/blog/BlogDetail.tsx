@@ -30,11 +30,11 @@ export const BlogDetail = () => {
       {isLoading ? (
         'Loading'
       ) : (
-        <Grid item xs={12} sm={7}>
+        <Grid item xs={12} sm={7} className='blog'>
           <BlogItem
             blog={blogData as BlogApiType}
             isDetail={true}
-            content={blogData?.post_id ? listPosts[blogData?.post_id].content : ''}
+            content={blogData?.post_id ? blogData.content : ''}
           />
         </Grid>
       )}

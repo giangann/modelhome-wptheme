@@ -62,7 +62,7 @@ export const BlogItem = (props: BlogItemProps) => {
         {blog.summary}
       </MontserratTypo>
 
-      {isDetail ? <Content content={content ? content : ''} /> : undefined}
+      <Content content={content ? content : ''} />
       <IconButton
         sx={{ backgroundColor: grey['100'], borderRadius: 1, mb: 6, display: 'flex' }}
       >
