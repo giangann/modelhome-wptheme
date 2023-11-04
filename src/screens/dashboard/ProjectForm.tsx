@@ -64,7 +64,6 @@ export const ProjectForm = () => {
   // choose tags
 
   // handle on submit -> request data contain tag_id to table
-
   if (isEdit)
     useQuery(`/projects/${params.id}`, {
       onSuccess: (project: ProjectApiType) => {
@@ -84,7 +83,9 @@ export const ProjectForm = () => {
         }
 
         // if(project)
-        setValue('content', postsAtomValue[project.post_id as number].content);
+        // setValue('content', postsAtomValue[project.post_id as number].content);
+        setValue('content', project.content);
+
       },
     });
 

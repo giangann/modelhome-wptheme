@@ -32,7 +32,7 @@ export const ProjectDetail = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
+ console.log('projectData?.content', projectData?.content)
   return (
     // Part 1: Project summary <Name of project, Size, Customer, Location, Year >
     // Part 2: Blocks of content, each block contain Images (admin choose how many image) and Text
@@ -78,10 +78,10 @@ export const ProjectDetail = () => {
 
       {/* Part 2 */}
       {projectData?.post_id ? (
-        listPosts[projectData.post_id].content === null ? (
+        !projectData?.content ? (
           <EmptyContent />
         ) : (
-          <Content content={listPosts[projectData.post_id].content} />
+          <Content content={projectData.content} />
         )
       ) : (
         <EmptyContent />
