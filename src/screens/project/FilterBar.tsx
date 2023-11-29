@@ -5,7 +5,7 @@ import { orange } from '../../libs';
 import { MontserratTypo, OswaldTypo } from '../../styled';
 
 export const FilterBar = () => {
-  const filterBy = ['Tất cả', 'Thiết kế', 'Thi công', 'Kiến trúc', 'Nâng cấp'];
+  const filterBy = ['Thiết kế', 'Thi công', 'Kiến trúc', 'Nâng cấp', 'Sân vườn'];
   return (
     <Box>
       <MontserratTypo mb={2} fontWeight={700}>
