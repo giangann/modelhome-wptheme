@@ -15,7 +15,7 @@ import { DefectivePositionType, orange } from '../libs';
 
 // Poppins, Montserrat, Oswald
 export const PoppinsTypo = styled(Typography)({
-  fontFamily: 'Poppins',
+  fontFamily: 'Montserrat',
 });
 export const MulishTypo = styled(Typography)({
   fontFamily: 'Mulish',
@@ -97,7 +97,7 @@ export const OswaldSubtitle = styled(Typography)(({ theme }) => ({
 
 export const PoppinsOrangeSpan = styled('span')({
   color: 'orange',
-  fontFamily: 'Poppins',
+  fontFamily: 'Montserrat',
 });
 
 export const OrangeContainedBtn = styled(Button)({
