@@ -24,7 +24,7 @@ export const MontserratTypo = styled(Typography)({
   fontFamily: 'Montserrat',
 });
 export const OswaldTypo = styled(Typography)({
-  fontFamily: 'Oswald',
+  fontFamily: 'Montserrat',
 });
 export const RobotoTypo = styled(Typography)({
   fontFamily: 'Roboto',
@@ -32,7 +32,7 @@ export const RobotoTypo = styled(Typography)({
 export const HeaderItemTypo = styled(Typography)({
   fontSize: 17,
   letterSpacing: '1.2px',
-  fontFamily: 'Oswald',
+  fontFamily: 'Montserrat',
   fontWeight: 500,
   // color: 'white',
 });
@@ -57,7 +57,7 @@ export const MontserratTypoContent = styled(Typography)({
   letterSpacing: 0,
 });
 export const OswaldTypoHeaddingFooter = styled(Typography)({
-  fontFamily: 'Oswald',
+  fontFamily: 'Montserrat',
   fontSize: 36,
   fontWeight: 700,
   letterSpacing: 1.8,
@@ -65,15 +65,14 @@ export const OswaldTypoHeaddingFooter = styled(Typography)({
 });
 
 export const OswaldTypoHeaddingContent = styled(Typography)({
-  fontFamily: 'Oswald',
-  fontSize: 48,
+  fontFamily: 'Montserrat',
+  fontSize: 42,
   fontWeight: 700,
-  letterSpacing: 2.4,
   lineHeight: '1.125em',
 });
 
 export const OswaldTypoHeaddingBanner = styled(Typography)(({ theme }) => ({
-  fontFamily: 'Oswald',
+  fontFamily: 'Montserrat',
   fontSize: 80,
   fontWeight: 700,
   letterSpacing: 4,
@@ -85,7 +84,7 @@ export const OswaldTypoHeaddingBanner = styled(Typography)(({ theme }) => ({
 }));
 
 export const OswaldSubtitle = styled(Typography)(({ theme }) => ({
-  fontFamily: 'Oswald',
+  fontFamily: 'Montserrat',
   fontSize: 38,
   fontWeight: 300,
   letterSpacing: 1.4,
@@ -249,7 +248,7 @@ export const centerDiv = {
 };
 
 export const styleTypoHeadingFooter = {
-  fontFamily: 'Oswald',
+  fontFamily: 'Montserrat',
   fontSize: 36,
   fontWeight: 700,
   letterSpacing: 1.8,

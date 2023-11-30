@@ -65,7 +65,7 @@ export const BoxWithTitleAndDescription = (props: BoxWithTitleAndDescriptionProp
         <OswaldTypo variant="h5" fontWeight={300} letterSpacing={1.4} fontSize={14}>
           <span
             style={{
-              fontFamily: 'Oswald',
+              fontFamily: 'Montserrat',
               fontWeight: 500,
               letterSpacing: 1.4,
               fontSize: 15,

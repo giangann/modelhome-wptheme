@@ -96,9 +96,9 @@ export const Header = () => {
                 sx={{
                   mr: 2,
                   fontSize: 32,
-                  fontFamily: 'monospace',
+                  fontFamily: 'Montserrat',
                   fontWeight: 600,
-                  letterSpacing: '.2rem',
+                  letterSpacing: '.1rem',
                   color: orange['400'],
                   textDecoration: 'none',
                 }}
@@ -171,9 +171,9 @@ export const Header = () => {
                   flexGrow: 1,
                   mr: 2,
                   fontSize: 24,
-                  fontFamily: 'monospace',
+                  fontFamily: 'Montserrat',
                   fontWeight: 600,
-                  letterSpacing: '.2rem',
+                  letterSpacing: '.1rem',
                   color: orange['400'],
                   margin: 'auto',
                   width: 'fit-content !important',

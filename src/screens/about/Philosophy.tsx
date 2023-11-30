@@ -94,7 +94,7 @@ export const Philosophy = () => {
 };
 
 const AccordionSummaryTypo = styled(Typography)({
-  fontFamily: 'Oswald',
+  fontFamily: 'Montserrat',
   fontSize: 24,
   fontWeight: 700,
   letterSpacing: '1.2px',
